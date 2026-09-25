@@ -221,10 +221,19 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
   position:relative;display:flex;align-items:flex-end;
   min-height:min(94svh,860px);margin-top:calc(var(--topo) * -1);
   padding:clamp(130px,17vw,190px) 0 clamp(56px,8vw,104px);
-  overflow:hidden;background:var(--mata-2);
+  overflow:hidden;background:var(--mata);
 }
-.hero__bg{position:absolute;inset:0}
-.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 56%}
+/* A foto tem 1600px de largura: a caixa dela para ali. Num monitor maior
+   ela NAO e esticada -- as bordas se dissolvem no escuro (mascara abaixo).
+   Antes, num monitor de 1920px, a foto era ampliada 1,2x e perdia nitidez. */
+.hero__bg{position:absolute;inset:0;max-width:1600px;margin:0 auto}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+@media(min-width:1601px){
+  .hero__bg{
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  }
+}
 .hero__bg::after{
   content:"";position:absolute;inset:0;
   /* Medido pixel a pixel (foto + os dois degrades num canvas, pior ponto
@@ -250,7 +259,6 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 @keyframes sobe{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes surge{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){ .hero__txt{animation:surge .4s ease both} }
-@media(max-width:700px){ .hero{min-height:88svh} }
 @media(max-width:1100px){
   /* cabecalho transparente so no computador grande: ate 1100px o letreiro
      e o menu caiam na parte clara da foto (medido: 1,4 a 3,4:1) */
@@ -265,6 +273,17 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
   .hero__bg::after{
     background:linear-gradient(to top, var(--mata) 0, rgba(12,23,16,.88) 540px, rgba(12,23,16,.34) 650px, rgba(12,23,16,.74) 100%);
   }
+}
+/* CELULAR: a foto vem INTEIRA em cima, sem escurecer, e o texto embaixo.
+   Por tras do texto so sobrava uma fatia de 30% da largura da foto -- quase
+   tudo mato, e o barco (o assunto) sumia. Agora o texto fica no escuro
+   liso: o contraste deixa de depender da foto. */
+@media(max-width:700px){
+  .hero{display:block;min-height:0;padding:0}
+  .hero__bg{position:relative;inset:auto;max-width:none;aspect-ratio:4/3}
+  .hero__bg img{object-position:50% 50%}
+  .hero__bg::after{background:linear-gradient(180deg, rgba(12,23,16,0) 58%, var(--mata) 100%)}
+  .hero__in{padding-top:18px;padding-bottom:56px}  /* so em cima e embaixo: as laterais vem do .wrap */
 }
 
 /* ============================================================
@@ -337,6 +356,13 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 @media(max-width:760px){
   .piso{grid-template-columns:auto minmax(0,1fr);gap:10px 20px}
   .piso__midia{grid-column:1 / -1;margin-top:18px}
+}
+/* no celular o numero numa coluna do lado espremia o texto num corredor
+   estreito: ele sobe para cima do titulo, e o texto usa a largura toda */
+@media(max-width:560px){
+  .piso{grid-template-columns:minmax(0,1fr);gap:6px}
+  .piso__n{display:flex;align-items:baseline;gap:10px;font-size:52px}
+  .piso__n small{margin-top:0}
 }
 @media(max-width:420px){ .piso__midia--2{grid-template-columns:1fr} }
 
@@ -440,6 +466,15 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 @media(max-width:700px){ .par{grid-template-columns:1fr} }
 
 .sec--seguido{padding-top:clamp(28px,4vw,48px)}
+
+/* TEXTO CORRIDO JUSTIFICADO (pedido do Joao, 25/09/2026: "o texto precisa
+   ter organizacao, justifique ele"). Com hifenizacao: sem ela, justificado
+   em tela estreita abre buracos entre as palavras. O hifen segue a lingua da
+   pagina (<html lang>), por isso funciona em PT, EN e ES. Titulo, legenda,
+   botao e texto centralizado ficam de fora. */
+.lead,.hero__tag,.lista li,.piso p,.colunas p,.faq dd,.nota,.aviso{
+  text-align:justify;-webkit-hyphens:auto;hyphens:auto;
+}
 
 /* PERGUNTAS -- pergunta e resposta direta, com numero: o formato que a IA
    recorta e cita (apostila de SEO, cap. 41 e 43). Sem acordeao (resposta
