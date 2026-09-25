@@ -26,7 +26,7 @@
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M9 46 5 17l15 12L32 8l12 21 15-12-4 29z" fill="%23C9A227"/><rect x="9" y="50" width="46" height="6" fill="%23C9A227"/></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600;700&family=Parisienne&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Parisienne&display=swap">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="home">
@@ -208,6 +208,36 @@
   </div>
 </section>
 
+<!-- ========================= RESERVA =========================
+     O slogan e DELE, copiado da arte. A frase monta a mensagem do
+     WhatsApp; nada e guardado nem enviado para lugar nenhum (regra 8). -->
+<section class="sec fim" id="reservar">
+  <div class="wrap">
+    <h2 class="fim__slogan" data-i18n="fim_slogan">Mais que um destino, uma experiência inesquecível!</h2>
+    <!-- BARRA DE RESERVA. Era uma frase ("Reserva para [4] pessoas, [2]
+         noites...") em serifa grande, com campos no meio: quatro tamanhos
+         brigando e a lista do mes larga demais. Agora: rotulo em cima, uma
+         fonte so, e campo e botao com a mesma altura. -->
+    <form class="pedido" id="pedido" action="https://wa.me/556792063535" method="get" target="_blank">
+      <label class="campo"><span data-i18n="f_pessoas">Pessoas</span>
+        <select name="pessoas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select></label>
+      <label class="campo"><span data-i18n="f_noites">Noites</span>
+        <select name="noites"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
+      <div class="campo campo--data" role="group" aria-labelledby="rot-chegada"><span id="rot-chegada" data-i18n="f_chegada">Chegada</span>
+        <div class="campo__par">
+          <select name="dia" aria-label="Dia da chegada" data-i18n-aria="f_dia_aria"><option value="" data-i18n="f_dia">dia</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option></select>
+          <select name="mes" aria-label="Mês da chegada" data-i18n-aria="f_mes_aria"><option value="" data-i18n="f_mes">mês</option><option value="1">janeiro</option><option value="2">fevereiro</option><option value="3">março</option><option value="4">abril</option><option value="5">maio</option><option value="6">junho</option><option value="7">julho</option><option value="8">agosto</option><option value="9">setembro</option><option value="10">outubro</option><option value="11">novembro</option><option value="12">dezembro</option></select>
+        </div>
+      </div>
+      <button class="bt" type="submit">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+        <span data-i18n="f_bt">Mandar no WhatsApp</span>
+      </button>
+    </form>
+    <p class="fim__nota" data-i18n="fim_nota">A mensagem já sai escrita. A gente confere a data e responde com o valor para o seu grupo.</p>
+  </div>
+</section>
+
 <!-- ========================= PERGUNTAS =========================
      Pergunta -> resposta direta, com numero: e o bloco que a IA recorta e
      cita (apostila cap. 41 e 43). Tudo aqui e FATO da mensagem ou do
@@ -229,29 +259,6 @@
       <div><dt data-i18n="faq6_q">Como faço a reserva?</dt>
         <dd data-i18n="faq6_a">Pelo WhatsApp (67) 9206-3535. Mande quantas pessoas, quantas noites e a data de chegada, e a resposta vem com o valor para o seu grupo.</dd></div>
     </dl>
-  </div>
-</section>
-
-<!-- ========================= RESERVA =========================
-     O slogan e DELE, copiado da arte. A frase monta a mensagem do
-     WhatsApp; nada e guardado nem enviado para lugar nenhum (regra 8). -->
-<section class="sec fim" id="reservar">
-  <div class="wrap">
-    <h2 class="fim__slogan" data-i18n="fim_slogan">Mais que um destino, uma experiência inesquecível!</h2>
-    <form class="pedido" id="pedido" action="https://wa.me/556792063535" method="get" target="_blank">
-      <p><span data-i18n="f_reserva">Reserva para</span> <input type="number" name="pessoas" value="4" min="1" max="18" inputmode="numeric" aria-label="Quantas pessoas" data-i18n-aria="f_pessoas_aria"> <span data-plural="pessoas">pessoas</span>, <input type="number" name="noites" value="2" min="1" max="30" inputmode="numeric" aria-label="Quantas noites" data-i18n-aria="f_noites_aria"> <span data-plural="noites">noites</span>, <span data-i18n="f_apartir">a partir de</span>&nbsp;<select name="dia" aria-label="Dia da chegada" data-i18n-aria="f_dia_aria">
-          <option value="" data-i18n="f_dia">dia</option>
-          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
-        </select> <span data-i18n="f_de">de</span> <select name="mes" aria-label="Mês da chegada" data-i18n-aria="f_mes_aria">
-          <option value="" data-i18n="f_mes">mês</option>
-          <option value="1">janeiro</option><option value="2">fevereiro</option><option value="3">março</option><option value="4">abril</option><option value="5">maio</option><option value="6">junho</option><option value="7">julho</option><option value="8">agosto</option><option value="9">setembro</option><option value="10">outubro</option><option value="11">novembro</option><option value="12">dezembro</option>
-        </select>.</p>
-      <button class="bt" type="submit">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
-        <span data-i18n="f_bt">Mandar no WhatsApp</span>
-      </button>
-    </form>
-    <p class="fim__nota" data-i18n="fim_nota">A mensagem já sai escrita. A gente confere a data e responde com o valor para o seu grupo.</p>
   </div>
 </section>
 

@@ -172,8 +172,8 @@ const I18N = {
       faq6_a: "On WhatsApp at +55 67 9206-3535. Send the number of people, the number of nights and your arrival date, and we reply with the price for your group.",
       rod_zap: "WhatsApp +55 67 9206-3535",
       fim_slogan: "More than a destination, an unforgettable experience!",
-      f_reserva: "Booking for", f_apartir: "from", f_de: "", f_dia: "day", f_mes: "month",
-      f_dia_aria: "Arrival day", f_mes_aria: "Arrival month", f_pessoas_aria: "How many people", f_noites_aria: "How many nights",
+      f_pessoas: "People", f_noites: "Nights", f_chegada: "Arrival", f_dia: "day", f_mes: "month",
+      f_dia_aria: "Arrival day", f_mes_aria: "Arrival month",
       f_bt: "Send on WhatsApp",
       fim_nota: "The message is written for you. We check the date and reply with the price for your group.",
       rod_p: "Floating hotel in the Pantanal<br>Boarding at Pesqueiro Itaju<br>Aquidauana, Mato Grosso do Sul, Brazil",
@@ -312,8 +312,8 @@ const I18N = {
       faq6_a: "Por WhatsApp al +55 67 9206-3535. Envía cuántas personas, cuántas noches y la fecha de llegada, y te respondemos con el precio para tu grupo.",
       rod_zap: "WhatsApp +55 67 9206-3535",
       fim_slogan: "¡Más que un destino, una experiencia inolvidable!",
-      f_reserva: "Reserva para", f_apartir: "a partir del", f_de: "de", f_dia: "día", f_mes: "mes",
-      f_dia_aria: "Día de llegada", f_mes_aria: "Mes de llegada", f_pessoas_aria: "Cuántas personas", f_noites_aria: "Cuántas noches",
+      f_pessoas: "Personas", f_noites: "Noches", f_chegada: "Llegada", f_dia: "día", f_mes: "mes",
+      f_dia_aria: "Día de llegada", f_mes_aria: "Mes de llegada",
       f_bt: "Enviar por WhatsApp",
       fim_nota: "El mensaje ya sale escrito. Revisamos la fecha y respondemos con el precio para tu grupo.",
       rod_p: "Hotel flotante en el Pantanal<br>Embarque en el Pesqueiro Itaju<br>Aquidauana, Mato Grosso do Sul, Brasil",
@@ -520,9 +520,8 @@ document.querySelectorAll("[data-lang]").forEach(function (b) {
    elementos subindo ao rolar. Movimento agora e UM so: a entrada da capa,
    feita no CSS (.hero__in). Nao recolocar sem motivo que o visitante sinta. */
 
-/* ---- a frase de reserva ----
-   "Reserva para [4] pessoas, [2] noites, a partir de [12] de [outubro]."
-   vira a mensagem do WhatsApp. NADA e guardado nem enviado a lugar nenhum:
+/* ---- a barra de reserva ----
+   Pessoas, noites e chegada viram a mensagem do WhatsApp. NADA e guardado nem enviado a lugar nenhum:
    o site so monta o texto e abre a conversa (regra 8).
 
    ⚠️ DIA E MES EM LISTA, NAO <input type="date">. O campo de data do
@@ -555,24 +554,13 @@ document.querySelectorAll("[data-lang]").forEach(function (b) {
     if (diaEscolhido > ultimo) f.dia.value = "";
   }
 
-  /* "1 pessoas" fica errado na tela: o substantivo acompanha o numero */
-  function plural() {
-    f.querySelectorAll("[data-plural]").forEach(function (s) {
-      var campo = f.elements[s.getAttribute("data-plural")];
-      var formas = FRASE[LANG][s.getAttribute("data-plural") === "pessoas" ? "pessoa" : "noite"];
-      s.textContent = campo && campo.value === "1" ? formas[0] : formas[1];
-    });
-  }
-
   function traduzir() {
     Array.prototype.forEach.call(f.mes.options, function (o) {
       if (o.value) o.textContent = MESES[LANG][parseInt(o.value, 10) - 1];
     });
-    plural();
   }
   window.fraseReserva = { traduzir: traduzir };
 
-  f.addEventListener("input", plural);
   f.addEventListener("change", function (e) { if (e.target === f.mes) ajustarDias(); });
 
   f.addEventListener("submit", function (e) {

@@ -41,7 +41,10 @@
   --zap-claro:#4BE58A;
   --zap-tinta:#053B1B;     /* texto na pilula: 6,8:1 no --zap */
 
-  --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  /* EB Garamond, e nao Cormorant: a Cormorant desenha o circunflexo solto
+     la no alto (em Tres, tem, mes, voce) -- em portugues isso aparece
+     em todo titulo. Mesma familia (Garamond), acento no lugar. 25/09/2026. */
+  --serif:'EB Garamond', Georgia, 'Times New Roman', serif;
   --sans:'Instrument Sans', system-ui, -apple-system, sans-serif;
   --cursiva:'Parisienne', 'Segoe Script', cursive;   /* a letra da arte dele */
 
@@ -62,14 +65,14 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit}
 p{margin:0}
-h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:600;line-height:1.08;text-wrap:balance}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;text-wrap:balance}
 ::selection{background:var(--ouro);color:var(--mata)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 .sec{position:relative;padding:clamp(76px,10vw,136px) 0}
 
-.titulo{font-size:clamp(34px,4.8vw,56px);letter-spacing:.005em;color:var(--creme)}
+.titulo{font-size:clamp(32px,4.4vw,50px);letter-spacing:.005em;color:var(--creme)}
 .lead{margin-top:18px;max-width:56ch;color:var(--creme-2);font-size:clamp(17px,1.5vw,18.5px)}
 .lead b{color:var(--creme);font-weight:600}
 
@@ -93,7 +96,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:600;line-height:1.08;t
   min-height:44px;text-decoration:none;line-height:1;color:var(--ouro-claro);text-transform:uppercase;
   margin-right:auto;
 }
-.marca b{font-family:var(--serif);font-weight:700;font-size:25px;letter-spacing:.08em}
+.marca b{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:.08em}
 .marca small{
   margin-top:4px;padding-left:.46em;font-family:var(--serif);font-weight:600;
   font-size:11px;letter-spacing:.46em;color:var(--ouro);
@@ -170,7 +173,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
     visibility:visible;opacity:1;transform:none;pointer-events:auto;
     transition:opacity .24s var(--ease),transform .24s var(--ease),visibility 0s;
   }
-  .menu a{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--creme);min-height:58px}
+  .menu a{font-family:var(--serif);font-size:28px;font-weight:500;color:var(--creme);min-height:58px}
   .abrir{display:flex}
   body.menu-on{overflow:hidden}
 }
@@ -239,7 +242,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
    Tamanho de letra e trabalho do CSS: a frase grande embaixo e um <p>. */
 .hero__h1{margin:0 0 10px;font-size:clamp(20px,2.3vw,27px);font-weight:600;line-height:1.2;color:var(--ouro-claro)}
 .h1{
-  font-family:var(--serif);color:var(--creme);font-size:clamp(44px,7.6vw,90px);font-weight:700;
+  font-family:var(--serif);color:var(--creme);font-size:clamp(42px,7.2vw,86px);font-weight:600;
   letter-spacing:.01em;line-height:1;text-transform:uppercase;
 }
 .hero__tag{margin-top:24px;max-width:46ch;color:var(--creme-2);font-size:clamp(17px,1.7vw,19px)}
@@ -309,9 +312,9 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
   gap:clamp(20px,3.4vw,52px);align-items:start;
   padding:clamp(30px,4vw,48px) 0;border-top:1px solid var(--linha);
 }
-/* lining-nums: a Cormorant usa numero "antigo" por padrao -- o 3 desce
+/* lining-nums: a serifa usa numero "antigo" por padrao -- o 3 desce
    abaixo da linha e bate no "andar", e o 1 vira um "I" */
-.piso__n{font-family:var(--serif);font-weight:700;font-size:clamp(60px,8vw,108px);line-height:.78;color:var(--ouro);font-variant-numeric:lining-nums}
+.piso__n{font-family:var(--serif);font-weight:600;font-size:clamp(60px,8vw,108px);line-height:.78;color:var(--ouro);font-variant-numeric:lining-nums}
 .piso__n small{display:block;margin-top:12px;font-family:var(--sans);font-weight:500;font-size:13.5px;line-height:1.2;color:var(--creme-2)}
 .piso h2,.piso h3{font-size:clamp(25px,2.6vw,31px);color:var(--creme)}
 .piso p{margin-top:12px;max-width:44ch;color:var(--creme-2)}
@@ -348,7 +351,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 @media(max-width:900px){ .quadro__in{grid-template-columns:1fr} }
 
 .rotulo{
-  margin:0 0 4px;font-family:var(--serif);font-weight:700;font-size:22px;
+  margin:0 0 4px;font-family:var(--serif);font-weight:600;font-size:21px;
   letter-spacing:.05em;font-variant-caps:all-small-caps;color:var(--ouro);
 }
 .rotulo small{font-family:var(--sans);font-variant-caps:normal;letter-spacing:0;font-weight:500;font-size:14px;color:var(--creme-2);margin-left:8px}
@@ -357,7 +360,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .precos li span{color:var(--creme)}
 .precos li i{flex:1;min-width:22px;border-bottom:2px dotted rgba(201,162,39,.42);transform:translateY(-5px)}
 .precos li b{
-  font-family:var(--serif);font-weight:700;font-size:clamp(25px,2.6vw,31px);line-height:1;
+  font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.5vw,29px);line-height:1;
   color:var(--ouro-claro);font-variant-numeric:tabular-nums lining-nums;white-space:nowrap;
 }
 .precos--menu li{font-size:16px;padding:6px 0}
@@ -377,7 +380,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .lugar__gente svg{width:22px;height:22px;margin:0 -2.5px}
 .lugar__gente .opc{color:rgba(201,162,39,.38)}
 .lugar__q{font-size:14.5px;color:var(--creme-2)}
-.lugar b{font-family:var(--serif);font-weight:700;font-size:clamp(28px,3vw,34px);line-height:1;color:var(--ouro-claro);font-variant-numeric:lining-nums}
+.lugar b{font-family:var(--serif);font-weight:600;font-size:clamp(26px,2.8vw,31px);line-height:1;color:var(--ouro-claro);font-variant-numeric:lining-nums}
 .lugar__rv{margin-top:4px;font-size:14px;font-weight:700;color:var(--ouro-claro);text-decoration:underline;text-decoration-color:rgba(232,199,102,.55);text-underline-offset:5px}
 @media (hover:hover){
   .lugar:hover{background:var(--folha)}
@@ -409,7 +412,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 }
 .foto-pedida--em-pe::after{width:15px;height:24px}
 .foto-pedida__n{padding-right:34px;font-size:13.5px;font-weight:600;color:var(--ouro)}  /* 34px: nao bater no icone do celular */
-.foto-pedida__t{font-family:var(--serif);font-size:clamp(21px,2.2vw,26px);font-weight:600;line-height:1.15;color:var(--creme)}
+.foto-pedida__t{font-family:var(--serif);font-size:clamp(20px,2.1vw,24px);font-weight:500;line-height:1.15;color:var(--creme)}
 .foto-pedida__c{font-size:14px;line-height:1.55;color:var(--creme-2);max-width:44ch}
 .foto-pedida__c b{color:var(--ouro-claro);font-weight:600}
 
@@ -429,7 +432,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .colunas p{margin-top:10px;max-width:48ch;color:var(--creme-2)}
 .colunas p b{color:var(--creme);font-weight:600}
 /* numero SO onde e sequencia de verdade (o caminho ate o barco) */
-.passo__n{display:block;margin-bottom:10px;font-family:var(--serif);font-weight:700;font-size:52px;line-height:1;color:var(--ouro);font-variant-numeric:lining-nums}
+.passo__n{display:block;margin-bottom:10px;font-family:var(--serif);font-weight:600;font-size:52px;line-height:1;color:var(--ouro);font-variant-numeric:lining-nums}
 
 /* par de fotos assimetrico: uma deitada maior, uma em pe menor.
    880px de teto: sem ele os dois quadros vazios passavam de 500px de altura */
@@ -443,7 +446,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
    escondida atras de clique) e sem caixa. */
 .perguntas{padding-top:clamp(56px,8vw,104px)}
 .faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px clamp(32px,6vw,80px);margin:clamp(32px,5vw,52px) 0 0}
-.faq dt{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.2vw,25px);line-height:1.2;color:var(--creme)}
+.faq dt{font-family:var(--serif);font-weight:500;font-size:clamp(20px,2vw,23px);line-height:1.2;color:var(--creme)}
 .faq dd{margin:8px 0 0;max-width:52ch;color:var(--creme-2)}
 @media(max-width:760px){ .faq{grid-template-columns:1fr;gap:28px} }
 .nota{margin-top:26px;max-width:62ch;font-size:15px;color:var(--creme-2)}
@@ -463,38 +466,53 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .cardapio .foto-pedida{margin-top:40px}
 
 /* ============================================================
-   FIM -- um respiro: o slogan dele, na letra dele, e a frase de reserva.
+   FIM -- o slogan dele, na letra dele, e a barra de reserva.
+   ⚠️ Era uma FRASE ("Reserva para [4] pessoas, [2] noites, a partir de
+   [dia] de [mes]") em serifa de 34px com campos no meio. O Joao: "tamanhos
+   estranhos". Eram quatro tamanhos brigando, a frase quebrava em lugar
+   torto, a lista do mes ficava larga (o navegador mede pelo nome mais
+   comprido) e o acento da serifa antiga em "mes" saia solto la em cima.
+   Virou barra: rotulo em cima, UMA fonte e UMA altura (48px) para campo e
+   botao, e o slogan num tamanho que nao engole o resto.
    ============================================================ */
-.fim{display:flex;align-items:center;min-height:min(86svh,780px);text-align:center}
-.fim .wrap{width:100%}
+.fim{text-align:center}
 .fim__slogan{
-  max-width:15ch;margin:0 auto;font-family:var(--cursiva);font-weight:400;
-  font-size:clamp(42px,6.6vw,80px);line-height:1.12;color:var(--ouro-claro);
+  max-width:18ch;margin:0 auto;font-family:var(--cursiva);font-weight:400;
+  font-size:clamp(36px,4.8vw,58px);line-height:1.15;color:var(--ouro-claro);
 }
-.pedido{margin:clamp(40px,5vw,60px) auto 0;max-width:40ch}
-.pedido p{text-wrap:balance}
-.pedido p{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,34px);line-height:1.6;color:var(--creme)}
-.pedido input{
-  font:inherit;color:var(--ouro-claro);background:transparent;
-  border:0;border-bottom:2px solid var(--ouro);border-radius:0;
-  padding:0 2px;margin:0 3px;min-height:44px;text-align:center;color-scheme:dark;
+.pedido{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:18px 22px;
+  margin:clamp(36px,5vw,52px) auto 0;max-width:780px;text-align:left;
 }
-/* max(): 2,3ch sao 26px no celular -- abaixo dos 44px de toque (regra 4) */
-.pedido input[type=number]{width:max(2.3ch,44px);-moz-appearance:textfield;appearance:textfield}
-.pedido input::-webkit-inner-spin-button,.pedido input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.campo{display:flex;flex-direction:column;gap:6px;min-width:0}
+.campo > span{font-size:13.5px;font-weight:500;color:var(--creme-2)}
+.campo__par{display:flex;gap:10px}
 .pedido select{
-  font:inherit;color:var(--ouro-claro);background-color:transparent;
-  border:0;border-bottom:2px solid var(--ouro);border-radius:0;
-  min-height:44px;margin:0 3px;padding:0 24px 0 4px;cursor:pointer;color-scheme:dark;
+  font-family:var(--sans);font-size:17px;font-weight:500;color:var(--creme);
+  background-color:transparent;border:0;border-bottom:1.5px solid var(--ouro);border-radius:0;
+  height:48px;padding:0 28px 0 2px;cursor:pointer;color-scheme:dark;
   appearance:none;-webkit-appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 4px center;background-size:11px 8px;
+  transition:border-color .15s;
 }
+/* largura fixa: sem isso o navegador mede pela opcao mais comprida */
+.pedido select[name=pessoas],.pedido select[name=noites]{width:92px}
+.pedido select[name=dia]{width:84px}
+.pedido select[name=mes]{width:150px}
+.pedido select:hover{border-bottom-color:var(--ouro-claro)}
 .pedido select:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:4px}
-.pedido select option{color:#0C1710;background:#F2E9D8;font-family:var(--sans)}
-.pedido input:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:4px}
-.pedido .bt{margin-top:30px}
-.fim__nota{margin:18px auto 0;max-width:46ch;font-size:15px;color:var(--creme-2)}
+.pedido select option{color:#0C1710;background:#F2E9D8}
+.pedido .bt{height:48px}
+.fim__nota{margin:22px auto 0;max-width:46ch;font-size:14.5px;color:var(--creme-2)}
+@media(max-width:560px){
+  .pedido{display:grid;grid-template-columns:1fr 1fr;align-items:end}
+  .pedido select[name=pessoas],.pedido select[name=noites]{width:100%}
+  .campo--data{grid-column:1 / -1}
+  .campo__par select[name=dia]{width:96px}
+  .campo__par select[name=mes]{flex:1;width:auto}
+  .pedido .bt{grid-column:1 / -1;width:100%}
+}
 
 /* ============================================================
    RODAPE
@@ -504,7 +522,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .frod{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
 @media(max-width:800px){ .frod{grid-template-columns:1fr 1fr} }
 @media(max-width:520px){ .frod{grid-template-columns:1fr} }
-.frod h4{margin:0 0 8px;font-weight:700;font-size:21px;letter-spacing:.05em;font-variant-caps:all-small-caps;color:var(--ouro)}
+.frod h4{margin:0 0 8px;font-weight:600;font-size:21px;letter-spacing:.05em;font-variant-caps:all-small-caps;color:var(--ouro)}
 .frod p{color:var(--creme-2);font-size:15px}
 /* flex (bloco), nao inline-flex: inline-flex fazia os links correrem lado a
    lado como uma frase -- "Camarotes e valores A bordo Comer e beber" */
