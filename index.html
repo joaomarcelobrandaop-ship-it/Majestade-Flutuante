@@ -65,9 +65,11 @@
 <!-- ========================= CAPA ========================= -->
 <section class="hero">
   <div class="hero__bg">
-    <!-- a foto INTEIRA (4:3), no tamanho dela: 800px no celular, 1600px no
-         computador. Nunca maior que o original (memoria nunca-ampliar-imagem). -->
-    <img src="img/hotel-flutuante-majestade-noite-1600.webp" srcset="img/hotel-flutuante-majestade-noite-800.webp 800w, img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 700px) 100vw, 1600px" alt="O Majestade Flutuante iluminado à noite, visto do rio, com as luzes refletindo na água" data-i18n-alt="hero_alt" fetchpriority="high" width="1600" height="1200">
+    <!-- a foto INTEIRA (4:3), nunca maior que o original (memoria
+         nunca-ampliar-imagem): na largura da tela ate 899px; ao lado do
+         texto no computador, com 50% da tela e no maximo 800px. O sizes
+         abaixo repete essas medidas, para o navegador baixar a certa. -->
+    <img src="img/hotel-flutuante-majestade-noite-1600.webp" srcset="img/hotel-flutuante-majestade-noite-800.webp 800w, img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 899px) 100vw, (max-width: 1600px) 50vw, 800px" alt="O Majestade Flutuante iluminado à noite, visto do rio, com as luzes refletindo na água" data-i18n-alt="hero_alt" fetchpriority="high" width="1600" height="1200">
   </div>
   <div class="wrap hero__in">
     <div class="hero__txt">
