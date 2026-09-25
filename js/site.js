@@ -17,7 +17,6 @@ const CONFIG = {
   mensagens: {
     topo:      "Oi! Vi o site de vocês e queria saber sobre o flutuante.",
     hero:      "Oi! Queria saber se tem data livre no Majestade. Somos [nº] pessoas, de [data] a [data].",
-    camarotes: "Oi! Queria saber o valor do pernoite. Somos [nº] pessoas, de [data] a [data].",
     /* as duas abaixo eram NOTAS na tela ("ainda nao sabemos responder...").
        Viraram pergunta clicavel: o hospede pergunta, o Fabio responde. As
        respostas estao na pauta (comercial/pauta-reuniao.md). */
@@ -28,9 +27,9 @@ const CONFIG = {
     fim:       "Oi! Queria reservar o Majestade. Entrada [data], saída [data], [nº] pessoas.",
     rodape:    "Oi! Queria falar com vocês sobre o flutuante."
   },
-  /* CADA OPCAO DE PERNOITE E UM ATALHO para o WhatsApp. {preco} sai do
-     texto DA PROPRIA OPCAO na pagina: mudou o preco no HTML, a mensagem
-     acompanha sozinha. {item} vem de ITENS, pela chave data-item. */
+  /* O BOTAO DO QUADRO DE PERNOITE leva a opcao MARCADA para a mensagem.
+     {preco} sai do texto da opcao na pagina: mudou o preco no HTML, a
+     mensagem acompanha sozinha. {item} vem de ITENS, pelo value do radio. */
   mensagensDePreco: {
     pernoite: "Oi! Vi no site o pernoite em {item}, {preco} por pessoa com café da manhã. Tem data livre? Somos [nº] pessoas, de [data] a [data]."
   }
@@ -93,6 +92,10 @@ const FRASE = {
 /* "Falta a foto 03 de 8" -- o numero vem do data-foto de cada quadro */
 const FOTO_N = { pt: "Falta a foto {n} de 8", en: "Photo {n} of 8 still missing", es: "Falta la foto {n} de 8" };
 
+/* o botao do quadro de pernoite: "Reservar para 2 pessoas". O {q} e o
+   texto da opcao marcada, ja na lingua da vez. */
+const RESERVAR_PARA = { pt: "Reservar para {q}", en: "Book for {q}", es: "Reservar para {q}" };
+
 const I18N = {
   en: {
     titulo: {
@@ -106,7 +109,6 @@ const I18N = {
     msg: {
       topo:      "Hi! I saw your website and would like to know more about the floating hotel.",
       hero:      "Hi! I'd like to know if Majestade has dates available. We are [number] people, from [date] to [date].",
-      camarotes: "Hi! I'd like to know the price of an overnight stay. We are [number] people, from [date] to [date].",
       regras:    "Hi! Before booking: what is the minimum stay, how does payment work and what is the cancellation policy?",
       bordo:     "Hi! I have a few questions about the floating hotel: is there power all night? Is there cell signal or Wi-Fi?",
       comer:     "Hi! I'd like to know about meals on board: lunch, dinner and what can be arranged.",
@@ -147,13 +149,13 @@ const I18N = {
       and_1_p: "The lounge has TV, air conditioning, tables, sofas and a <b>beer fridge stocked with drinks</b>. The kitchen prepares the meals on board.",
       per_t: "What a night on board costs",
       per_lead: "Prices are <b>per person, per night</b>, with <b>breakfast included</b>. The more people share a cabin, the less each one pays.",
-      per_dica: "Tap your group size and a WhatsApp chat opens with your choice already written.",
-      per_rot: "Overnight stay with breakfast, per person",
+      per_dica: "Choose how many people are going and tap the button: WhatsApp opens with your choice already written.",
+      esc_q: "How many people in the cabin?", esc_q_s: "price per person",
       lg_1: "1 person", lg_2: "2 people", lg_3: "3 people", lg_46: "4 to 6 people",
-      lg_rv: "book", lg_sr: " on WhatsApp",
+      lg_sr: " on WhatsApp",
       ref_rot: "Meals, to be arranged", almoco: "Lunch", jantar: "Dinner",
       ref_aviso: "Drinks and snacks have their own menu on board.",
-      per_cta: "Check a date", per_link: "See the menu on board",
+      per_link: "See the menu on board",
       fp01_t: "The lounge", fp01_c: "From the corner, <b>landscape</b>, with the sofa, table and beer fridge in one shot.",
       fp02_t: "The kitchen", fp02_c: "Clean and tidy, <b>landscape</b>.",
       fp03_t: "A bathroom", fp03_c: "<b>Portrait</b>, dry and clean, with the light on.",
@@ -188,7 +190,7 @@ const I18N = {
       cam_c2_p: "Three bunk beds. It suits a bigger group that wants to share one cabin, or two families traveling together.",
       cam_per_t: "The price is per person",
       cam_per_lead: "Per night, with <b>breakfast included</b>. The more people share a cabin, the less each one pays.",
-      cam_cta: "Check dates and rates", cam_regras: "Ask about minimum stay and payment",
+      cam_regras: "Ask about minimum stay and payment",
       fp04_t: "A made-up cabin",
       fp04_c: "Standing at the door, <b>landscape</b>, with both bunk beds and the air conditioner in the same shot. Beds made, lights on, no bags on the floor. It is the photo that answers \"where will I sleep\".",
       fp05_t: "The bunk bed up close",
@@ -246,7 +248,6 @@ const I18N = {
     msg: {
       topo:      "¡Hola! Vi su sitio y quería saber sobre el hotel flotante.",
       hero:      "¡Hola! Quería saber si hay fechas disponibles en el Majestade. Somos [nº] personas, del [fecha] al [fecha].",
-      camarotes: "¡Hola! Quería saber el precio de la estadía. Somos [nº] personas, del [fecha] al [fecha].",
       regras:    "¡Hola! Antes de reservar: ¿cuál es la estadía mínima, cómo es el pago y cómo funciona la cancelación?",
       bordo:     "¡Hola! Tengo algunas dudas sobre el hotel flotante: ¿hay energía toda la noche? ¿Hay señal de celular o wifi?",
       comer:     "¡Hola! Quería saber sobre las comidas a bordo: almuerzo, cena y qué se puede coordinar.",
@@ -287,13 +288,13 @@ const I18N = {
       and_1_p: "La sala tiene TV, aire acondicionado, mesas, sofás y <b>heladera con bebidas</b>. La cocina prepara las comidas a bordo.",
       per_t: "Cuánto cuesta dormir a bordo",
       per_lead: "Precio <b>por persona, por noche</b>, con <b>desayuno incluido</b>. Cuanta más gente en el camarote, menos paga cada uno.",
-      per_dica: "Toca la opción de tu grupo y la conversación de WhatsApp se abre con tu elección escrita.",
-      per_rot: "Estadía con desayuno, por persona",
+      per_dica: "Elige cuántas personas van y toca el botón: WhatsApp se abre con tu elección ya escrita.",
+      esc_q: "¿Cuántas personas en el camarote?", esc_q_s: "precio por persona",
       lg_1: "1 persona", lg_2: "2 personas", lg_3: "3 personas", lg_46: "4 a 6 personas",
-      lg_rv: "reservar", lg_sr: " por WhatsApp",
+      lg_sr: " por WhatsApp",
       ref_rot: "Comidas, a coordinar", almoco: "Almuerzo", jantar: "Cena",
       ref_aviso: "Bebidas y porciones tienen su propio menú a bordo.",
-      per_cta: "Consultar fecha", per_link: "Ver el menú de a bordo",
+      per_link: "Ver el menú de a bordo",
       fp01_t: "La sala", fp01_c: "Desde la esquina, <b>horizontal</b>, con el sofá, la mesa y la heladera juntos.",
       fp02_t: "La cocina", fp02_c: "Limpia y ordenada, <b>horizontal</b>.",
       fp03_t: "Un baño", fp03_c: "<b>Vertical</b>, seco y limpio, con la luz encendida.",
@@ -328,7 +329,7 @@ const I18N = {
       cam_c2_p: "Tres literas. Sirve al grupo más grande que quiere quedarse en el mismo camarote, o a dos familias que viajan juntas.",
       cam_per_t: "El precio es por persona",
       cam_per_lead: "Por noche, con <b>desayuno incluido</b>. Cuanta más gente en el camarote, menos paga cada uno.",
-      cam_cta: "Consultar fecha y precio", cam_regras: "Preguntar por estadía mínima y pago",
+      cam_regras: "Preguntar por estadía mínima y pago",
       fp04_t: "Un camarote arreglado",
       fp04_c: "Parado en la puerta, <b>horizontal</b>, con las dos literas y el aire acondicionado en la misma imagen. Cama hecha, luz encendida, nada de valijas en el piso. Es la foto que responde \"dónde voy a dormir\".",
       fp05_t: "La litera de cerca",
@@ -405,13 +406,16 @@ function atualizarZaps() {
     el.target = "_blank";
     el.rel = "noopener noreferrer";
   });
+  /* o botao do quadro de pernoite: item e preco vem da opcao marcada,
+     que o bloco "escolhe e reserva" (embaixo) copia para data-item e
+     data-preco */
   var modelos = LANG === "pt" ? CONFIG.mensagensDePreco : I18N[LANG].preco;
   document.querySelectorAll("[data-wa-preco]").forEach(function (a) {
     var modelo = modelos[a.getAttribute("data-wa-preco")];
-    var valor = a.querySelector("b");
+    var valor = a.getAttribute("data-preco");
     var item = ITENS[LANG][a.getAttribute("data-item")];
     if (!modelo || !valor || !item) return;
-    a.href = linkZap(modelo.replace("{item}", item).replace("{preco}", valor.textContent.trim()));
+    a.href = linkZap(modelo.replace("{item}", item).replace("{preco}", valor));
     a.target = "_blank";
     a.rel = "noopener noreferrer";
   });
@@ -457,6 +461,9 @@ function aplicarIdioma(lang) {
   var sel = document.getElementById("idioma-sel");
   if (sel) sel.value = LANG;
 
+  /* antes do atualizarZaps: o botao do pernoite precisa do texto da opcao
+     marcada ja traduzido (o laco do data-i18n, acima, acabou de fazer) */
+  if (window.escolheReserva) window.escolheReserva.atualizar();
   atualizarZaps();
   if (window.fraseReserva) window.fraseReserva.traduzir();
 }
@@ -519,6 +526,33 @@ document.querySelectorAll("[data-lang]").forEach(function (b) {
    aponta os dois como assinatura de site gerado. A pagina tinha 48
    elementos subindo ao rolar. Movimento agora e UM so: a entrada da capa,
    feita no CSS (.hero__in). Nao recolocar sem motivo que o visitante sinta. */
+
+/* ---- o quadro de pernoite: escolhe e reserva (opcao D, 25/09/2026) ----
+   As opcoes sao radio de verdade; o botao embaixo diz para quantos e a
+   reserva e leva a opcao marcada para a mensagem do WhatsApp. Serve a
+   home e a pagina de camarotes (o gerador copia o bloco da home). */
+(function () {
+  var quadros = document.querySelectorAll(".escolha");
+  if (!quadros.length) return;
+
+  function atualizar() {
+    quadros.forEach(function (q) {
+      var marcado = q.querySelector("input:checked");
+      var bt = q.querySelector(".escolha__bt");
+      if (!marcado || !bt) return;
+      var opcao = q.querySelector('label[for="' + marcado.id + '"]');
+      bt.setAttribute("data-item", marcado.value);
+      bt.setAttribute("data-preco", opcao.querySelector("b").textContent.trim());
+      bt.querySelector(".escolha__txt").textContent =
+        RESERVAR_PARA[LANG].replace("{q}", opcao.querySelector(".lugar__q").textContent.trim());
+    });
+  }
+  window.escolheReserva = { atualizar: atualizar };
+
+  quadros.forEach(function (q) {
+    q.addEventListener("change", function () { atualizar(); atualizarZaps(); });
+  });
+})();
 
 /* ---- a barra de reserva ----
    Pessoas, noites e chegada viram a mensagem do WhatsApp. NADA e guardado nem enviado a lugar nenhum:
