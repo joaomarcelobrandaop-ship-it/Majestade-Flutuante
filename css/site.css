@@ -1,0 +1,475 @@
+/* ============================================================
+   MAJESTADE FLUTUANTE — folha unica, compartilhada pelas paginas.
+   CSS na mao, sem framework e sem build (regra 1).
+
+   REESCRITA EM 24/09/2026, depois de "ta tudo muito quadrado,
+   consigo ver arestas em todo lugar, muita cara de IA".
+   A versao anterior tinha, medido: 45 caixas com borda de 1px nas seis
+   paginas, 12 de 12 titulos com uma palavra em italico dourado, 57
+   rotulos em caixa-alta espacada e 48 elementos subindo ao rolar. E o
+   visual que a propria Anthropic lista como cara de IA de 2026: filete
+   fino separando tudo, canto quase zero, quase-preto com um acento so.
+
+   AS QUATRO REGRAS DESTA FOLHA (nao desfazer sem motivo):
+   1. LINHA SO ONDE CARREGA INFORMACAO. Sobraram tres, e cada uma quer
+      dizer uma coisa: o pontilhado ate o preco e o filete entre as duas
+      colunas do cardapio (os dois vem da arte do Fabio), e as lajes entre
+      os andares do barco. Nenhuma caixa com contorno em volta de texto.
+   2. DOIS RAIOS: zero nas fotos, pilula no botao de acao. So.
+   3. TITULO NAO TEM PALAVRA EM ITALICO. A cursiva e a letra da arte dele
+      e aparece em DOIS lugares, com frases DELE copiadas da arte: a
+      assinatura na capa e o slogan no fim.
+   4. MOVIMENTO: um so, a entrada da capa.
+
+   DE ONDE VEM A PALETA: do cardapio que o Fabio mandou
+   (referencias/cardapio-majestade.webp). A paleta estava certa; o que
+   estava errado era o tratamento.
+   ============================================================ */
+:root{
+  --mata:#0C1710;          /* fundo, verde quase preto */
+  --mata-2:#122017;        /* o quadro de precos: a unica troca de fundo */
+  --noite:#08100B;         /* rodape */
+  --folha:#1B3324;
+  --linha:#25402F;         /* so nas lajes entre os andares */
+  --ouro:#C9A227;
+  --ouro-claro:#E8C766;
+  --creme:#F2E9D8;
+  --creme-2:#CFC6B2;       /* secundario: 8,1:1 no --mata */
+  --apagado:#8C9A8D;       /* rodape: 6,5:1 no --noite */
+  --agua:#2E5B52;
+
+  --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --cursiva:'Parisienne', 'Segoe Script', cursive;   /* a letra da arte dele */
+
+  --max:1180px;
+  --pad:clamp(20px,5vw,48px);
+  --topo:72px;
+  --ease:cubic-bezier(.23,1,.32,1);
+}
+*{box-sizing:border-box}
+/* clip e nao hidden: hidden quebra o cabecalho grudado (position:sticky) */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+body{
+  margin:0;background:var(--mata);color:var(--creme);
+  font-family:var(--sans);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:clip;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:600;line-height:1.08;text-wrap:balance}
+::selection{background:var(--ouro);color:var(--mata)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.sec{position:relative;padding:clamp(76px,10vw,136px) 0}
+
+.titulo{font-size:clamp(34px,4.8vw,56px);letter-spacing:.005em;color:var(--creme)}
+.lead{margin-top:18px;max-width:56ch;color:var(--creme-2);font-size:clamp(17px,1.5vw,18.5px)}
+.lead b{color:var(--creme);font-weight:600}
+
+/* ============================================================
+   CABECALHO
+   Na home ele nasce TRANSPARENTE em cima da foto e so ganha fundo ao
+   descolar -- a capa comeca no topo da tela, sem faixa por cima.
+   ============================================================ */
+.topo{
+  position:sticky;top:0;z-index:40;
+  background:rgba(12,23,16,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:background-color .25s;
+}
+.topo.preso{background:rgba(12,23,16,.96)}
+.home .topo:not(.preso){background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:var(--topo)}
+
+/* a marca imita o letreiro da arte: MAJESTADE grande, FLUTUANTE espacado */
+.marca{
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:44px;text-decoration:none;line-height:1;color:var(--ouro-claro);text-transform:uppercase;
+}
+.marca b{font-family:var(--serif);font-weight:700;font-size:25px;letter-spacing:.08em}
+.marca small{
+  margin-top:4px;padding-left:.46em;font-family:var(--serif);font-weight:600;
+  font-size:11px;letter-spacing:.46em;color:var(--ouro);
+}
+.menu{display:flex;gap:30px}
+.menu a{
+  display:inline-flex;align-items:center;min-height:44px;
+  font-size:15px;font-weight:500;text-decoration:none;color:var(--creme-2);
+  transition:color .15s;
+}
+.menu a:hover{color:var(--creme)}
+.menu a[aria-current="page"]{color:var(--creme);text-decoration:underline;text-decoration-color:var(--ouro);text-underline-offset:7px}
+
+/* ============================================================
+   MENU DO CELULAR
+   ============================================================ */
+.abrir{
+  display:none;width:46px;height:46px;padding:0;border:0;border-radius:50%;
+  background:transparent;cursor:pointer;color:var(--creme);
+  align-items:center;justify-content:center;
+}
+.abrir span{display:block;position:relative;width:22px;height:2px;background:currentColor;transition:background-color .2s var(--ease)}
+.abrir span::before,.abrir span::after{
+  content:"";position:absolute;left:0;width:22px;height:2px;background:currentColor;
+  transition:transform .26s var(--ease),top .26s var(--ease);
+}
+.abrir span::before{top:-7px}
+.abrir span::after{top:7px}
+body.menu-on .abrir span{background:transparent}
+body.menu-on .abrir span::before{top:0;transform:rotate(45deg)}
+body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
+@media (prefers-reduced-motion:reduce){
+  .abrir span,.abrir span::before,.abrir span::after{transition:none}
+}
+@media(max-width:980px){
+  /* ⚠️ backdrop-filter (ou filter, ou transform) no .topo vira o BLOCO DE
+     REFERENCIA dos filhos position:fixed: o painel nascia com 51px de
+     altura em vez da tela inteira. No celular o desfoque sai. */
+  .topo,.home .topo:not(.preso){backdrop-filter:none;-webkit-backdrop-filter:none}
+  .topo{background:rgba(12,23,16,.97)}
+  body.menu-on .topo{background:var(--mata)}
+  .menu{
+    display:flex;flex-direction:column;gap:2px;
+    position:fixed;inset:var(--topo) 0 0;z-index:39;
+    background:var(--mata);padding:20px var(--pad) 40px;overflow-y:auto;
+    /* visibility tira os links do Tab quando fechado; o atraso deixa o
+       fade de saida terminar antes de sumir */
+    visibility:hidden;opacity:0;transform:translateY(-12px);pointer-events:none;
+    transition:opacity .24s var(--ease),transform .24s var(--ease),visibility 0s linear .24s;
+  }
+  body.menu-on .menu{
+    visibility:visible;opacity:1;transform:none;pointer-events:auto;
+    transition:opacity .24s var(--ease),transform .24s var(--ease),visibility 0s;
+  }
+  .menu a{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--creme);min-height:58px}
+  .abrir{display:flex}
+  body.menu-on{overflow:hidden}
+}
+@media(max-width:520px){ .marca b{font-size:21px} .marca small{font-size:10.5px;letter-spacing:.4em;padding-left:.4em} }
+
+/* ============================================================
+   BOTAO E LINK
+   So a acao principal tem fundo. A secundaria e um link sublinhado --
+   o botao "fantasma" de contorno saiu (era mais uma caixa).
+   ============================================================ */
+.bt{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:48px;padding:12px 26px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--ouro);color:var(--mata);
+  font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.01em;
+  text-decoration:none;transition:background-color .15s;
+}
+.bt:hover{background:var(--ouro-claro)}
+.bt svg{width:18px;height:18px;fill:currentColor;flex:none}
+.topo .bt{min-height:44px;padding:10px 20px;font-size:14px}
+@media(max-width:520px){ .topo .bt span{display:none} .topo .bt{padding:10px 13px} }
+
+.link{
+  display:inline-flex;align-items:center;min-height:44px;
+  color:var(--creme);font-weight:600;font-size:15.5px;
+  text-decoration:underline;text-decoration-color:rgba(201,162,39,.7);
+  text-decoration-thickness:1px;text-underline-offset:7px;
+  transition:color .15s,text-decoration-color .15s;
+}
+.link:hover{color:var(--ouro-claro);text-decoration-color:var(--ouro-claro)}
+.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;margin-top:32px}
+
+/* ============================================================
+   CAPA
+   Foto noturna do proprio flutuante. O degrade nao e enfeite: sem ele o
+   creme cai para 2:1 em cima das luzes do barco. Embaixo ele termina na
+   cor da pagina -- a foto se DISSOLVE na secao seguinte, sem aresta.
+   ============================================================ */
+.hero{
+  position:relative;display:flex;align-items:flex-end;
+  min-height:min(94svh,860px);margin-top:calc(var(--topo) * -1);
+  padding:clamp(130px,17vw,190px) 0 clamp(56px,8vw,104px);
+  overflow:hidden;background:var(--mata-2);
+}
+.hero__bg{position:absolute;inset:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 56%}
+.hero__bg::after{
+  content:"";position:absolute;inset:0;
+  /* Medido pixel a pixel (foto + os dois degrades num canvas, pior ponto
+     atras de cada texto). O cordao de lampadas fica atras da cursiva: com o
+     degrade antigo ela dava 2,07:1 e reprovava. Este escurece so o lado do
+     texto e deixa o barco aceso a direita com ~80% do brilho.
+     Cursiva 4,21:1 (texto grande, exige 3) · titulo 6,24 · paragrafo 9,58. */
+  background:
+    linear-gradient(180deg, rgba(12,23,16,.8) 0%, rgba(12,23,16,.3) 24%, rgba(12,23,16,.42) 50%, rgba(12,23,16,.94) 82%, var(--mata) 100%),
+    linear-gradient(90deg, rgba(12,23,16,.92) 0%, rgba(12,23,16,.8) 50%, rgba(12,23,16,.24) 72%, rgba(12,23,16,.18) 100%);
+}
+.hero__in{position:relative;z-index:1;width:100%}
+.hero__txt{max-width:680px;animation:sobe .9s var(--ease) .12s both}
+.hero__assina{font-family:var(--cursiva);font-size:clamp(30px,3.6vw,42px);line-height:1.15;color:var(--ouro-claro)}
+.h1{
+  margin-top:4px;font-size:clamp(44px,7.6vw,90px);font-weight:700;
+  letter-spacing:.01em;line-height:1;text-transform:uppercase;
+}
+.hero__tag{margin-top:24px;max-width:46ch;color:var(--creme-2);font-size:clamp(17px,1.7vw,19px)}
+.hero__tag b{color:var(--creme);font-weight:600}
+@keyframes sobe{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes surge{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){ .hero__txt{animation:surge .4s ease both} }
+@media(max-width:700px){ .hero{min-height:88svh} }
+@media(max-width:1100px){
+  /* cabecalho transparente so no computador grande: ate 1100px o letreiro
+     e o menu caiam na parte clara da foto (medido: 1,4 a 3,4:1) */
+  .home .topo:not(.preso){background:rgba(12,23,16,.97)}
+  .hero{margin-top:0}
+  /* Ate 1100px o texto ocupa quase a largura toda e cai EM CIMA do barco
+     aceso: com o degrade do computador deu cursiva 1,99 no celular e 2,8
+     num notebook de 1024px -- reprovado. Aqui o escuro e medido em PIXELS a
+     partir de baixo, na altura do texto: em porcentagem, numa tela mais
+     baixa o texto subia para a faixa clara. A foto aparece no topo, onde
+     nao ha texto. */
+  .hero__bg::after{
+    background:linear-gradient(to top, var(--mata) 0, rgba(12,23,16,.88) 540px, rgba(12,23,16,.34) 650px, rgba(12,23,16,.74) 100%);
+  }
+}
+
+/* ============================================================
+   O QUE E -- texto numa coluna, a aerea SANGRANDO ate a borda direita.
+   Grade de 5 colunas em vez de 100vw: 100vw soma a barra de rolagem no
+   computador e cria rolagem lateral (regra 4).
+   ============================================================ */
+.oque{
+  display:grid;align-items:center;row-gap:36px;
+  grid-template-columns:minmax(var(--pad),1fr) minmax(0,430px) clamp(40px,6vw,88px) minmax(0,630px) minmax(var(--pad),1fr);
+}
+.oque__txt{grid-column:2}
+.oque__foto{grid-column:4 / -1;margin:0}
+/* 1200px = a largura exportada; numa tela enorme a foto para ali em vez de ampliar */
+.oque__foto img{width:100%;max-width:1200px;height:auto;aspect-ratio:4/3;object-fit:cover}
+.oque__foto figcaption{margin-top:12px;padding-right:var(--pad);font-size:14px;color:var(--creme-2)}
+@media(max-width:900px){
+  .oque{grid-template-columns:var(--pad) minmax(0,1fr) var(--pad)}
+  .oque__foto{grid-column:1 / -1}
+  .oque__foto figcaption{padding:0 var(--pad)}
+}
+
+/* lista com losango dourado.
+   ⚠️ NAO usar display:flex no <li>: o item mistura <b> com texto solto, e
+   num flex CADA PEDACO vira uma coluna ("Com a nossa" virou 4 colunas). */
+.lista{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.lista li{position:relative;padding-left:21px;color:var(--creme-2);font-size:16px;line-height:1.55}
+.lista li::before{
+  content:"";position:absolute;left:1px;top:.6em;width:7px;height:7px;
+  background:var(--ouro);transform:rotate(45deg);
+}
+.lista b{color:var(--creme);font-weight:600}
+
+/* ============================================================
+   OS TRES ANDARES -- a assinatura da pagina.
+   Empilhados como o barco e: o 3 em cima, o 1 embaixo, e o rio por baixo
+   de tudo. As linhas aqui SAO as lajes entre os andares; a dourada, mais
+   grossa, e o casco. E a unica pilha de linhas do site, e quer dizer algo.
+   ============================================================ */
+.andares{padding-bottom:0}
+.andares__cabeca{max-width:640px}
+.predio{list-style:none;margin:clamp(44px,6vw,72px) 0 0;padding:0}
+.piso{
+  display:grid;grid-template-columns:clamp(70px,9vw,118px) minmax(0,1fr) minmax(0,1.12fr);
+  gap:clamp(20px,3.4vw,52px);align-items:start;
+  padding:clamp(30px,4vw,48px) 0;border-top:1px solid var(--linha);
+}
+/* lining-nums: a Cormorant usa numero "antigo" por padrao -- o 3 desce
+   abaixo da linha e bate no "andar", e o 1 vira um "I" */
+.piso__n{font-family:var(--serif);font-weight:700;font-size:clamp(60px,8vw,108px);line-height:.78;color:var(--ouro);font-variant-numeric:lining-nums}
+.piso__n small{display:block;margin-top:12px;font-family:var(--sans);font-weight:500;font-size:13.5px;line-height:1.2;color:var(--creme-2)}
+.piso h2,.piso h3{font-size:clamp(25px,2.6vw,31px);color:var(--creme)}
+.piso p{margin-top:12px;max-width:44ch;color:var(--creme-2)}
+.piso p b{color:var(--creme);font-weight:600}
+.piso .link{margin-top:8px}
+.piso__midia{display:grid;gap:14px;align-items:end}
+/* ⚠️ DUAS PECAS LADO A LADO: a altura vem da linha (stretch) e a proporcao
+   do quadro SAI (aspect-ratio:auto). Com proporcao E stretch juntos, o
+   navegador calcula a LARGURA a partir da altura esticada e o quadro vaza
+   pela direita da tela -- aconteceu no 1o andar da home. */
+.piso__midia--2{grid-template-columns:1fr 1fr;align-items:stretch}
+.piso__midia--2 > .foto-pedida{aspect-ratio:auto;min-height:clamp(150px,14vw,190px)}
+/* em pe, a 4:5 ocupando a coluna toda passava de 700px de altura */
+.piso__midia > .foto-pedida--em-pe{width:min(100%,320px)}
+.piso__midia figure{margin:0}
+.piso__midia img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.piso__midia figcaption{margin-top:10px;font-size:14px;color:var(--creme-2)}
+.casco{height:2px;background:var(--ouro)}
+.rio{height:clamp(64px,9vw,112px);background:linear-gradient(180deg, rgba(46,91,82,.5), rgba(46,91,82,0))}
+@media(max-width:760px){
+  .piso{grid-template-columns:auto minmax(0,1fr);gap:10px 20px}
+  .piso__midia{grid-column:1 / -1;margin-top:18px}
+}
+@media(max-width:420px){ .piso__midia--2{grid-template-columns:1fr} }
+
+/* ============================================================
+   O QUADRO DE PRECOS -- no formato do cardapio dele: nome, pontilhado,
+   preco. Sem cartao. Lista compara melhor que card (NN/g).
+   ============================================================ */
+/* o fundo do quadro ENTRA e SAI em degrade: troca de cor seca e uma aresta
+   reta atravessando a tela, justamente o que nao queremos */
+.quadro{background:linear-gradient(180deg,var(--mata) 0%,var(--mata-2) 20%,var(--mata-2) 80%,var(--mata) 100%)}
+.quadro__in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,7vw,110px);align-items:start}
+@media(max-width:900px){ .quadro__in{grid-template-columns:1fr} }
+
+.rotulo{
+  margin:0 0 4px;font-family:var(--serif);font-weight:700;font-size:22px;
+  letter-spacing:.05em;font-variant-caps:all-small-caps;color:var(--ouro);
+}
+.rotulo small{font-family:var(--sans);font-variant-caps:normal;letter-spacing:0;font-weight:500;font-size:14px;color:var(--creme-2);margin-left:8px}
+.precos{list-style:none;margin:0;padding:0}
+.precos li{display:flex;align-items:baseline;gap:10px;padding:9px 0;font-size:16.5px;line-height:1.35}
+.precos li span{color:var(--creme)}
+.precos li i{flex:1;min-width:22px;border-bottom:2px dotted rgba(201,162,39,.42);transform:translateY(-5px)}
+.precos li b{
+  font-family:var(--serif);font-weight:700;font-size:clamp(25px,2.6vw,31px);line-height:1;
+  color:var(--ouro-claro);font-variant-numeric:tabular-nums lining-nums;white-space:nowrap;
+}
+.precos--menu li{font-size:16px;padding:6px 0}
+.precos--menu li span{color:var(--creme-2)}
+.precos--menu li b{font-size:21px}
+/* LINHA DE PRECO QUE ABRE O WHATSAPP. Continua sendo cardapio, sem caixa:
+   o que diz "da pra tocar" e o simbolo do WhatsApp no fim da linha (todo
+   mundo reconhece) e a frase .dica acima. A linha inteira e o alvo, com
+   48px de altura -- regra 4. */
+/* display:block: o li tambem e flex (regra .precos li), e dentro dele o link
+   encolhia ate o texto -- "Almoco R$ 75" ficava com 191px e sem pontilhado */
+.precos li.clica{display:block;padding:0}
+.precos li.clica > a{
+  display:flex;align-items:baseline;gap:10px;min-height:48px;padding:9px 0;
+  color:inherit;text-decoration:none;
+}
+.zapinho{flex:none;width:19px;height:19px;align-self:center;fill:var(--ouro);transition:fill .15s}
+@media (hover:hover){
+  .precos li.clica > a:hover span{color:var(--ouro-claro)}
+  .precos li.clica > a:hover i{border-bottom-color:rgba(232,199,102,.85)}
+  .precos li.clica > a:hover .zapinho{fill:var(--ouro-claro)}
+}
+.precos li.clica > a:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:4px}
+.dica{display:flex;align-items:center;gap:10px;margin-top:18px;max-width:40ch;font-size:15px;color:var(--creme-2)}
+.dica .zapinho{width:18px;height:18px}
+.grupo + .grupo{margin-top:40px}
+.aviso{margin-top:14px;font-size:15px;color:var(--creme-2)}
+.aviso b{color:var(--creme);font-weight:600}
+
+/* ============================================================
+   FOTO QUE FALTA -- os quadros que dizem ao Fabio o que fotografar.
+   Sem contorno, sem moldura dentro de moldura, sem listras. A FORMA do
+   quadro e a instrucao: deitado = foto deitada (3:2), em pe = em pe (4:5).
+   O iconezinho no canto e o celular na posicao certa.
+   ============================================================ */
+.foto-pedida{
+  position:relative;margin:0;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;
+  aspect-ratio:3/2;padding:clamp(18px,2.2vw,26px);
+  background:linear-gradient(165deg,#1E3727 0%,#15271B 55%,#101E15 100%);
+}
+.foto-pedida--em-pe{aspect-ratio:4/5}
+.foto-pedida::after{
+  content:"";position:absolute;top:clamp(16px,2vw,22px);right:clamp(16px,2vw,22px);
+  width:24px;height:15px;border:1.5px solid rgba(232,199,102,.75);border-radius:3px;
+}
+.foto-pedida--em-pe::after{width:15px;height:24px}
+.foto-pedida__n{padding-right:34px;font-size:13.5px;font-weight:600;color:var(--ouro)}  /* 34px: nao bater no icone do celular */
+.foto-pedida__t{font-family:var(--serif);font-size:clamp(21px,2.2vw,26px);font-weight:600;line-height:1.15;color:var(--creme)}
+.foto-pedida__c{font-size:14px;line-height:1.55;color:var(--creme-2);max-width:44ch}
+.foto-pedida__c b{color:var(--ouro-claro);font-weight:600}
+
+/* foto de verdade, solta: sem borda, sem canto, legenda como texto */
+.foto{margin:0}
+.foto img{width:100%;height:auto}
+.foto figcaption{margin-top:10px;font-size:14px;color:var(--creme-2)}
+
+/* ============================================================
+   PAGINAS INTERNAS
+   ============================================================ */
+.pagina{padding-top:clamp(56px,8vw,104px)}
+.pagina__cabeca{max-width:760px}
+.colunas{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);margin-top:clamp(40px,5vw,60px)}
+@media(max-width:760px){ .colunas{grid-template-columns:1fr} }
+.colunas h2{font-size:clamp(25px,2.6vw,31px);color:var(--creme)}
+.colunas p{margin-top:10px;max-width:48ch;color:var(--creme-2)}
+.colunas p b{color:var(--creme);font-weight:600}
+/* numero SO onde e sequencia de verdade (o caminho ate o barco) */
+.passo__n{display:block;margin-bottom:10px;font-family:var(--serif);font-weight:700;font-size:52px;line-height:1;color:var(--ouro);font-variant-numeric:lining-nums}
+
+/* par de fotos assimetrico: uma deitada maior, uma em pe menor.
+   880px de teto: sem ele os dois quadros vazios passavam de 500px de altura */
+.par{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(14px,2vw,24px);align-items:end;max-width:880px;margin-top:clamp(40px,6vw,64px)}
+@media(max-width:700px){ .par{grid-template-columns:1fr} }
+
+.sec--seguido{padding-top:clamp(28px,4vw,48px)}
+.nota{margin-top:26px;max-width:62ch;font-size:15px;color:var(--creme-2)}
+.nota b{color:var(--creme);font-weight:600}
+/* 960px e a largura da original: maior que isso seria ampliar a foto */
+.foto--chegada{margin-top:clamp(44px,6vw,72px);max-width:960px}
+
+/* o cardapio como a arte dele: duas colunas e UM filete dourado no meio */
+.cardapio{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(44px,6vw,68px)}
+.cardapio__col{padding-right:clamp(24px,4.5vw,68px)}
+.cardapio__col + .cardapio__col{padding:0 0 0 clamp(24px,4.5vw,68px);border-left:1px solid rgba(201,162,39,.35)}
+@media(max-width:820px){
+  .cardapio{grid-template-columns:1fr}
+  .cardapio__col,.cardapio__col + .cardapio__col{padding:0;border-left:0}
+  .cardapio__col + .cardapio__col{margin-top:40px}
+}
+.cardapio .foto-pedida{margin-top:40px}
+
+/* ============================================================
+   FIM -- um respiro: o slogan dele, na letra dele, e a frase de reserva.
+   ============================================================ */
+.fim{display:flex;align-items:center;min-height:min(86svh,780px);text-align:center}
+.fim .wrap{width:100%}
+.fim__slogan{
+  max-width:15ch;margin:0 auto;font-family:var(--cursiva);font-weight:400;
+  font-size:clamp(42px,6.6vw,80px);line-height:1.12;color:var(--ouro-claro);
+}
+.pedido{margin:clamp(40px,5vw,60px) auto 0;max-width:40ch}
+.pedido p{text-wrap:balance}
+.pedido p{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,34px);line-height:1.6;color:var(--creme)}
+.pedido input{
+  font:inherit;color:var(--ouro-claro);background:transparent;
+  border:0;border-bottom:2px solid var(--ouro);border-radius:0;
+  padding:0 2px;margin:0 3px;min-height:44px;text-align:center;color-scheme:dark;
+}
+/* max(): 2,3ch sao 26px no celular -- abaixo dos 44px de toque (regra 4) */
+.pedido input[type=number]{width:max(2.3ch,44px);-moz-appearance:textfield;appearance:textfield}
+.pedido input::-webkit-inner-spin-button,.pedido input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.pedido input[type=date]{font-size:.72em;vertical-align:.12em}
+.pedido input:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:4px}
+.pedido .bt{margin-top:30px}
+.fim__nota{margin:18px auto 0;max-width:46ch;font-size:15px;color:var(--creme-2)}
+
+/* ============================================================
+   RODAPE
+   ============================================================ */
+.rod{background:linear-gradient(180deg,var(--mata),var(--noite) 100px)}
+.rod .wrap{padding-top:clamp(60px,8vw,88px);padding-bottom:30px}
+.frod{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
+@media(max-width:800px){ .frod{grid-template-columns:1fr 1fr} }
+@media(max-width:520px){ .frod{grid-template-columns:1fr} }
+.frod h4{margin:0 0 8px;font-weight:700;font-size:21px;letter-spacing:.05em;font-variant-caps:all-small-caps;color:var(--ouro)}
+.frod p{color:var(--creme-2);font-size:15px}
+/* flex (bloco), nao inline-flex: inline-flex fazia os links correrem lado a
+   lado como uma frase -- "Camarotes e valores A bordo Comer e beber" */
+.frod a{display:flex;align-items:center;min-height:44px;width:max-content;max-width:100%;color:var(--creme-2);font-size:15px;text-decoration:none}
+.frod a:hover{color:var(--ouro-claro)}
+.rod .marca{align-items:flex-start;margin-bottom:14px}
+.rod .marca small{padding-left:0}
+.rod__lema{margin-top:14px;font-family:var(--cursiva);font-size:24px;line-height:1.3;color:var(--ouro)}
+.rod__fim{
+  margin-top:44px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+  font-size:13px;color:var(--apagado);
+}
+
+/* whatsapp flutuante -- regra 4: sempre ao alcance */
+.zap{
+  position:fixed;right:16px;bottom:16px;z-index:50;width:56px;height:56px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.45);text-decoration:none;
+}
+.zap svg{width:29px;height:29px;fill:#fff}
+
+/* foco visivel em tudo que e alcancavel por teclado */
+a:focus-visible,button:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:3px}
