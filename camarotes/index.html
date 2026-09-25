@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-pagina="camarotes">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Regra 3: previa de prospeccao NAO e indexada. Sai no ciclo B. -->
+<!-- Regra 3: previa de prospeccao NAO e indexada. O robots.txt fica LIBERADO
+     de proposito: o Google precisa entrar para LER este noindex (apostila de
+     SEO, cap. 8 -- "a pegadinha mais cara"). No dia da virada, apagar esta
+     linha e seguir o checklist A.1 (comercial/seo-virada.md). -->
 <meta name="robots" content="noindex, nofollow">
-<title>Camarotes e valores | Majestade Flutuante</title>
-<meta name="description" content="Quatro camarotes com ar-condicionado e 18 camas no hotel flutuante Majestade, no Pantanal. Pernoite com café da manhã a partir de R$ 200 por pessoa.">
+<!-- 59 caracteres, com hifen e com a cidade (apostila cap. 14). O h1 diz
+     a mesma coisa: quando title e h1 combinam, o Google quase nao reescreve. -->
+<title>Camarotes e Preço por Pessoa - Hotel Flutuante Majestade</title>
+<meta name="description" content="18 camas em 4 camarotes com ar-condicionado. Pernoite com café da manhã de R$ 200 a R$ 500 por pessoa, conforme o tamanho do grupo.">
+<link rel="canonical" href="https://majestade-flutuante.vercel.app/camarotes/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Majestade Flutuante">
-<meta property="og:title" content="Camarotes e valores | Majestade Flutuante">
-<meta property="og:description" content="Quatro camarotes com ar-condicionado e 18 camas no hotel flutuante Majestade, no Pantanal. Pernoite com café da manhã a partir de R$ 200 por pessoa.">
-<!-- favicon: a coroa da "Majestade" (a arte dele tem a coruja coroada).
-     Antes era um "M" dentro de um quadrado arredondado -- letra em caixa
-     e um dos sinais de logo feito por IA. -->
+<meta property="og:url" content="https://majestade-flutuante.vercel.app/camarotes/">
+<meta property="og:title" content="Camarotes e Preço por Pessoa - Hotel Flutuante Majestade">
+<meta property="og:description" content="18 camas em 4 camarotes com ar-condicionado. Pernoite com café da manhã de R$ 200 a R$ 500 por pessoa, conforme o tamanho do grupo.">
+<meta property="og:image" content="https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp">
+<meta property="og:image:alt" content="O Majestade Flutuante iluminado à noite, visto do rio">
+<meta name="twitter:card" content="summary_large_image">
+<!-- favicon: a coroa da "Majestade" (a arte dele tem a coruja coroada) -->
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M9 46 5 17l15 12L32 8l12 21 15-12-4 29z" fill="%23C9A227"/><rect x="9" y="50" width="46" height="6" fill="%23C9A227"/></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,40 +34,54 @@
 <header class="topo">
   <div class="wrap">
     <a class="marca" href="../"><b>Majestade</b><small>Flutuante</small></a>
-    <nav class="menu" id="menu" aria-label="Principal">
-      <a href="../camarotes/" aria-current="page">Camarotes</a>
-      <a href="../a-bordo/">A bordo</a>
-      <a href="../comer-e-beber/">Comer e beber</a>
-      <a href="../como-chegar/">Como chegar</a>
+    <nav class="menu" id="menu" aria-label="Principal" data-i18n-aria="nav_aria">
+      <a href="../camarotes/" aria-current="page" data-i18n="nav_camarotes">Camarotes</a>
+      <a href="../a-bordo/" data-i18n="nav_bordo">A bordo</a>
+      <a href="../comer-e-beber/" data-i18n="nav_comer">Comer e beber</a>
+      <a href="../como-chegar/" data-i18n="nav_chegar">Como chegar</a>
     </nav>
-    <button class="abrir" type="button" aria-label="Abrir o menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <!-- troca de lingua: botoes no computador, lista no celular (nao cabem
+         tres botoes de 44px ao lado da marca numa tela de 320px) -->
+    <div class="idioma" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+      <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+    </div>
+    <label class="idioma-sel"><span class="sr" data-i18n="idioma_aria">Idioma</span>
+      <select id="idioma-sel">
+        <option value="pt">PT</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+    </label>
+    <button class="abrir" type="button" aria-label="Abrir o menu" data-i18n-aria="menu_abrir" aria-expanded="false" aria-controls="menu"><span></span></button>
     <a class="bt" data-wa="topo" href="https://wa.me/556792063535">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.3.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
-      <span>Reservar</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+      <span data-i18n="nav_reservar">Reservar</span>
     </a>
   </div>
 </header>
 <section class="sec pagina">
   <div class="wrap">
     <header class="pagina__cabeca">
-      <h1 class="titulo">Dezoito camas em quatro camarotes</h1>
-      <p class="lead">Todos os camarotes têm <b>ar-condicionado</b>. Os banheiros ficam fora dos quartos: são quatro, divididos entre o primeiro e o segundo andar.</p>
+      <h1 class="titulo" data-i18n="cam_h1">Camarotes e preço por pessoa</h1>
+      <p class="lead" data-i18n="cam_lead">São 18 camas em quatro camarotes, todos com <b>ar-condicionado</b>. Os banheiros ficam fora dos quartos: são quatro, divididos entre o primeiro e o segundo andar.</p>
     </header>
 
     <div class="colunas">
       <div>
-        <h2>Três camarotes de quatro camas</h2>
-        <p>Dois beliches em cada. É o formato da maioria dos quartos: uma turma de quatro fica junta, sem ninguém dormir na sala.</p>
+        <h2 data-i18n="cam_c1_t">Três camarotes de quatro camas</h2>
+        <p data-i18n="cam_c1_p">Dois beliches em cada. É o formato da maioria dos quartos: uma turma de quatro fica junta, sem ninguém dormir na sala.</p>
       </div>
       <div>
-        <h2>Um camarote de seis camas</h2>
-        <p>Três beliches. Serve o grupo maior que quer ficar no mesmo quarto, ou duas famílias que viajam juntas.</p>
+        <h2 data-i18n="cam_c2_t">Um camarote de seis camas</h2>
+        <p data-i18n="cam_c2_p">Três beliches. Serve o grupo maior que quer ficar no mesmo quarto, ou duas famílias que viajam juntas.</p>
       </div>
     </div>
 
     <div class="par">
-      <div class="foto-pedida"><span class="foto-pedida__n">Falta a foto 04 de 8</span><span class="foto-pedida__t">Um camarote arrumado</span><p class="foto-pedida__c">De pé na porta, <b>deitada</b>, pegando os dois beliches e o ar-condicionado na mesma imagem. Cama feita, luz acesa, nada de mala no chão. É a foto que responde "onde eu vou dormir".</p></div>
-      <div class="foto-pedida foto-pedida--em-pe"><span class="foto-pedida__n">Falta a foto 05 de 8</span><span class="foto-pedida__t">O beliche de perto</span><p class="foto-pedida__c">Uma cama só, <b>em pé</b>, mostrando colchão, travesseiro e o espaço entre os andares do beliche.</p></div>
+      <div class="foto-pedida"><span class="foto-pedida__n" data-foto="04">Falta a foto 04 de 8</span><span class="foto-pedida__t" data-i18n="fp04_t">Um camarote arrumado</span><p class="foto-pedida__c" data-i18n="fp04_c">De pé na porta, <b>deitada</b>, pegando os dois beliches e o ar-condicionado na mesma imagem. Cama feita, luz acesa, nada de mala no chão. É a foto que responde "onde eu vou dormir".</p></div>
+      <div class="foto-pedida foto-pedida--em-pe"><span class="foto-pedida__n" data-foto="05">Falta a foto 05 de 8</span><span class="foto-pedida__t" data-i18n="fp05_t">O beliche de perto</span><p class="foto-pedida__c" data-i18n="fp05_c">Uma cama só, <b>em pé</b>, mostrando colchão, travesseiro e o espaço entre os andares do beliche.</p></div>
     </div>
   </div>
 </section>
@@ -67,18 +89,15 @@
 <section class="sec quadro">
   <div class="wrap quadro__in">
     <div>
-      <h2 class="titulo">O valor é por pessoa</h2>
-      <p class="lead">Por noite, com <b>café da manhã incluso</b>. Quanto mais gente no camarote, menos cada um paga.</p>
-      <p class="dica"><svg class="zapinho" aria-hidden="true"><use href="#i-zap"/></svg>Toque numa das opções e a conversa no WhatsApp já abre com a escolha escrita.</p>
+      <h2 class="titulo" data-i18n="cam_per_t">O valor é por pessoa</h2>
+      <p class="lead" data-i18n="cam_per_lead">Por noite, com <b>café da manhã incluso</b>. Quanto mais gente no camarote, menos cada um paga.</p>
+      <p class="dica"><svg class="zapinho" aria-hidden="true"><use href="#i-zap"/></svg><span data-i18n="per_dica">Toque na opção do seu grupo e a conversa no WhatsApp já abre com a escolha escrita.</span></p>
     </div>
     <div>
-      <div class="grupo">
-        <h3 class="rotulo">Pernoite com café da manhã</h3>
-        <ul class="precos"><li class="clica"><a data-wa-preco="pernoite" href="https://wa.me/556792063535"><span>Camarote com 4, 5 ou 6 pessoas</span><i></i><b>R$ 200</b><svg class="zapinho" aria-hidden="true"><use href="#i-zap"/></svg><span class="sr"> (reservar pelo WhatsApp)</span></a></li><li class="clica"><a data-wa-preco="pernoite" href="https://wa.me/556792063535"><span>Camarote com 3 pessoas</span><i></i><b>R$ 250</b><svg class="zapinho" aria-hidden="true"><use href="#i-zap"/></svg><span class="sr"> (reservar pelo WhatsApp)</span></a></li><li class="clica"><a data-wa-preco="pernoite" href="https://wa.me/556792063535"><span>Camarote com 2 pessoas</span><i></i><b>R$ 300</b><svg class="zapinho" aria-hidden="true"><use href="#i-zap"/></svg><span class="sr"> (reservar pelo WhatsApp)</span></a></li><li class="clica"><a data-wa-preco="pernoite" href="https://wa.me/556792063535"><span>Camarote para uma pessoa</span><i></i><b>R$ 500</b><svg class="zapinho" aria-hidden="true"><use href="#i-zap"/></svg><span class="sr"> (reservar pelo WhatsApp)</span></a></li></ul>
-      </div>
+      <h3 class="rotulo" data-i18n="per_rot">Pernoite com café da manhã, por pessoa</h3><div class="lugares"><a class="lugar" data-wa-preco="pernoite" data-item="i1" href="https://wa.me/556792063535"><span class="lugar__gente" aria-hidden="true"><svg><use href="#i-pessoa"/></svg></span><span class="lugar__q" data-i18n="lg_1">1 pessoa</span><b>R$ 500</b><span class="lugar__rv" data-i18n="lg_rv">reservar</span><span class="sr" data-i18n="lg_sr"> pelo WhatsApp</span></a><a class="lugar" data-wa-preco="pernoite" data-item="i2" href="https://wa.me/556792063535"><span class="lugar__gente" aria-hidden="true"><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg></span><span class="lugar__q" data-i18n="lg_2">2 pessoas</span><b>R$ 300</b><span class="lugar__rv" data-i18n="lg_rv">reservar</span><span class="sr" data-i18n="lg_sr"> pelo WhatsApp</span></a><a class="lugar" data-wa-preco="pernoite" data-item="i3" href="https://wa.me/556792063535"><span class="lugar__gente" aria-hidden="true"><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg></span><span class="lugar__q" data-i18n="lg_3">3 pessoas</span><b>R$ 250</b><span class="lugar__rv" data-i18n="lg_rv">reservar</span><span class="sr" data-i18n="lg_sr"> pelo WhatsApp</span></a><a class="lugar" data-wa-preco="pernoite" data-item="i46" href="https://wa.me/556792063535"><span class="lugar__gente" aria-hidden="true"><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg><svg class="opc"><use href="#i-pessoa"/></svg><svg class="opc"><use href="#i-pessoa"/></svg></span><span class="lugar__q" data-i18n="lg_46">4 a 6 pessoas</span><b>R$ 200</b><span class="lugar__rv" data-i18n="lg_rv">reservar</span><span class="sr" data-i18n="lg_sr"> pelo WhatsApp</span></a></div>
       <div class="acoes">
-        <a class="bt" data-wa="camarotes" href="https://wa.me/556792063535">Consultar data e valor</a>
-        <a class="link" data-wa="regras" href="https://wa.me/556792063535">Perguntar sobre diária mínima e pagamento</a>
+        <a class="bt" data-wa="camarotes" href="https://wa.me/556792063535" data-i18n="cam_cta">Consultar data e valor</a>
+        <a class="link" data-wa="regras" href="https://wa.me/556792063535" data-i18n="cam_regras">Perguntar sobre diária mínima e pagamento</a>
       </div>
     </div>
   </div>
@@ -89,34 +108,58 @@
     <div class="frod">
       <div>
         <a class="marca" href="../"><b>Majestade</b><small>Flutuante</small></a>
-        <p>Hotel flutuante no Pantanal<br>Mato Grosso do Sul</p>
+        <p data-i18n="rod_p">Hotel flutuante no Pantanal<br>Embarque no Pesqueiro Itaju<br>Aquidauana, Mato Grosso do Sul</p>
+        <p class="rod__lema" data-i18n="rod_lema">Pantanal em sua melhor experiência</p>
       </div>
       <div>
-        <h4>Páginas</h4>
-        <a href="../camarotes/">Camarotes e valores</a>
-        <a href="../a-bordo/">A bordo</a>
-        <a href="../comer-e-beber/">Comer e beber</a>
-        <a href="../como-chegar/">Como chegar</a>
+        <h4 data-i18n="rod_paginas">Páginas</h4>
+        <a href="../camarotes/" data-i18n="rod_camarotes">Camarotes e valores</a>
+        <a href="../a-bordo/" data-i18n="nav_bordo">A bordo</a>
+        <a href="../comer-e-beber/" data-i18n="nav_comer">Comer e beber</a>
+        <a href="../como-chegar/" data-i18n="nav_chegar">Como chegar</a>
       </div>
       <div>
-        <h4>Falar com a gente</h4>
-        <a data-wa="rodape" href="https://wa.me/556792063535">WhatsApp</a>
-        <a href="https://www.instagram.com/flutuantemajestade" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <h4 data-i18n="rod_falar">Falar com a gente</h4>
+        <a data-wa="rodape" href="https://wa.me/556792063535" data-i18n="rod_zap">WhatsApp (67) 9206-3535</a>
+        <a href="https://www.instagram.com/flutuantemajestade" target="_blank" rel="noopener noreferrer">Instagram @flutuantemajestade</a>
       </div>
     </div>
-    <!-- o simbolo do WhatsApp das linhas de preco, definido uma vez so -->
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-zap" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.3.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol></svg>
+    <!-- os simbolos usados nas paginas, definidos uma vez so -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.3.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+      <symbol id="i-pessoa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7.5" r="3.6"/><path d="M5.5 20.5v-1.2a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1.2"/></g></symbol>
+    </svg>
     <div class="rod__fim">
-      <span>© <span id="ano">2026</span> Majestade Flutuante, Pantanal (MS)</span>
-      <span>Este site não usa cookies e não guarda nenhum dado seu.</span>
+      <span>© <span id="ano">2026</span> Majestade Flutuante, Aquidauana (MS)</span>
+      <span data-i18n="rod_cookies">Este site não usa cookies e não guarda nenhum dado seu.</span>
     </div>
   </div>
 </footer>
 
-<a class="zap" data-wa="rodape" href="https://wa.me/556792063535" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.3.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+<a class="zap" data-wa="rodape" href="https://wa.me/556792063535" aria-label="Falar no WhatsApp" data-i18n-aria="zap_aria">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
 </a>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "https://majestade-flutuante.vercel.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Camarotes e preço por pessoa",
+      "item": "https://majestade-flutuante.vercel.app/camarotes/"
+    }
+  ]
+}
+</script>
 <script src="../js/site.js"></script>
 </body>
 </html>

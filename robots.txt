@@ -1,2 +1,9 @@
+# Regra 3 (previa): o site esta com noindex no HTML.
+# Este arquivo fica LIBERADO de proposito: o Google precisa ENTRAR para
+# ler o noindex. Disallow + noindex juntos e a "pegadinha mais cara" do
+# SEO (apostila, cap. 8): a pagina pode aparecer no Google sem descricao.
 User-agent: *
-Disallow: /
+Allow: /
+
+# No dia da virada (comercial/seo-virada.md), tirar o # da linha abaixo:
+# Sitemap: https://majestade-flutuante.vercel.app/sitemap.xml

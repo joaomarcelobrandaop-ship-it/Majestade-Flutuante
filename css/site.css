@@ -37,6 +37,9 @@
   --creme-2:#CFC6B2;       /* secundario: 8,1:1 no --mata */
   --apagado:#8C9A8D;       /* rodape: 6,5:1 no --noite */
   --agua:#2E5B52;
+  --zap:#25D366;           /* o verde do WhatsApp: botao flutuante e as pilulas */
+  --zap-claro:#4BE58A;
+  --zap-tinta:#053B1B;     /* texto na pilula: 6,8:1 no --zap */
 
   --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --sans:'Instrument Sans', system-ui, -apple-system, sans-serif;
@@ -82,19 +85,20 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:600;line-height:1.08;t
 }
 .topo.preso{background:rgba(12,23,16,.96)}
 .home .topo:not(.preso){background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
-.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:var(--topo)}
+.topo .wrap{display:flex;align-items:center;gap:clamp(8px,1.6vw,20px);min-height:var(--topo)}
 
 /* a marca imita o letreiro da arte: MAJESTADE grande, FLUTUANTE espacado */
 .marca{
   display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:44px;text-decoration:none;line-height:1;color:var(--ouro-claro);text-transform:uppercase;
+  margin-right:auto;
 }
 .marca b{font-family:var(--serif);font-weight:700;font-size:25px;letter-spacing:.08em}
 .marca small{
   margin-top:4px;padding-left:.46em;font-family:var(--serif);font-weight:600;
   font-size:11px;letter-spacing:.46em;color:var(--ouro);
 }
-.menu{display:flex;gap:30px}
+.menu{display:flex;gap:clamp(18px,2.2vw,30px)}
 .menu a{
   display:inline-flex;align-items:center;min-height:44px;
   font-size:15px;font-weight:500;text-decoration:none;color:var(--creme-2);
@@ -102,6 +106,28 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:600;line-height:1.08;t
 }
 .menu a:hover{color:var(--creme)}
 .menu a[aria-current="page"]{color:var(--creme);text-decoration:underline;text-decoration-color:var(--ouro);text-underline-offset:7px}
+
+/* TROCA DE LINGUA -- PT / EN / ES, como nos outros sites (Corujao, Coast
+   Tours). Sem caixa: a lingua da vez fica dourada e sublinhada. No celular
+   vira uma lista, porque tres botoes de 44px nao cabem ao lado da marca
+   numa tela de 320px (regra 4: toque minimo 44px, nada de encolher). */
+.idioma{display:flex;align-items:center}
+.idioma button{
+  all:unset;box-sizing:border-box;cursor:pointer;min-width:44px;height:44px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--creme-2);
+  transition:color .15s;
+}
+.idioma button:hover{color:var(--creme)}
+.idioma button[aria-pressed="true"]{color:var(--ouro-claro);text-decoration:underline;text-decoration-color:var(--ouro);text-decoration-thickness:1.5px;text-underline-offset:6px}
+.idioma button:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:-4px}
+.idioma-sel{display:none;align-items:center}
+.idioma-sel select{
+  appearance:none;-webkit-appearance:none;min-height:44px;min-width:58px;padding:0 22px 0 8px;
+  border:0;border-radius:0;color:var(--ouro-claro);font:600 14px var(--sans);letter-spacing:.06em;cursor:pointer;color-scheme:dark;
+  background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 6px center / 10px 7px;
+}
+.idioma-sel select:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:2px}
 
 /* ============================================================
    MENU DO CELULAR
@@ -148,7 +174,12 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
   .abrir{display:flex}
   body.menu-on{overflow:hidden}
 }
-@media(max-width:520px){ .marca b{font-size:21px} .marca small{font-size:10.5px;letter-spacing:.4em;padding-left:.4em} }
+@media(max-width:520px){
+  .marca b{font-size:21px} .marca small{font-size:10.5px;letter-spacing:.4em;padding-left:.4em}
+  .idioma{display:none} .idioma-sel{display:flex}
+}
+/* em 320px falta lugar: o WhatsApp de cima sai, o botao verde flutuante fica */
+@media(max-width:360px){ .topo .bt{display:none} }
 
 /* ============================================================
    BOTAO E LINK
@@ -204,9 +235,11 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 }
 .hero__in{position:relative;z-index:1;width:100%}
 .hero__txt{max-width:680px;animation:sobe .9s var(--ease) .12s both}
-.hero__assina{font-family:var(--cursiva);font-size:clamp(30px,3.6vw,42px);line-height:1.15;color:var(--ouro-claro)}
+/* o <h1> diz o que e + onde, igual ao <title> (apostila de SEO, cap. 14).
+   Tamanho de letra e trabalho do CSS: a frase grande embaixo e um <p>. */
+.hero__h1{margin:0 0 10px;font-size:clamp(20px,2.3vw,27px);font-weight:600;line-height:1.2;color:var(--ouro-claro)}
 .h1{
-  margin-top:4px;font-size:clamp(44px,7.6vw,90px);font-weight:700;
+  font-family:var(--serif);color:var(--creme);font-size:clamp(44px,7.6vw,90px);font-weight:700;
   letter-spacing:.01em;line-height:1;text-transform:uppercase;
 }
 .hero__tag{margin-top:24px;max-width:46ch;color:var(--creme-2);font-size:clamp(17px,1.7vw,19px)}
@@ -330,26 +363,30 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .precos--menu li{font-size:16px;padding:6px 0}
 .precos--menu li span{color:var(--creme-2)}
 .precos--menu li b{font-size:21px}
-/* LINHA DE PRECO QUE ABRE O WHATSAPP. Continua sendo cardapio, sem caixa:
-   o que diz "da pra tocar" e o simbolo do WhatsApp no fim da linha (todo
-   mundo reconhece) e a frase .dica acima. A linha inteira e o alvo, com
-   48px de altura -- regra 4. */
-/* display:block: o li tambem e flex (regra .precos li), e dentro dele o link
-   encolhia ate o texto -- "Almoco R$ 75" ficava com 191px e sem pontilhado */
-.precos li.clica{display:block;padding:0}
-.precos li.clica > a{
-  display:flex;align-items:baseline;gap:10px;min-height:48px;padding:9px 0;
-  color:inherit;text-decoration:none;
+/* O QUADRO DE PERNOITE -- opcao E, escolhida pelo Joao em 24/09/2026 entre
+   cinco: as pessoas desenhadas. Quantas pessoas cabem aparece no desenho,
+   o preco por pessoa embaixo, e a coluna inteira abre o WhatsApp com a
+   escolha escrita. Sem caixa: o fundo so aparece ao passar o mouse.
+   4 cheias + 2 apagadas = o camarote de 4 camas e o de 6. */
+.lugares{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:6px 0 44px}
+.lugar{
+  display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 6px 14px;
+  border-radius:14px;text-align:center;color:inherit;text-decoration:none;transition:background-color .15s;
 }
-.zapinho{flex:none;width:19px;height:19px;align-self:center;fill:var(--ouro);transition:fill .15s}
+.lugar__gente{display:flex;justify-content:center;align-items:flex-end;height:30px;color:var(--ouro)}
+.lugar__gente svg{width:22px;height:22px;margin:0 -2.5px}
+.lugar__gente .opc{color:rgba(201,162,39,.38)}
+.lugar__q{font-size:14.5px;color:var(--creme-2)}
+.lugar b{font-family:var(--serif);font-weight:700;font-size:clamp(28px,3vw,34px);line-height:1;color:var(--ouro-claro);font-variant-numeric:lining-nums}
+.lugar__rv{margin-top:4px;font-size:14px;font-weight:700;color:var(--ouro-claro);text-decoration:underline;text-decoration-color:rgba(232,199,102,.55);text-underline-offset:5px}
 @media (hover:hover){
-  .precos li.clica > a:hover span{color:var(--ouro-claro)}
-  .precos li.clica > a:hover i{border-bottom-color:rgba(232,199,102,.85)}
-  .precos li.clica > a:hover .zapinho{fill:var(--ouro-claro)}
+  .lugar:hover{background:var(--folha)}
+  .lugar:hover .lugar__rv{text-decoration-color:var(--ouro-claro)}
 }
-.precos li.clica > a:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:4px}
-.dica{display:flex;align-items:center;gap:10px;margin-top:18px;max-width:40ch;font-size:15px;color:var(--creme-2)}
-.dica .zapinho{width:18px;height:18px}
+.lugar:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:2px}
+@media(max-width:560px){ .lugares{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px} }
+.dica{display:flex;align-items:center;gap:10px;margin-top:18px;max-width:42ch;font-size:15px;color:var(--creme-2)}
+.dica .zapinho{flex:none;width:18px;height:18px;fill:var(--zap)}
 .grupo + .grupo{margin-top:40px}
 .aviso{margin-top:14px;font-size:15px;color:var(--creme-2)}
 .aviso b{color:var(--creme);font-weight:600}
@@ -400,6 +437,15 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 @media(max-width:700px){ .par{grid-template-columns:1fr} }
 
 .sec--seguido{padding-top:clamp(28px,4vw,48px)}
+
+/* PERGUNTAS -- pergunta e resposta direta, com numero: o formato que a IA
+   recorta e cita (apostila de SEO, cap. 41 e 43). Sem acordeao (resposta
+   escondida atras de clique) e sem caixa. */
+.perguntas{padding-top:clamp(56px,8vw,104px)}
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px clamp(32px,6vw,80px);margin:clamp(32px,5vw,52px) 0 0}
+.faq dt{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.2vw,25px);line-height:1.2;color:var(--creme)}
+.faq dd{margin:8px 0 0;max-width:52ch;color:var(--creme-2)}
+@media(max-width:760px){ .faq{grid-template-columns:1fr;gap:28px} }
 .nota{margin-top:26px;max-width:62ch;font-size:15px;color:var(--creme-2)}
 .nota b{color:var(--creme);font-weight:600}
 /* 960px e a largura da original: maior que isso seria ampliar a foto */
@@ -436,7 +482,16 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 /* max(): 2,3ch sao 26px no celular -- abaixo dos 44px de toque (regra 4) */
 .pedido input[type=number]{width:max(2.3ch,44px);-moz-appearance:textfield;appearance:textfield}
 .pedido input::-webkit-inner-spin-button,.pedido input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
-.pedido input[type=date]{font-size:.72em;vertical-align:.12em}
+.pedido select{
+  font:inherit;color:var(--ouro-claro);background-color:transparent;
+  border:0;border-bottom:2px solid var(--ouro);border-radius:0;
+  min-height:44px;margin:0 3px;padding:0 24px 0 4px;cursor:pointer;color-scheme:dark;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 4px center;background-size:11px 8px;
+}
+.pedido select:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:4px}
+.pedido select option{color:#0C1710;background:#F2E9D8;font-family:var(--sans)}
 .pedido input:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:4px}
 .pedido .bt{margin-top:30px}
 .fim__nota{margin:18px auto 0;max-width:46ch;font-size:15px;color:var(--creme-2)}
@@ -466,7 +521,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 /* whatsapp flutuante -- regra 4: sempre ao alcance */
 .zap{
   position:fixed;right:16px;bottom:16px;z-index:50;width:56px;height:56px;border-radius:50%;
-  background:#25D366;display:flex;align-items:center;justify-content:center;
+  background:var(--zap);display:flex;align-items:center;justify-content:center;
   box-shadow:0 10px 26px rgba(0,0,0,.45);text-decoration:none;
 }
 .zap svg{width:29px;height:29px;fill:#fff}
