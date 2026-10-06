@@ -333,17 +333,29 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .piso p b{color:var(--creme);font-weight:600}
 .piso .link{margin-top:8px}
 .piso__midia{display:grid;gap:14px;align-items:end}
-/* ⚠️ DUAS PECAS LADO A LADO: a altura vem da linha (stretch) e a proporcao
-   do quadro SAI (aspect-ratio:auto). Com proporcao E stretch juntos, o
-   navegador calcula a LARGURA a partir da altura esticada e o quadro vaza
-   pela direita da tela -- aconteceu no 1o andar da home. */
-.piso__midia--2{grid-template-columns:1fr 1fr;align-items:stretch}
-.piso__midia--2 > .foto-pedida{aspect-ratio:auto;min-height:clamp(150px,14vw,190px)}
+/* DUAS PECAS LADO A LADO, as duas 3:2, alinhadas em cima (a foto tem
+   legenda embaixo, o quadro nao). ⚠️ Nao trocar para stretch: com
+   proporcao E stretch juntos, o navegador calcula a LARGURA a partir da
+   altura esticada e o quadro vaza pela direita -- ja aconteceu aqui. */
+.piso__midia--2{grid-template-columns:1fr 1fr;align-items:start}
 /* em pe, a 4:5 ocupando a coluna toda passava de 700px de altura */
 .piso__midia > .foto-pedida--em-pe{width:min(100%,320px)}
 .piso__midia figure{margin:0}
 .piso__midia img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
 .piso__midia figcaption{margin-top:10px;font-size:14px;color:var(--creme-2)}
+/* FOTO EM PE (4:5): banheiro, beliche, chuveirao. Sozinha num andar fica
+   com no maximo 320px, como o quadro em pe que ela substituiu. */
+.foto--em-pe img{aspect-ratio:4/5;object-fit:cover}
+.piso__midia > .foto--em-pe{width:min(100%,320px)}
+/* par assimetrico dentro de um andar: uma deitada maior, uma em pe menor */
+.piso__midia--par{grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:end}
+.piso__midia--par > .foto--em-pe{width:auto}
+/* com DUAS pecas, o andar poe as fotos EMBAIXO do texto, nas duas colunas.
+   Lado a lado so na coluna da direita, o chuveirao ficava com 164px e a sala
+   com 226px num notebook de 1280 (medido). */
+@media(min-width:761px){
+  .piso__midia--2,.piso__midia--par{grid-column:2 / -1;max-width:880px}
+}
 .casco{height:2px;background:var(--ouro)}
 .rio{height:clamp(64px,9vw,112px);background:linear-gradient(180deg, rgba(46,91,82,.5), rgba(46,91,82,0))}
 @media(max-width:760px){
@@ -357,7 +369,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
   .piso__n{display:flex;align-items:baseline;gap:10px;font-size:52px}
   .piso__n small{margin-top:0}
 }
-@media(max-width:420px){ .piso__midia--2{grid-template-columns:1fr} }
+@media(max-width:420px){ .piso__midia--2,.piso__midia--par{grid-template-columns:1fr} }
 
 /* ============================================================
    O QUADRO DE PRECOS -- no formato do cardapio dele: nome, pontilhado,
