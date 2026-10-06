@@ -292,11 +292,9 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .oque__foto{grid-column:4 / -1;margin:0}
 /* 1200px = a largura exportada; numa tela enorme a foto para ali em vez de ampliar */
 .oque__foto img{width:100%;max-width:1200px;height:auto;aspect-ratio:4/3;object-fit:cover}
-.oque__foto figcaption{margin-top:12px;padding-right:var(--pad);font-size:14px;color:var(--creme-2)}
 @media(max-width:900px){
   .oque{grid-template-columns:var(--pad) minmax(0,1fr) var(--pad)}
   .oque__foto{grid-column:1 / -1}
-  .oque__foto figcaption{padding:0 var(--pad)}
 }
 
 /* lista com losango dourado.
@@ -342,14 +340,19 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .piso__midia > .foto-pedida--em-pe{width:min(100%,320px)}
 .piso__midia figure{margin:0}
 .piso__midia img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
-.piso__midia figcaption{margin-top:10px;font-size:14px;color:var(--creme-2)}
 /* FOTO EM PE (4:5): banheiro, beliche, chuveirao. Sozinha num andar fica
    com no maximo 320px, como o quadro em pe que ela substituiu. */
 .foto--em-pe img{aspect-ratio:4/5;object-fit:cover}
 .piso__midia > .foto--em-pe{width:min(100%,320px)}
-/* par assimetrico dentro de um andar: uma deitada maior, uma em pe menor */
-.piso__midia--par{grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:end}
-.piso__midia--par > .foto--em-pe{width:auto}
+/* PAR DE FOTOS (uma deitada, uma em pe) com a MESMA ALTURA. Cada foto
+   cresce na proporcao do proprio formato (3:2 = 1,5 · 4:5 = 0,8): as duas
+   alturas saem iguais, e cima e baixo alinham. Na grade 7/4 de antes a em
+   pe ficava ~27px mais alta e desalinhada -- o Joao: "tamanhos errados,
+   coisa horrivel" (06/10/2026). Vale para os camarotes (.par) e para o
+   3o andar da pagina a bordo (.piso__midia--par). */
+.par,.piso__midia--par{display:flex;align-items:flex-start;gap:clamp(14px,2vw,24px)}
+.par > .foto,.piso__midia--par > .foto{flex:1.5 1 0;min-width:0;width:auto}
+.par > .foto--em-pe,.piso__midia--par > .foto--em-pe{flex:.8 1 0}
 /* com DUAS pecas, o andar poe as fotos EMBAIXO do texto, nas duas colunas.
    Lado a lado so na coluna da direita, o chuveirao ficava com 164px e a sala
    com 226px num notebook de 1280 (medido). */
@@ -369,7 +372,11 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
   .piso__n{display:flex;align-items:baseline;gap:10px;font-size:52px}
   .piso__n small{margin-top:0}
 }
-@media(max-width:420px){ .piso__midia--2,.piso__midia--par{grid-template-columns:1fr} }
+@media(max-width:420px){
+  .piso__midia--2{grid-template-columns:1fr}
+  .piso__midia--par{flex-direction:column}
+  .piso__midia--par > .foto{flex:none;width:100%}
+}
 
 /* ============================================================
    O QUADRO DE PRECOS -- no formato do cardapio dele: nome, pontilhado,
@@ -464,7 +471,6 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 /* foto de verdade, solta: sem borda, sem canto, legenda como texto */
 .foto{margin:0}
 .foto img{width:100%;height:auto}
-.foto figcaption{margin-top:10px;font-size:14px;color:var(--creme-2)}
 
 /* ============================================================
    PAGINAS INTERNAS
@@ -481,8 +487,8 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 
 /* par de fotos assimetrico: uma deitada maior, uma em pe menor.
    880px de teto: sem ele os dois quadros vazios passavam de 500px de altura */
-.par{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(14px,2vw,24px);align-items:end;max-width:880px;margin-top:clamp(40px,6vw,64px)}
-@media(max-width:700px){ .par{grid-template-columns:1fr} }
+.par{max-width:880px;margin-top:clamp(40px,6vw,64px)}
+@media(max-width:700px){ .par{flex-direction:column} .par > .foto{flex:none;width:100%} }
 
 .sec--seguido{padding-top:clamp(28px,4vw,48px)}
 
