@@ -1,0 +1,16 @@
+FONTES DO SITE — servidas daqui, nao do Google Fonts (regra 8: sem enviar o
+IP de quem visita para fora antes de qualquer clique). Baixadas em 06/10/2026
+do Google Fonts, com autorizacao do Joao.
+
+EB Garamond      (titulos)   SIL Open Font License 1.1   https://fonts.google.com/specimen/EB+Garamond
+Instrument Sans  (texto)     SIL Open Font License 1.1   https://fonts.google.com/specimen/Instrument+Sans
+Parisienne       (cursiva)   SIL Open Font License 1.1   https://fonts.google.com/specimen/Parisienne
+
+A licenca OFL permite usar e servir as fontes em sites, inclusive comerciais.
+Texto da licenca: https://openfontlicense.org/open-font-license-official-text/
+
+Cada familia tem dois arquivos:
+  *-latin.woff2      portugues, ingles e espanhol completos (com acentos)
+  *-latin-ext.woff2  letras raras (ex.: o, a com tracos do leste europeu);
+                     o navegador so baixa se a pagina tiver uma delas
+As regras @font-face estao no topo de css/site.css.
