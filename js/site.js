@@ -25,7 +25,8 @@ const CONFIG = {
     comer:     "Oi! Queria saber sobre as refeições a bordo: almoço, jantar e o que dá pra programar.",
     chegar:    "Oi! Queria saber como chego até o flutuante e onde deixo o carro.",
     fim:       "Oi! Queria reservar o Majestade. Entrada [data], saída [data], [nº] pessoas.",
-    rodape:    "Oi! Queria falar com vocês sobre o flutuante."
+    rodape:    "Oi! Queria falar com vocês sobre o flutuante.",
+    dados:     "Oi! Tenho uma pergunta sobre os meus dados no site do Majestade."
   },
   /* O BOTAO DO QUADRO DE PERNOITE leva a opcao MARCADA para a mensagem.
      {preco} sai do texto da opcao na pagina: mudou o preco no HTML, a
@@ -39,14 +40,25 @@ const CONFIG = {
    INTEGRACOES — TODAS DESLIGADAS (regra 6 e regra 8 / LGPD)
    Nada aqui coleta dado. O formulario nao existe de proposito:
    tudo vai direto pro WhatsApp, entao nao ha o que guardar.
-   Ligar qualquer uma destas passa a tratar dado pessoal e exige
-   banner de consentimento + politica antes.
+
+   GOOGLE ANALYTICS (o Joao escolheu ter, 06/10/2026 -- conta DELE):
+   o aviso de cookies e a politica de privacidade JA ESTAO PRONTOS.
+   Para ligar:
+     1. id: "G-XXXXXXXXXX" (analytics.google.com > Administrador >
+        Fluxos de dados > o site) e ativo: true, aqui embaixo
+     2. no gerar-paginas.py, POLITICA_DATA_COM_GA = a data do dia
+     3. python gerar-paginas.py  (a politica passa a falar do GA)
+     4. publicar
+   Ligado, o aviso aparece sozinho e o GA so carrega DEPOIS do
+   "Aceitar"; "Recusar" e igual de facil (veja "AVISO DE COOKIES").
+
+   metaPixel e mapa NAO tem codigo: ligar = pedir ao Claude, porque
+   precisam entrar no aviso e na politica antes.
    ============================================================ */
 const INTEGRACOES = {
   googleAnalytics: { ativo:false, id:"" },
   metaPixel:       { ativo:false, id:"" },
   mapa:            { ativo:false },   /* embed do Google manda o IP pra fora */
-  consentimento:   { ativo:false },
   motorDeReserva:  { ativo:false, url:"" }
 };
 
@@ -105,7 +117,8 @@ const I18N = {
       comer:     "Hi! I'd like to know about meals on board: lunch, dinner and what can be arranged.",
       chegar:    "Hi! I'd like to know how to get to the floating hotel and where to leave the car.",
       fim:       "Hi! I'd like to book Majestade. Check-in [date], check-out [date], [number] people.",
-      rodape:    "Hi! I'd like to talk to you about the floating hotel."
+      rodape:    "Hi! I'd like to talk to you about the floating hotel.",
+      dados:     "Hi! I have a question about my data on the Majestade website."
     },
     preco: { pernoite: "Hi! I saw on the website the overnight stay in {item}, {preco} per person with breakfast. Are there dates available? We are [number] people, from [date] to [date]." }
   },
@@ -118,7 +131,8 @@ const I18N = {
       comer:     "¡Hola! Quería saber sobre las comidas a bordo: almuerzo, cena y qué se puede coordinar.",
       chegar:    "¡Hola! Quería saber cómo llegar al hotel flotante y dónde dejar el auto.",
       fim:       "¡Hola! Quiero reservar el Majestade. Entrada [fecha], salida [fecha], [nº] personas.",
-      rodape:    "¡Hola! Quería hablar con ustedes sobre el hotel flotante."
+      rodape:    "¡Hola! Quería hablar con ustedes sobre el hotel flotante.",
+      dados:     "¡Hola! Tengo una pregunta sobre mis datos en el sitio del Majestade."
     },
     preco: { pernoite: "¡Hola! Vi en el sitio la estadía en {item}, {preco} por persona con desayuno. ¿Hay fechas disponibles? Somos [nº] personas, del [fecha] al [fecha]." }
   }
@@ -262,6 +276,108 @@ function atualizarZaps() {
   });
 
   ajustarDias();
+})();
+
+/* ---- AVISO DE COOKIES (regra 8, LGPD) ----
+   So existe com o Google Analytics LIGADO no INTEGRACOES. Desligado, o site
+   nao pergunta nada, porque nao ha o que perguntar.
+   - O GA so carrega DEPOIS do "Aceitar". Antes disso, nenhum pedido sai
+     para o Google (nem preconnect).
+   - "Recusar" e "Aceitar": mesmo desenho, mesmo tamanho, lado a lado.
+   - A escolha fica no navegador (localStorage "majestade-cookies"), com a
+     data e a VERSAO da politica: e o registro do consentimento. Mudou a
+     politica de um jeito que pede novo aceite, suba a VERSAO.
+   - "Preferencias de cookies", no rodape, reabre o aviso: retirar e tao
+     facil quanto dar. Recusou depois de aceitar: o GA para na hora e os
+     cookies dele (_ga, _ga_XXXX) sao apagados.
+   O texto do aviso e do botao mora no HTML (<template>), traduzido pelo
+   gerar-paginas.py como o resto da pagina. ---- */
+(function () {
+  if (!INTEGRACOES.googleAnalytics.ativo) return;
+  var ga = INTEGRACOES.googleAnalytics;
+  if (!/^G-[A-Z0-9]{4,}$/.test(ga.id)) return;
+  var CHAVE = "majestade-cookies", VERSAO = 1;
+  var raiz = document.documentElement, quemAbriu = null;
+
+  function ler() {
+    try {
+      var v = JSON.parse(localStorage.getItem(CHAVE));
+      return v && v.versao === VERSAO ? v : null;
+    } catch (e) { return null; }
+  }
+  function gravar(escolha) {
+    try {
+      localStorage.setItem(CHAVE, JSON.stringify({ escolha: escolha, data: new Date().toISOString(), versao: VERSAO }));
+    } catch (e) { /* navegador sem localStorage: pergunta de novo na proxima pagina */ }
+  }
+
+  function ligarGA() {
+    if (!INTEGRACOES.googleAnalytics.ativo || window.__gaMajestade) return;  /* portao: so depois do Aceitar */
+    window.__gaMajestade = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", ga.id, { allow_google_signals: false, allow_ad_personalization_signals: false, cookie_expires: 395 * 24 * 60 * 60 });
+    var s = document.createElement("script"); s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(ga.id); document.head.appendChild(s);
+  }
+  function desligarGA() {
+    window["ga-disable-" + ga.id] = true;   /* para de medir nesta pagina */
+    var partes = location.hostname.split(".");
+    document.cookie.split(";").forEach(function (c) {
+      var nome = c.split("=")[0].trim();
+      if (nome !== "_ga" && nome.indexOf("_ga_") !== 0) return;
+      document.cookie = nome + "=; Max-Age=0; path=/";
+      for (var i = 0; i < partes.length - 1; i++) {
+        document.cookie = nome + "=; Max-Age=0; path=/; domain=." + partes.slice(i).join(".");
+      }
+    });
+  }
+
+  /* a altura do aviso, para o botao do WhatsApp e o fim da pagina nao
+     ficarem escondidos atras dele no celular */
+  function medir() {
+    var a = document.querySelector(".aviso-cookies");
+    if (a) raiz.style.setProperty("--aviso-h", a.offsetHeight + "px");
+  }
+  function fechar() {
+    var a = document.querySelector(".aviso-cookies");
+    if (a) a.remove();
+    raiz.classList.remove("com-aviso-cookies");
+    window.removeEventListener("resize", medir);
+    if (quemAbriu) { quemAbriu.focus(); quemAbriu = null; }
+  }
+  function escolher(escolha) {
+    gravar(escolha);
+    if (escolha === "aceito") ligarGA(); else desligarGA();
+    fechar();
+  }
+  function mostrar(origem) {
+    var t = document.getElementById("aviso-cookies");
+    if (!t || document.querySelector(".aviso-cookies")) return;
+    var aviso = t.content.firstElementChild.cloneNode(true);
+    aviso.querySelectorAll("[data-escolha]").forEach(function (b) {
+      b.addEventListener("click", function () { escolher(b.getAttribute("data-escolha")); });
+    });
+    /* primeiro no corpo da pagina: e o primeiro lugar que o Tab e o leitor
+       de tela encontram. Na tela, ele fica embaixo (position: fixed). */
+    document.body.insertBefore(aviso, document.body.firstChild);
+    raiz.classList.add("com-aviso-cookies");
+    medir();
+    window.addEventListener("resize", medir, { passive: true });
+    if (origem) { quemAbriu = origem; aviso.querySelector("[data-escolha]").focus(); }
+  }
+
+  /* rodape: "Preferencias de cookies" */
+  var tb = document.getElementById("botao-cookies"), fim = document.querySelector(".rod__fim");
+  if (tb && fim) {
+    var bt = tb.content.firstElementChild.cloneNode(true);
+    bt.addEventListener("click", function () { mostrar(bt); });
+    fim.appendChild(bt);
+  }
+
+  var atual = ler();
+  if (!atual) mostrar(null);
+  else if (atual.escolha === "aceito") ligarGA();
 })();
 
 /* ---- as mensagens de WhatsApp na lingua da pagina. Depois do quadro de

@@ -36,6 +36,19 @@
 </head>
 <body>
 
+<!--AVISO-->
+<template id="aviso-cookies">
+  <section class="aviso-cookies" aria-label="Cookies" data-i18n-aria="ck_aria">
+    <p class="aviso-cookies__txt" data-i18n="ck_txt">Usamos o <b>Google Analytics</b> para contar visitas e saber quais páginas ajudam quem procura o hotel. Ele só funciona se você aceitar. <a href="/privacidade/">Política de privacidade</a></p>
+    <div class="aviso-cookies__bts">
+      <button type="button" class="aviso-cookies__bt" data-escolha="recusado" data-i18n="ck_recusar">Recusar</button>
+      <button type="button" class="aviso-cookies__bt" data-escolha="aceito" data-i18n="ck_aceitar">Aceitar</button>
+    </div>
+  </section>
+</template>
+<template id="botao-cookies"><button type="button" class="rod__cookies" data-i18n="ck_botao">Preferências de cookies</button></template>
+<!--/AVISO-->
+
 <header class="topo">
   <div class="wrap">
     <a class="marca" href="../"><b>Majestade</b><small>Flutuante</small></a>
@@ -173,7 +186,7 @@
     </svg>
     <div class="rod__fim">
       <span>© <span id="ano">2026</span> Majestade Flutuante, Aquidauana (MS)</span>
-      <span data-i18n="rod_cookies">Este site não usa cookies e não guarda nenhum dado seu.</span>
+      <a href="../privacidade/" data-i18n="rod_privacidade">Privacidade e cookies</a>
     </div>
   </div>
 </footer>

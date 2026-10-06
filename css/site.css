@@ -492,6 +492,15 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
    ============================================================ */
 .pagina{padding-top:clamp(56px,8vw,104px)}
 .pagina__cabeca{max-width:760px}
+/* POLITICA DE PRIVACIDADE -- texto para ler: uma coluna so, na medida de
+   leitura, e o titulo de cada parte no tamanho dos das colunas */
+.politica{max-width:68ch;margin-top:clamp(36px,4.5vw,52px)}
+.politica h2{margin-top:clamp(34px,4vw,46px);font-size:clamp(24px,2.4vw,29px);color:var(--creme)}
+.politica h2:first-child{margin-top:0}
+.politica p{margin-top:12px;color:var(--creme-2)}
+.politica p b{color:var(--creme);font-weight:600}
+.politica a{color:var(--creme);text-decoration:underline;text-decoration-color:rgba(var(--ouro-rgb),.7);text-underline-offset:4px}
+@media (hover:hover){ .politica a:hover{color:var(--ouro-claro)} }
 .colunas{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);margin-top:clamp(40px,5vw,60px)}
 @media(max-width:760px){ .colunas{grid-template-columns:1fr} }
 .colunas h2{font-size:clamp(25px,2.6vw,31px);color:var(--creme)}
@@ -512,7 +521,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
    em tela estreita abre buracos entre as palavras. O hifen segue a lingua da
    pagina (<html lang>), por isso funciona em PT, EN e ES. Titulo, legenda,
    botao e texto centralizado ficam de fora. */
-.lead,.hero__tag,.lista li,.piso p,.colunas p,.faq dd,.nota,.aviso{
+.lead,.hero__tag,.lista li,.piso p,.colunas p,.faq dd,.nota,.aviso,.politica p{
   text-align:justify;-webkit-hyphens:auto;hyphens:auto;
 }
 
@@ -607,9 +616,18 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
 .rod .marca small{padding-left:0}
 .rod__lema{margin-top:14px;font-family:var(--cursiva);font-size:24px;line-height:1.3;color:var(--ouro)}
 .rod__fim{
-  margin-top:44px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+  margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:0 24px;justify-content:space-between;
   font-size:13px;color:var(--apagado);
 }
+/* "Privacidade e cookies" e, com o Google Analytics ligado, "Preferencias de
+   cookies": letra miuda como o resto da linha, mas 44px de toque (regra 4) */
+.rod__fim a,.rod__cookies{
+  display:inline-flex;align-items:center;min-height:44px;
+  font:inherit;color:var(--apagado);text-decoration:underline;
+  text-decoration-color:rgba(var(--ouro-rgb),.42);text-underline-offset:4px;
+}
+.rod__cookies{padding:0;border:0;background:none;cursor:pointer}
+@media (hover:hover){ .rod__fim a:hover,.rod__cookies:hover{color:var(--creme-2)} }
 
 /* whatsapp flutuante -- regra 4: sempre ao alcance */
 .zap{
@@ -618,6 +636,32 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
   box-shadow:0 10px 26px rgba(0,0,0,.45);text-decoration:none;
 }
 .zap svg{width:29px;height:29px;fill:#fff}
+
+/* AVISO DE COOKIES -- so aparece com o Google Analytics ligado (INTEGRACOES,
+   js/site.js). Recusar e Aceitar com o MESMO desenho, o mesmo tamanho e lado a
+   lado: recusar tem que ser tao facil quanto aceitar (regra 8). Sem movimento:
+   o site tem um so, o da capa. Fundo --folha, sem borda: a cor ja o separa
+   da pagina, e a sombra (com deslocamento) da a altura. */
+.aviso-cookies{
+  position:fixed;left:16px;bottom:16px;z-index:60;width:min(32rem,calc(100% - 32px));
+  display:flex;flex-direction:column;gap:14px;padding:18px 20px 20px;border-radius:14px;
+  background:var(--folha);color:var(--creme-2);font-size:15px;line-height:1.5;
+  box-shadow:0 16px 40px rgba(0,0,0,.45);
+}
+.aviso-cookies__txt b{color:var(--creme);font-weight:600}
+.aviso-cookies__txt a{color:var(--creme);text-decoration:underline;text-decoration-color:rgba(var(--ouro-rgb),.7);text-underline-offset:3px}
+.aviso-cookies__bts{display:flex;gap:10px}
+.aviso-cookies__bt{
+  flex:1 1 0;min-height:48px;padding:12px 18px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--creme);color:var(--mata);font-family:var(--sans);font-weight:700;font-size:15px;
+}
+@media (hover:hover){ .aviso-cookies__bt:hover{background:var(--creme-2)} }
+@media(max-width:600px){ .aviso-cookies{left:12px;bottom:12px;width:calc(100% - 24px)} }
+/* com o aviso aberto: o fim da pagina ganha folga, e no celular o botao do
+   WhatsApp sobe para cima dele (a altura vem do site.js, --aviso-h) */
+.com-aviso-cookies body{padding-bottom:calc(var(--aviso-h,0px) + 28px)}
+@media(max-width:700px){ .com-aviso-cookies .zap{bottom:calc(var(--aviso-h,0px) + 24px)} }
+@media print{ .aviso-cookies{display:none} }
 
 /* foco visivel em tudo que e alcancavel por teclado */
 a:focus-visible,button:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:3px}

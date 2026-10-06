@@ -36,6 +36,24 @@
 </head>
 <body class="home">
 
+<!-- AVISO DE COOKIES (regra 8, LGPD). DORME ate o Google Analytics ser ligado
+     no INTEGRACOES (js/site.js): desligado, nada disto aparece, porque nao ha
+     o que perguntar. <template> nao vai para a tela; o site.js copia o aviso
+     para a pagina so quando precisa. Recusar e Aceitar tem o MESMO desenho.
+     O gerar-paginas.py copia este bloco para as outras paginas. -->
+<!--AVISO-->
+<template id="aviso-cookies">
+  <section class="aviso-cookies" aria-label="Cookies" data-i18n-aria="ck_aria">
+    <p class="aviso-cookies__txt" data-i18n="ck_txt">Usamos <b>Google Analytics</b> para contar visitas y ver qué páginas ayudan a quien busca el hotel. Solo funciona si aceptas. <a href="/es/privacidade/">Política de privacidad</a></p>
+    <div class="aviso-cookies__bts">
+      <button type="button" class="aviso-cookies__bt" data-escolha="recusado" data-i18n="ck_recusar">Rechazar</button>
+      <button type="button" class="aviso-cookies__bt" data-escolha="aceito" data-i18n="ck_aceitar">Aceptar</button>
+    </div>
+  </section>
+</template>
+<template id="botao-cookies"><button type="button" class="rod__cookies" data-i18n="ck_botao">Preferencias de cookies</button></template>
+<!--/AVISO-->
+
 <header class="topo">
   <div class="wrap">
     <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
@@ -327,7 +345,7 @@
     </svg>
     <div class="rod__fim">
       <span>© <span id="ano">2026</span> Majestade Flutuante, Aquidauana (MS)</span>
-      <span data-i18n="rod_cookies">Este sitio no usa cookies y no guarda ningún dato tuyo.</span>
+      <a href="/es/privacidade/" data-i18n="rod_privacidade">Privacidad y cookies</a>
     </div>
   </div>
 </footer>
