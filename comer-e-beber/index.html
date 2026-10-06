@@ -13,6 +13,12 @@
 <title>Cardápio de Bordo e Refeições - Hotel Flutuante Majestade</title>
 <meta name="description" content="Almoço e jantar a R$ 75, porções de costela de pacu e cardápio de bebidas a bordo do hotel flutuante Majestade, no Pantanal.">
 <link rel="canonical" href="https://majestade-flutuante.vercel.app/comer-e-beber/">
+<!-- as tres versoes da mesma pagina (Google e IAs mandam cada um para a
+     sua lingua). O gerar-paginas.py acerta os enderecos em cada pagina. -->
+<link rel="alternate" hreflang="pt-BR" href="https://majestade-flutuante.vercel.app/comer-e-beber/">
+<link rel="alternate" hreflang="en" href="https://majestade-flutuante.vercel.app/en/comer-e-beber/">
+<link rel="alternate" hreflang="es" href="https://majestade-flutuante.vercel.app/es/comer-e-beber/">
+<link rel="alternate" hreflang="x-default" href="https://majestade-flutuante.vercel.app/comer-e-beber/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Majestade Flutuante">
@@ -40,9 +46,9 @@
     <!-- troca de lingua no computador; no celular e no tablet ela fica no
          rodape, e o topo mostra os quatro itens do menu -->
     <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
-      <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
-      <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
-      <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+      <a href="/comer-e-beber/" data-lang="pt" hreflang="pt-BR" lang="pt-BR" aria-current="true">PT</a>
+      <a href="/en/comer-e-beber/" data-lang="en" hreflang="en" lang="en">EN</a>
+      <a href="/es/comer-e-beber/" data-lang="es" hreflang="es" lang="es">ES</a>
     </div>
     <a class="bt" data-wa="topo" href="https://wa.me/556792063535">
       <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
@@ -123,9 +129,9 @@
         <a href="https://www.instagram.com/flutuantemajestade" target="_blank" rel="noopener noreferrer">Instagram @flutuantemajestade</a>
         <h2 class="frod__idioma" data-i18n="idioma_aria">Idioma</h2>
         <div class="idioma idioma--rodape" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
-          <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
-          <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
-          <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+          <a href="/comer-e-beber/" data-lang="pt" hreflang="pt-BR" lang="pt-BR" aria-current="true">PT</a>
+          <a href="/en/comer-e-beber/" data-lang="en" hreflang="en" lang="en">EN</a>
+          <a href="/es/comer-e-beber/" data-lang="es" hreflang="es" lang="es">ES</a>
         </div>
       </div>
     </div>

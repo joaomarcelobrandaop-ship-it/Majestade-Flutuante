@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es" data-pagina="home">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Regra 3: previa de prospeccao NAO e indexada. O robots.txt fica LIBERADO
+     de proposito: o Google precisa entrar para LER este noindex (apostila de
+     SEO, cap. 8 -- "a pegadinha mais cara"). No dia da virada, apagar esta
+     linha e seguir o checklist A.1 (comercial/seo-virada.md). -->
+<meta name="robots" content="noindex, nofollow">
+<!-- 59 caracteres, com hifen e com a cidade (apostila cap. 14). O h1 diz
+     a mesma coisa: quando title e h1 combinam, o Google quase nao reescreve. -->
+<title>Hotel Flotante Majestade en el Pantanal - Aquidauana, Brasil</title>
+<meta name="description" content="Hotel flotante en el Pantanal, Brasil, con 4 camarotes con aire acondicionado y desayuno. De R$ 200 a R$ 500 por persona por noche. Reserva por WhatsApp.">
+<link rel="canonical" href="https://majestade-flutuante.vercel.app/es/">
+<!-- as tres versoes da mesma pagina (Google e IAs mandam cada um para a
+     sua lingua). O gerar-paginas.py acerta os enderecos em cada pagina. -->
+<link rel="alternate" hreflang="pt-BR" href="https://majestade-flutuante.vercel.app/">
+<link rel="alternate" hreflang="en" href="https://majestade-flutuante.vercel.app/en/">
+<link rel="alternate" hreflang="es" href="https://majestade-flutuante.vercel.app/es/">
+<link rel="alternate" hreflang="x-default" href="https://majestade-flutuante.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_LA">
+<meta property="og:site_name" content="Majestade Flutuante">
+<meta property="og:url" content="https://majestade-flutuante.vercel.app/es/">
+<meta property="og:title" content="Hotel Flotante Majestade en el Pantanal - Aquidauana, Brasil">
+<meta property="og:description" content="Cuatro camarotes con aire acondicionado y una terraza abierta en medio del río. Estadía con desayuno desde R$ 200 por persona.">
+<meta property="og:image" content="https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp">
+<meta property="og:image:alt" content="El Majestade Flutuante iluminado de noche, visto desde el río">
+<meta name="twitter:card" content="summary_large_image">
+<!-- favicon: a coroa da "Majestade" (a arte dele tem a coruja coroada) -->
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M9 46 5 17l15 12L32 8l12 21 15-12-4 29z" fill="%23C9A227"/><rect x="9" y="50" width="46" height="6" fill="%23C9A227"/></svg>'>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body class="home">
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
+    <nav class="menu" id="menu" aria-label="Principal" data-i18n-aria="nav_aria">
+      <a href="/es/camarotes/" data-i18n="nav_camarotes">Camarotes</a>
+      <a href="/es/a-bordo/" data-i18n="nav_bordo">A bordo</a>
+      <a href="/es/comer-e-beber/" data-i18n="nav_comer">Comer y beber</a>
+      <a href="/es/como-chegar/" data-i18n="nav_chegar">Cómo llegar</a>
+    </nav>
+    <!-- troca de lingua no computador; no celular e no tablet ela fica no
+         rodape, e o topo mostra os quatro itens do menu -->
+    <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+      <a href="/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
+      <a href="/en/" data-lang="en" hreflang="en" lang="en">EN</a>
+      <a href="/es/" data-lang="es" hreflang="es" lang="es" aria-current="true">ES</a>
+    </div>
+    <a class="bt" data-wa="topo" href="https://wa.me/556792063535">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+      <span data-i18n="nav_reservar">Reservar</span>
+    </a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ========================= CAPA ========================= -->
+<section class="hero">
+  <div class="hero__bg">
+    <!-- a foto INTEIRA (4:3), nunca maior que o original (memoria
+         nunca-ampliar-imagem): na largura da tela ate 899px; ao lado do
+         texto no computador, com 50% da tela e no maximo 800px. O sizes
+         abaixo repete essas medidas, para o navegador baixar a certa. -->
+    <img src="/img/hotel-flutuante-majestade-noite-1600.webp" srcset="/img/hotel-flutuante-majestade-noite-800.webp 800w, /img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 899px) 100vw, (max-width: 1600px) 50vw, 800px" alt="El Majestade Flutuante iluminado de noche, visto desde el río, con las luces reflejadas en el agua" data-i18n-alt="hero_alt" fetchpriority="high" width="1600" height="1200">
+  </div>
+  <div class="wrap hero__in">
+    <div class="hero__txt">
+      <!-- o h1 diz O QUE E + ONDE, igual ao title. A frase grande embaixo
+           e o gancho; ela e um paragrafo porque tamanho de letra e trabalho do CSS. -->
+      <h1 class="hero__h1" data-i18n="hero_h1">Hotel flotante en el Pantanal, con salida desde Aquidauana (MS)</h1>
+      <p class="h1" data-i18n="hero_grande">Dormir en medio del río</p>
+      <!-- as primeiras 100 palavras: o que e + onde + prova + pratica -->
+      <p class="hero__tag" data-i18n="hero_tag">El <b>Majestade</b> es un hotel flotante de tres pisos en el Pantanal, con embarque en el Pesqueiro Itaju, en Aquidauana (Mato Grosso do Sul, Brasil). Son 18 camas en cuatro camarotes con aire acondicionado, y la estadía con desayuno cuesta desde R$ 200 por persona.</p>
+      <div class="acoes">
+        <a class="bt" data-wa="hero" href="https://wa.me/556792063535" data-i18n="hero_cta">Ver fechas disponibles</a>
+        <a class="link" href="/es/camarotes/" data-i18n="hero_link">Camarotes y precios</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= O QUE E ========================= -->
+<section class="sec oque" id="oque">
+  <div class="oque__txt">
+    <h2 class="titulo" data-i18n="oque_t">Un hotel que flota</h2>
+    <p class="lead" data-i18n="oque_lead">El Majestade está anclado sobre el agua y tiene la estructura de un hotel pequeño: <b>cuatro camarotes con aire acondicionado</b>, baños, sala, cocina y una terraza abierta en el último piso.</p>
+    <ul class="lista">
+      <li data-i18n="oque_l1"><b>18 camas</b> en cuatro camarotes: tres de cuatro camas y uno de seis.</li>
+      <li data-i18n="oque_l2"><b>Cuatro baños</b>, fuera de las habitaciones.</li>
+      <li data-i18n="oque_l3"><b>Sala con TV, sofás, mesas y heladera de cervezas</b>, donde el grupo se junta cuando cae el sol.</li>
+      <li data-i18n="oque_l4"><b>Desayuno incluido</b> en la estadía. Almuerzo y cena a coordinar.</li>
+    </ul>
+  </div>
+  <figure class="oque__foto">
+    <img src="/img/hotel-flutuante-majestade-vista-aerea.webp" alt="Vista aérea del Majestade Flutuante anclado en el río, con paneles solares en el techo y la terraza de madera" data-i18n-alt="oque_alt" loading="lazy" decoding="async" width="1200" height="900">
+  </figure>
+</section>
+
+<!-- ========================= OS TRES ANDARES =========================
+     Na ordem do barco: o 3 em cima, o 1 embaixo, e o rio por baixo. -->
+<section class="sec andares" id="andares">
+  <div class="wrap">
+    <div class="andares__cabeca">
+      <h2 class="titulo" data-i18n="and_t">Tres pisos, cada uno con su momento</h2>
+      <p class="lead" data-i18n="and_lead">Los camarotes están en el medio. Abajo, la sala y la cocina; arriba, la terraza al aire libre.</p>
+    </div>
+
+    <ol class="predio">
+      <li class="piso">
+        <p class="piso__n" aria-hidden="true">3<small data-i18n="andar">piso</small></p>
+        <div>
+          <h3><span class="sr" data-i18n="sr_and3">Tercer piso: </span><span data-i18n="and_3_t">Terraza abierta, ducha y sombra</span></h3>
+          <p data-i18n="and_3_p">Sillas y reposeras al aire libre para el sol y el atardecer, y un área cubierta con mesita de centro para quien prefiere la sombra.</p>
+        </div>
+        <div class="piso__midia">
+          <figure class="foto">
+            <img src="/img/deck-aberto-hotel-flutuante-majestade.webp" alt="Terraza de madera al aire libre en el tercer piso, con sombrilla, reposeras y el río al lado" data-i18n-alt="f_deck_alt" loading="lazy" decoding="async" width="1200" height="800">
+          </figure>
+        </div>
+      </li>
+      <li class="piso">
+        <p class="piso__n" aria-hidden="true">2<small data-i18n="andar">piso</small></p>
+        <div>
+          <h3><span class="sr" data-i18n="sr_and2">Segundo piso: </span><span data-i18n="and_2_t">Cuatro camarotes y dos baños</span></h3>
+          <p data-i18n="and_2_p">Tres camarotes de cuatro camas y uno de seis, con literas y camas individuales. Todos con aire acondicionado.</p>
+          <a class="link" href="/es/camarotes/" data-i18n="and_2_link">Ver los camarotes</a>
+        </div>
+        <div class="piso__midia">
+          <figure class="foto">
+            <img src="/img/camarote-hotel-flutuante-majestade.webp" alt="Camarote con una litera y dos camas individuales tendidas, y el aire acondicionado en la pared" data-i18n-alt="f_cam_alt" loading="lazy" decoding="async" width="1200" height="800">
+          </figure>
+        </div>
+      </li>
+      <li class="piso">
+        <p class="piso__n" aria-hidden="true">1<small data-i18n="andar">piso</small></p>
+        <div>
+          <h3><span class="sr" data-i18n="sr_and1">Primer piso: </span><span data-i18n="and_1_t">Sala, cocina y dos baños</span></h3>
+          <p data-i18n="and_1_p">La sala tiene TV, aire acondicionado, mesas, sofás y <b>heladera con bebidas</b>. La cocina prepara las comidas a bordo.</p>
+        </div>
+        <div class="piso__midia piso__midia--2">
+          <figure class="foto">
+            <img src="/img/sala-hotel-flutuante-majestade.webp" alt="Sala del primer piso con sofás, mesa de comedor, TV y ventanas hacia la selva" data-i18n-alt="f_sala_alt" loading="lazy" decoding="async" width="1200" height="800">
+          </figure>
+          <div class="foto-pedida"><span class="foto-pedida__n" data-foto="02">Falta la foto 02 de 8</span><span class="foto-pedida__t" data-i18n="fp02_t">La cocina</span><p class="foto-pedida__c" data-i18n="fp02_c">Limpia y ordenada, <b>horizontal</b>.</p></div>
+        </div>
+      </li>
+    </ol>
+    <div class="casco" aria-hidden="true"></div>
+  </div>
+  <div class="rio" aria-hidden="true"></div>
+</section>
+
+<!-- ========================= PERNOITE =========================
+     Opcao D, escolhida pelo Joao em 25/09/2026 entre cinco ("escolhe e
+     reserva"), no lugar da E: na E cada coluna era um link, e nao parecia
+     botao. Agora as colunas sao ESCOLHA e ha UM botao so, que diz para
+     quantos e a reserva ("Reservar para 2 pessoas") e abre o WhatsApp com
+     a escolha escrita. Um botao principal por secao (regra 5).
+     O bloco entre ESCOLHA e /ESCOLHA, e a dica, sao copiados pelo
+     gerar-paginas.py para a pagina de camarotes: mudou AQUI, muda la. -->
+<section class="sec quadro" id="pernoite">
+  <div class="wrap quadro__in">
+    <div>
+      <h2 class="titulo" data-i18n="per_t">Cuánto cuesta dormir a bordo</h2>
+      <p class="lead" data-i18n="per_lead">Precio <b>por persona, por noche</b>, con <b>desayuno incluido</b>. Cuanta más gente en el camarote, menos paga cada uno.</p>
+      <p class="dica"><svg class="zapinho" aria-hidden="true"><use href="#i-zap"/></svg><span data-i18n="per_dica">Elige cuántas personas van y toca el botón: WhatsApp se abre con tu elección ya escrita.</span></p>
+    </div>
+    <div>
+      <!--ESCOLHA-->
+      <div class="escolha">
+        <fieldset>
+          <legend class="rotulo"><span data-i18n="esc_q">¿Cuántas personas en el camarote?</span> <small data-i18n="esc_q_s">precio por persona</small></legend>
+          <!-- Comeca marcada a de 2 pessoas: com a de 4 a 6 marcada, um casal
+               que tocasse direto mandaria "R$ 200" e acharia que paga isso.
+               4 cheias + 2 apagadas = o camarote de 4 camas e o de 6. -->
+          <div class="lugares">
+            <input class="sr" type="radio" name="lugar" id="lg-i1" value="i1">
+            <label class="lugar" for="lg-i1">
+              <span class="lugar__gente" aria-hidden="true"><svg><use href="#i-pessoa"/></svg></span>
+              <span class="lugar__q" data-i18n="lg_1">1 persona</span>
+              <b>R$ 500</b>
+            </label>
+            <input class="sr" type="radio" name="lugar" id="lg-i2" value="i2" checked>
+            <label class="lugar" for="lg-i2">
+              <span class="lugar__gente" aria-hidden="true"><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg></span>
+              <span class="lugar__q" data-i18n="lg_2">2 personas</span>
+              <b>R$ 300</b>
+            </label>
+            <input class="sr" type="radio" name="lugar" id="lg-i3" value="i3">
+            <label class="lugar" for="lg-i3">
+              <span class="lugar__gente" aria-hidden="true"><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg></span>
+              <span class="lugar__q" data-i18n="lg_3">3 personas</span>
+              <b>R$ 250</b>
+            </label>
+            <input class="sr" type="radio" name="lugar" id="lg-i46" value="i46">
+            <label class="lugar" for="lg-i46">
+              <span class="lugar__gente" aria-hidden="true"><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg><svg><use href="#i-pessoa"/></svg><svg class="opc"><use href="#i-pessoa"/></svg><svg class="opc"><use href="#i-pessoa"/></svg></span>
+              <span class="lugar__q" data-i18n="lg_46">4 a 6 personas</span>
+              <b>R$ 200</b>
+            </label>
+          </div>
+        </fieldset>
+        <!-- o texto do botao ("Reservar para 2 pessoas") e a mensagem saem da
+             opcao marcada, no site.js. Sem JS, abre a conversa do mesmo jeito. -->
+        <a class="bt escolha__bt" data-wa-preco="pernoite" href="https://wa.me/556792063535"><svg aria-hidden="true"><use href="#i-zap"/></svg><span class="escolha__txt" data-i18n="nav_reservar">Reservar</span><span class="sr" data-i18n="lg_sr"> por WhatsApp</span></a>
+      </div>
+      <!--/ESCOLHA-->
+
+      <div class="grupo">
+        <h3 class="rotulo" data-i18n="ref_rot">Comidas, a coordinar</h3>
+        <ul class="precos">
+          <li><span data-i18n="almoco">Almuerzo</span><i></i><b>R$ 75</b></li>
+          <li><span data-i18n="jantar">Cena</span><i></i><b>R$ 75</b></li>
+        </ul>
+        <p class="aviso" data-i18n="ref_aviso">Bebidas y porciones tienen su propio menú a bordo.</p>
+      </div>
+      <div class="acoes">
+        <a class="link" href="/es/comer-e-beber/" data-i18n="per_link">Ver el menú de a bordo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= RESERVA =========================
+     O slogan e DELE, copiado da arte. A frase monta a mensagem do
+     WhatsApp; nada e guardado nem enviado para lugar nenhum (regra 8). -->
+<section class="sec fim" id="reservar">
+  <div class="wrap">
+    <h2 class="fim__slogan" data-i18n="fim_slogan">¡Más que un destino, una experiencia inolvidable!</h2>
+    <!-- BARRA DE RESERVA. Era uma frase ("Reserva para [4] pessoas, [2]
+         noites...") em serifa grande, com campos no meio: quatro tamanhos
+         brigando e a lista do mes larga demais. Agora: rotulo em cima, uma
+         fonte so, e campo e botao com a mesma altura. -->
+    <form class="pedido" id="pedido" action="https://wa.me/556792063535" method="get" target="_blank">
+      <label class="campo"><span data-i18n="f_pessoas">Personas</span>
+        <select name="pessoas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select></label>
+      <label class="campo"><span data-i18n="f_noites">Noches</span>
+        <select name="noites"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
+      <div class="campo campo--data" role="group" aria-labelledby="rot-chegada"><span id="rot-chegada" data-i18n="f_chegada">Llegada</span>
+        <div class="campo__par">
+          <select name="dia" aria-label="Día de llegada" data-i18n-aria="f_dia_aria"><option value="" data-i18n="f_dia">día</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option></select>
+          <select name="mes" aria-label="Mes de llegada" data-i18n-aria="f_mes_aria"><option value="" data-i18n="f_mes">mes</option><option value="1">enero</option><option value="2">febrero</option><option value="3">marzo</option><option value="4">abril</option><option value="5">mayo</option><option value="6">junio</option><option value="7">julio</option><option value="8">agosto</option><option value="9">septiembre</option><option value="10">octubre</option><option value="11">noviembre</option><option value="12">diciembre</option></select>
+        </div>
+      </div>
+      <button class="bt" type="submit">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+        <span data-i18n="f_bt">Enviar por WhatsApp</span>
+      </button>
+    </form>
+    <p class="fim__nota" data-i18n="fim_nota">El mensaje ya sale escrito. Revisamos la fecha y respondemos con el precio para tu grupo.</p>
+  </div>
+</section>
+
+<!-- ========================= PERGUNTAS =========================
+     Pergunta -> resposta direta, com numero: e o bloco que a IA recorta e
+     cita (apostila cap. 41 e 43). Tudo aqui e FATO da mensagem ou do
+     cardapio do Fabio. Sem FAQPage no schema: o Google aposentou em 05/2026. -->
+<section class="sec perguntas" id="perguntas">
+  <div class="wrap">
+    <h2 class="titulo" data-i18n="faq_t">Preguntas frecuentes</h2>
+    <dl class="faq">
+      <div><dt data-i18n="faq1_q">¿Cuánto cuesta dormir en el Majestade?</dt>
+        <dd data-i18n="faq1_a">La estadía cuesta de R$ 200 a R$ 500 por persona, por noche, con desayuno incluido. El precio depende de cuántas personas comparten el camarote: R$ 200 con 4 a 6 personas, R$ 250 con 3, R$ 300 con 2 y R$ 500 para una sola persona.</dd></div>
+      <div><dt data-i18n="faq2_q">¿Cuántos camarotes y camas tiene el Majestade?</dt>
+        <dd data-i18n="faq2_a">Son 18 camas en cuatro camarotes: tres de cuatro camas y uno de seis, con literas y camas individuales.</dd></div>
+      <div><dt data-i18n="faq3_q">¿Los camarotes tienen aire acondicionado y baño?</dt>
+        <dd data-i18n="faq3_a">Los cuatro camarotes tienen aire acondicionado. Los baños están fuera de las habitaciones: son cuatro en total, dos en el primer piso y dos en el segundo.</dd></div>
+      <div><dt data-i18n="faq4_q">¿Las comidas están incluidas?</dt>
+        <dd data-i18n="faq4_a">El desayuno está incluido en la estadía. El almuerzo y la cena cuestan R$ 75 cada uno y se coordinan con anticipación. Bebidas, hielo y porciones se venden a bordo.</dd></div>
+      <div><dt data-i18n="faq5_q">¿Cómo se llega al Majestade Flutuante?</dt>
+        <dd data-i18n="faq5_a">El embarque es en el Pesqueiro Itaju, en Aquidauana (Mato Grosso do Sul), a unos 140 km de Campo Grande. Desde ahí, el último tramo hasta el hotel se hace en barco, en el horario acordado al reservar.</dd></div>
+      <div><dt data-i18n="faq7_q">¿Puedo ir en mi propia embarcación?</dt>
+        <dd data-i18n="faq7_a">Sí. Puedes llegar en tu propia embarcación o contratar las del Majestade, que están en el Pesqueiro Itaju, en Aquidauana.</dd></div>
+      <div><dt data-i18n="faq6_q">¿Cómo hago la reserva?</dt>
+        <dd data-i18n="faq6_a">Por WhatsApp al +55 67 9206-3535. Envía cuántas personas, cuántas noches y la fecha de llegada, y te respondemos con el precio para tu grupo.</dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================= RODAPE =========================
+     Nome, endereco e telefone VISIVEIS e iguais em todo lugar (site,
+     Google, Instagram): a IA desiste de recomendar quando as fontes
+     divergem (apostila cap. 43). -->
+<footer class="rod">
+  <div class="wrap">
+    <div class="frod">
+      <div>
+        <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
+        <p data-i18n="rod_p">Hotel flotante en el Pantanal<br>Embarque en el Pesqueiro Itaju<br>Aquidauana, Mato Grosso do Sul, Brasil</p>
+        <p class="rod__lema" data-i18n="rod_lema">El Pantanal en su mejor experiencia</p>
+      </div>
+      <div>
+        <h2 data-i18n="rod_paginas">Páginas</h2>
+        <a href="/es/camarotes/" data-i18n="rod_camarotes">Camarotes y precios</a>
+        <a href="/es/a-bordo/" data-i18n="nav_bordo">A bordo</a>
+        <a href="/es/comer-e-beber/" data-i18n="nav_comer">Comer y beber</a>
+        <a href="/es/como-chegar/" data-i18n="nav_chegar">Cómo llegar</a>
+      </div>
+      <div>
+        <h2 data-i18n="rod_falar">Hablar con nosotros</h2>
+        <a data-wa="rodape" href="https://wa.me/556792063535" data-i18n="rod_zap">WhatsApp +55 67 9206-3535</a>
+        <a href="https://www.instagram.com/flutuantemajestade" target="_blank" rel="noopener noreferrer">Instagram @flutuantemajestade</a>
+        <h2 class="frod__idioma" data-i18n="idioma_aria">Idioma</h2>
+        <div class="idioma idioma--rodape" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+          <a href="/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
+          <a href="/en/" data-lang="en" hreflang="en" lang="en">EN</a>
+          <a href="/es/" data-lang="es" hreflang="es" lang="es" aria-current="true">ES</a>
+        </div>
+      </div>
+    </div>
+    <!-- os simbolos usados nas paginas, definidos uma vez so -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.3.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+      <symbol id="i-pessoa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7.5" r="3.6"/><path d="M5.5 20.5v-1.2a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1.2"/></g></symbol>
+    </svg>
+    <div class="rod__fim">
+      <span>© <span id="ano">2026</span> Majestade Flutuante, Aquidauana (MS)</span>
+      <span data-i18n="rod_cookies">Este sitio no usa cookies y no guarda ningún dato tuyo.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="zap" data-wa="rodape" href="https://wa.me/556792063535" aria-label="Hablar por WhatsApp" data-i18n-aria="zap_aria">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+</a>
+
+<!-- DADOS ESTRUTURADOS (apostila cap. 19-20): a "certidao" que so o dono
+     emite. Tipo mais especifico (Hotel). SO o que esta VISIVEL na pagina --
+     sem estrelinha (inelegivel), sem coordenada e sem horario de check-in
+     (nao temos: ausente e honesto, chutado nao e). Fica no body da home
+     de proposito: o gerador copia so o head para as internas. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Hotel",
+      "@id": "https://majestade-flutuante.vercel.app/es/#hotel",
+      "name": "Majestade Flutuante",
+      "description": "Hotel flotante de tres pisos en el Pantanal, con embarque en el Pesqueiro Itaju, en Aquidauana (Mato Grosso do Sul, Brasil). Cuatro camarotes con aire acondicionado y 18 camas; estadía con desayuno de R$ 200 a R$ 500 por persona.",
+      "url": "https://majestade-flutuante.vercel.app/es/",
+      "telephone": "+556792063535",
+      "priceRange": "R$ 200 a R$ 500 por persona",
+      "numberOfRooms": 4,
+      "image": [
+        "https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp",
+        "https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-vista-aerea.webp",
+        "https://majestade-flutuante.vercel.app/img/camarote-hotel-flutuante-majestade.webp",
+        "https://majestade-flutuante.vercel.app/img/deck-aberto-hotel-flutuante-majestade.webp"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Aquidauana",
+        "addressRegion": "MS",
+        "addressCountry": "BR"
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Aire acondicionado en los camarotes",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Desayuno incluido",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Sala con TV y aire acondicionado",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Heladera con bebidas",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Terraza abierta con ducha exterior",
+          "value": true
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/flutuantemajestade"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://majestade-flutuante.vercel.app/es/#site",
+      "name": "Majestade Flutuante",
+      "url": "https://majestade-flutuante.vercel.app/es/",
+      "inLanguage": "es"
+    }
+  ]
+}
+</script>
+<script src="/js/site.js"></script>
+</body>
+</html>

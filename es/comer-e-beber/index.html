@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es" data-pagina="comer-e-beber">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Regra 3: previa de prospeccao NAO e indexada. O robots.txt fica LIBERADO
+     de proposito: o Google precisa entrar para LER este noindex (apostila de
+     SEO, cap. 8 -- "a pegadinha mais cara"). No dia da virada, apagar esta
+     linha e seguir o checklist A.1 (comercial/seo-virada.md). -->
+<meta name="robots" content="noindex, nofollow">
+<!-- 59 caracteres, com hifen e com a cidade (apostila cap. 14). O h1 diz
+     a mesma coisa: quando title e h1 combinam, o Google quase nao reescreve. -->
+<title>Menú de a Bordo y Comidas - Hotel Flotante Majestade</title>
+<meta name="description" content="Almuerzo y cena a R$ 75, porciones de costilla de pacú y menú de bebidas a bordo del hotel flotante Majestade, en el Pantanal.">
+<link rel="canonical" href="https://majestade-flutuante.vercel.app/es/comer-e-beber/">
+<!-- as tres versoes da mesma pagina (Google e IAs mandam cada um para a
+     sua lingua). O gerar-paginas.py acerta os enderecos em cada pagina. -->
+<link rel="alternate" hreflang="pt-BR" href="https://majestade-flutuante.vercel.app/comer-e-beber/">
+<link rel="alternate" hreflang="en" href="https://majestade-flutuante.vercel.app/en/comer-e-beber/">
+<link rel="alternate" hreflang="es" href="https://majestade-flutuante.vercel.app/es/comer-e-beber/">
+<link rel="alternate" hreflang="x-default" href="https://majestade-flutuante.vercel.app/comer-e-beber/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_LA">
+<meta property="og:site_name" content="Majestade Flutuante">
+<meta property="og:url" content="https://majestade-flutuante.vercel.app/es/comer-e-beber/">
+<meta property="og:title" content="Menú de a Bordo y Comidas - Hotel Flotante Majestade">
+<meta property="og:description" content="Almuerzo y cena a R$ 75, porciones de costilla de pacú y menú de bebidas a bordo del hotel flotante Majestade, en el Pantanal.">
+<meta property="og:image" content="https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp">
+<meta property="og:image:alt" content="El Majestade Flutuante iluminado de noche, visto desde el río">
+<meta name="twitter:card" content="summary_large_image">
+<!-- favicon: a coroa da "Majestade" (a arte dele tem a coruja coroada) -->
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M9 46 5 17l15 12L32 8l12 21 15-12-4 29z" fill="%23C9A227"/><rect x="9" y="50" width="46" height="6" fill="%23C9A227"/></svg>'>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
+    <nav class="menu" id="menu" aria-label="Principal" data-i18n-aria="nav_aria">
+      <a href="/es/camarotes/" data-i18n="nav_camarotes">Camarotes</a>
+      <a href="/es/a-bordo/" data-i18n="nav_bordo">A bordo</a>
+      <a href="/es/comer-e-beber/" aria-current="page" data-i18n="nav_comer">Comer y beber</a>
+      <a href="/es/como-chegar/" data-i18n="nav_chegar">Cómo llegar</a>
+    </nav>
+    <!-- troca de lingua no computador; no celular e no tablet ela fica no
+         rodape, e o topo mostra os quatro itens do menu -->
+    <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+      <a href="/comer-e-beber/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
+      <a href="/en/comer-e-beber/" data-lang="en" hreflang="en" lang="en">EN</a>
+      <a href="/es/comer-e-beber/" data-lang="es" hreflang="es" lang="es" aria-current="true">ES</a>
+    </div>
+    <a class="bt" data-wa="topo" href="https://wa.me/556792063535">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+      <span data-i18n="nav_reservar">Reservar</span>
+    </a>
+  </div>
+</header>
+<main id="conteudo">
+<section class="sec pagina">
+  <div class="wrap">
+    <header class="pagina__cabeca">
+      <h1 class="titulo" data-i18n="com_h1">Menú de a bordo y comidas</h1>
+      <p class="lead" data-i18n="com_lead">La cocina está en el primer piso. El almuerzo y la cena se <b>coordinan con anticipación</b>: antes del viaje acordamos cuántas personas y qué días. Bebidas, hielo y porciones están a bordo, en la heladera y en la cocina.</p>
+    </header>
+
+    <!-- o cardapio como a arte dele: duas colunas, UM filete no meio -->
+    <div class="cardapio">
+      <div class="cardapio__col">
+        <div class="grupo">
+          <h2 class="rotulo" data-i18n="c_garrafa">Cerveza botella 600 ml</h2>
+          <ul class="precos precos--menu"><li><span>Brahma</span><i></i><b>R$ 15,00</b></li><li><span>Skol</span><i></i><b>R$ 15,00</b></li><li><span>Antártica Boa</span><i></i><b>R$ 15,00</b></li><li><span>Amstel</span><i></i><b>R$ 16,00</b></li><li><span>Antártica Original</span><i></i><b>R$ 18,00</b></li><li><span>Heineken</span><i></i><b>R$ 20,00</b></li></ul>
+        </div>
+        <div class="grupo">
+          <h2 class="rotulo" data-i18n="c_lata">Cerveza en lata</h2>
+          <ul class="precos precos--menu"><li><span>Brahma</span><i></i><b>R$ 6,00</b></li><li><span>Skol</span><i></i><b>R$ 6,00</b></li><li><span>Amstel</span><i></i><b>R$ 7,00</b></li><li><span>Antártica Original</span><i></i><b>R$ 8,00</b></li><li><span>Heineken</span><i></i><b>R$ 10,00</b></li></ul>
+        </div>
+        <div class="grupo">
+          <h2 class="rotulo" data-i18n="c_refri">Gaseosas</h2>
+          <ul class="precos precos--menu"><li><span>Coca-Cola, Fanta, Guaraná</span><i></i><b>R$ 5,00</b></li><li><span data-i18n="c_pet">Gaseosa 2 L</span><i></i><b>R$ 20,00</b></li></ul>
+        </div>
+        <div class="grupo">
+          <h2 class="rotulo" data-i18n="c_agua">Agua mineral y otros</h2>
+          <ul class="precos precos--menu"><li><span data-i18n="c_semgas">Sin gas / botellita</span><i></i><b>R$ 3,00</b></li><li><span data-i18n="c_comgas">Con gas</span><i></i><b>R$ 4,00</b></li><li><span data-i18n="c_agua15">Agua 1,5 L (sin gas)</span><i></i><b>R$ 8,00</b></li><li><span data-i18n="c_isotonico">Isotónico</span><i></i><b>R$ 10,00</b></li><li><span data-i18n="c_energetico">Energizante</span><i></i><b>R$ 15,00</b></li></ul>
+        </div>
+        <div class="grupo">
+          <h2 class="rotulo" data-i18n="c_gelo">Hielo</h2>
+          <ul class="precos precos--menu"><li><span data-i18n="c_gelocubo">Hielo en cubos</span><i></i><b>R$ 15,00</b></li><li><span data-i18n="c_gelobarra">Hielo en barra</span><i></i><b>R$ 30,00</b></li><li><span data-i18n="c_meiabarra">Media barra</span><i></i><b data-i18n="c_meiabarra_v">R$ 15,00 o R$ 20,00</b></li></ul>
+        </div>
+      </div>
+      <div class="cardapio__col">
+        <div class="grupo">
+          <h2 class="rotulo"><span data-i18n="c_refeicoes">Comidas completas</span> <small data-i18n="c_aprogramar">a coordinar</small></h2>
+          <ul class="precos precos--menu"><li><span data-i18n="almoco">Almuerzo</span><i></i><b>R$ 75,00</b></li><li><span data-i18n="jantar">Cena</span><i></i><b>R$ 75,00</b></li></ul>
+          <p class="aviso" data-i18n="com_cafe">El <b>desayuno</b> ya está incluido en la estadía.</p>
+        </div>
+        <div class="grupo">
+          <h2 class="rotulo" data-i18n="c_porcoes">Porciones</h2>
+          <ul class="precos precos--menu"><li><span data-i18n="c_costela">Costilla de pacú 1 kg</span><i></i><b>R$ 100,00</b></li><li><span data-i18n="c_batata">Papas fritas 800 g</span><i></i><b>R$ 50,00</b></li><li><span data-i18n="c_arroz">Porción de arroz (para 4 personas)</span><i></i><b>R$ 40,00</b></li><li><span data-i18n="c_mandioca">Mandioca hervida (para 4 personas)</span><i></i><b>R$ 40,00</b></li></ul>
+        </div>
+        <div class="foto-pedida"><span class="foto-pedida__n" data-foto="08">Falta la foto 08 de 8</span><span class="foto-pedida__t" data-i18n="fp08_t">La mesa servida</span><p class="foto-pedida__c" data-i18n="fp08_c">La comida servida en la mesa del primer piso, <b>desde arriba</b> (celular apuntando hacia abajo) o <b>horizontal</b> de costado. Luz de día, sin flash: la comida con flash parece mala.</p></div>
+      </div>
+    </div>
+
+    <p class="nota" data-i18n="com_nota">Los precios pueden cambiar. Confírmalos al reservar.</p>
+    <div class="acoes"><a class="bt" data-wa="comer" href="https://wa.me/556792063535" data-i18n="com_cta">Coordinar las comidas</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="rod">
+  <div class="wrap">
+    <div class="frod">
+      <div>
+        <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
+        <p data-i18n="rod_p">Hotel flotante en el Pantanal<br>Embarque en el Pesqueiro Itaju<br>Aquidauana, Mato Grosso do Sul, Brasil</p>
+        <p class="rod__lema" data-i18n="rod_lema">El Pantanal en su mejor experiencia</p>
+      </div>
+      <div>
+        <h2 data-i18n="rod_paginas">Páginas</h2>
+        <a href="/es/camarotes/" data-i18n="rod_camarotes">Camarotes y precios</a>
+        <a href="/es/a-bordo/" data-i18n="nav_bordo">A bordo</a>
+        <a href="/es/comer-e-beber/" data-i18n="nav_comer">Comer y beber</a>
+        <a href="/es/como-chegar/" data-i18n="nav_chegar">Cómo llegar</a>
+      </div>
+      <div>
+        <h2 data-i18n="rod_falar">Hablar con nosotros</h2>
+        <a data-wa="rodape" href="https://wa.me/556792063535" data-i18n="rod_zap">WhatsApp +55 67 9206-3535</a>
+        <a href="https://www.instagram.com/flutuantemajestade" target="_blank" rel="noopener noreferrer">Instagram @flutuantemajestade</a>
+        <h2 class="frod__idioma" data-i18n="idioma_aria">Idioma</h2>
+        <div class="idioma idioma--rodape" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+          <a href="/comer-e-beber/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
+          <a href="/en/comer-e-beber/" data-lang="en" hreflang="en" lang="en">EN</a>
+          <a href="/es/comer-e-beber/" data-lang="es" hreflang="es" lang="es" aria-current="true">ES</a>
+        </div>
+      </div>
+    </div>
+    <!-- os simbolos usados nas paginas, definidos uma vez so -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.3.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+      <symbol id="i-pessoa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7.5" r="3.6"/><path d="M5.5 20.5v-1.2a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1.2"/></g></symbol>
+    </svg>
+    <div class="rod__fim">
+      <span>© <span id="ano">2026</span> Majestade Flutuante, Aquidauana (MS)</span>
+      <span data-i18n="rod_cookies">Este sitio no usa cookies y no guarda ningún dato tuyo.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="zap" data-wa="rodape" href="https://wa.me/556792063535" aria-label="Hablar por WhatsApp" data-i18n-aria="zap_aria">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://majestade-flutuante.vercel.app/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Menú de a bordo",
+      "item": "https://majestade-flutuante.vercel.app/es/comer-e-beber/"
+    }
+  ]
+}
+</script>
+<script src="/js/site.js"></script>
+</body>
+</html>

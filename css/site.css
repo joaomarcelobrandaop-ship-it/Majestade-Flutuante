@@ -142,18 +142,18 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
    sublinhada. No computador fica no topo; no celular e no tablet mora no
    RODAPE, porque o topo e dos quatro itens do menu (o Joao, 06/10/2026). */
 .idioma{display:flex;align-items:center}
-.idioma button{
+.idioma a{
   all:unset;box-sizing:border-box;cursor:pointer;min-width:44px;height:44px;
   display:inline-flex;align-items:center;justify-content:center;
   font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--creme-2);
   transition:color .15s;
 }
-.idioma button:hover{color:var(--creme)}
-.idioma button[aria-pressed="true"]{color:var(--ouro-claro);text-decoration:underline;text-decoration-color:var(--ouro);text-decoration-thickness:1.5px;text-underline-offset:6px}
-.idioma button:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:-4px}
+.idioma a:hover{color:var(--creme)}
+.idioma a[aria-current]{color:var(--ouro-claro);text-decoration:underline;text-decoration-color:var(--ouro);text-decoration-thickness:1.5px;text-underline-offset:6px}
+.idioma a:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:-4px}
 .frod h2.frod__idioma{margin-top:22px}
-.idioma--rodape{margin-left:-12px}  /* o botao tem 44px: o "PT" alinha com o texto de cima */
-.idioma--rodape button{font-size:14px}
+.idioma--rodape{margin-left:-12px}  /* o link tem 44px: o "PT" alinha com o texto de cima */
+.frod .idioma--rodape a{font-size:14px}  /* .frod: senao o ".frod a" (15px), mais embaixo, ganha */
 
 /* ============================================================
    MENU NO CELULAR E NO TABLET -- os quatro itens SEMPRE A VISTA, sem menu

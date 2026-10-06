@@ -13,6 +13,12 @@
 <title>Hotel Flutuante Majestade no Pantanal - Saída de Aquidauana</title>
 <meta name="description" content="Hotel flutuante no Pantanal com 4 camarotes com ar e café da manhã. Pernoite de R$ 200 a R$ 500 por pessoa. Reserve pelo WhatsApp.">
 <link rel="canonical" href="https://majestade-flutuante.vercel.app/">
+<!-- as tres versoes da mesma pagina (Google e IAs mandam cada um para a
+     sua lingua). O gerar-paginas.py acerta os enderecos em cada pagina. -->
+<link rel="alternate" hreflang="pt-BR" href="https://majestade-flutuante.vercel.app/">
+<link rel="alternate" hreflang="en" href="https://majestade-flutuante.vercel.app/en/">
+<link rel="alternate" hreflang="es" href="https://majestade-flutuante.vercel.app/es/">
+<link rel="alternate" hreflang="x-default" href="https://majestade-flutuante.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Majestade Flutuante">
@@ -40,9 +46,9 @@
     <!-- troca de lingua no computador; no celular e no tablet ela fica no
          rodape, e o topo mostra os quatro itens do menu -->
     <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
-      <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
-      <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
-      <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+      <a href="/" data-lang="pt" hreflang="pt-BR" lang="pt-BR" aria-current="true">PT</a>
+      <a href="/en/" data-lang="en" hreflang="en" lang="en">EN</a>
+      <a href="/es/" data-lang="es" hreflang="es" lang="es">ES</a>
     </div>
     <a class="bt" data-wa="topo" href="https://wa.me/556792063535">
       <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
@@ -201,7 +207,7 @@
         </fieldset>
         <!-- o texto do botao ("Reservar para 2 pessoas") e a mensagem saem da
              opcao marcada, no site.js. Sem JS, abre a conversa do mesmo jeito. -->
-        <a class="bt escolha__bt" data-wa-preco="pernoite" href="https://wa.me/556792063535"><svg aria-hidden="true"><use href="#i-zap"/></svg><span class="escolha__txt">Reservar</span><span class="sr" data-i18n="lg_sr"> pelo WhatsApp</span></a>
+        <a class="bt escolha__bt" data-wa-preco="pernoite" href="https://wa.me/556792063535"><svg aria-hidden="true"><use href="#i-zap"/></svg><span class="escolha__txt" data-i18n="nav_reservar">Reservar</span><span class="sr" data-i18n="lg_sr"> pelo WhatsApp</span></a>
       </div>
       <!--/ESCOLHA-->
 
@@ -303,9 +309,9 @@
         <a href="https://www.instagram.com/flutuantemajestade" target="_blank" rel="noopener noreferrer">Instagram @flutuantemajestade</a>
         <h2 class="frod__idioma" data-i18n="idioma_aria">Idioma</h2>
         <div class="idioma idioma--rodape" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
-          <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
-          <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
-          <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+          <a href="/" data-lang="pt" hreflang="pt-BR" lang="pt-BR" aria-current="true">PT</a>
+          <a href="/en/" data-lang="en" hreflang="en" lang="en">EN</a>
+          <a href="/es/" data-lang="es" hreflang="es" lang="es">ES</a>
         </div>
       </div>
     </div>
