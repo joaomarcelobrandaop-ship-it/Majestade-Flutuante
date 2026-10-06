@@ -28,6 +28,8 @@
 <meta property="og:image" content="https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp">
 <meta property="og:image:alt" content="O Majestade Flutuante iluminado à noite, visto do rio">
 <meta name="twitter:card" content="summary_large_image">
+<!-- a barra do navegador no celular (Android) na cor do fundo do site -->
+<meta name="theme-color" content="#0C1710">
 <!-- favicon: a coroa da "Majestade" (a arte dele tem a coruja coroada) -->
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M9 46 5 17l15 12L32 8l12 21 15-12-4 29z" fill="%23C9A227"/><rect x="9" y="50" width="46" height="6" fill="%23C9A227"/></svg>'>
 <link rel="stylesheet" href="css/site.css">
@@ -65,8 +67,11 @@
     <!-- a foto INTEIRA (4:3), nunca maior que o original (memoria
          nunca-ampliar-imagem): na largura da tela ate 899px; ao lado do
          texto no computador, com 50% da tela e no maximo 800px. O sizes
-         abaixo repete essas medidas, para o navegador baixar a certa. -->
-    <img src="img/hotel-flutuante-majestade-noite-1600.webp" srcset="img/hotel-flutuante-majestade-noite-800.webp 800w, img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 899px) 100vw, (max-width: 1600px) 50vw, 800px" alt="O Majestade Flutuante iluminado à noite, visto do rio, com as luzes refletindo na água" data-i18n-alt="hero_alt" fetchpriority="high" width="1600" height="1200">
+         abaixo repete essas medidas, para o navegador baixar a certa.
+         AVIF com WebP de reserva, em 800/1200/1600 (06/10/2026): o de 1200
+         e o do iPhone. Antes ele baixava o de 1600 (378 KB) e a capa levava
+         5 s para aparecer na primeira visita em 4G lento. -->
+    <picture><source type="image/avif" srcset="img/hotel-flutuante-majestade-noite-800.avif 800w, img/hotel-flutuante-majestade-noite-1200.avif 1200w, img/hotel-flutuante-majestade-noite-1600.avif 1600w" sizes="(max-width: 899px) 100vw, (max-width: 1600px) 50vw, 800px"><img src="img/hotel-flutuante-majestade-noite-1600.webp" srcset="img/hotel-flutuante-majestade-noite-800.webp 800w, img/hotel-flutuante-majestade-noite-1200.webp 1200w, img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 899px) 100vw, (max-width: 1600px) 50vw, 800px" alt="O Majestade Flutuante iluminado à noite, visto do rio, com as luzes refletindo na água" data-i18n-alt="hero_alt" fetchpriority="high" width="1600" height="1200"></picture>
   </div>
   <div class="wrap hero__in">
     <div class="hero__txt">
@@ -97,7 +102,7 @@
     </ul>
   </div>
   <figure class="oque__foto">
-    <img src="img/hotel-flutuante-majestade-vista-aerea.webp" alt="Vista aérea do Majestade Flutuante ancorado no rio, com placas solares no teto e o deck de madeira" data-i18n-alt="oque_alt" loading="lazy" decoding="async" width="1200" height="900">
+    <picture><source type="image/avif" srcset="img/hotel-flutuante-majestade-vista-aerea-800.avif 800w, img/hotel-flutuante-majestade-vista-aerea.avif 1200w" sizes="(max-width: 900px) 100vw, 53vw"><img src="img/hotel-flutuante-majestade-vista-aerea.webp" srcset="img/hotel-flutuante-majestade-vista-aerea-800.webp 800w, img/hotel-flutuante-majestade-vista-aerea.webp 1200w" sizes="(max-width: 900px) 100vw, 53vw" alt="Vista aérea do Majestade Flutuante ancorado no rio, com placas solares no teto e o deck de madeira" data-i18n-alt="oque_alt" loading="lazy" decoding="async" width="1200" height="900"></picture>
   </figure>
 </section>
 
@@ -119,7 +124,7 @@
         </div>
         <div class="piso__midia">
           <figure class="foto">
-            <img src="img/deck-aberto-hotel-flutuante-majestade.webp" alt="Deck de madeira ao ar livre no terceiro andar, com guarda-sol, espreguiçadeiras e o rio ao lado" data-i18n-alt="f_deck_alt" loading="lazy" decoding="async" width="1200" height="800">
+            <picture><source type="image/avif" srcset="img/deck-aberto-hotel-flutuante-majestade-800.avif 800w, img/deck-aberto-hotel-flutuante-majestade.avif 1200w" sizes="(max-width: 767px) 90vw, 470px"><img src="img/deck-aberto-hotel-flutuante-majestade.webp" srcset="img/deck-aberto-hotel-flutuante-majestade-800.webp 800w, img/deck-aberto-hotel-flutuante-majestade.webp 1200w" sizes="(max-width: 767px) 90vw, 470px" alt="Deck de madeira ao ar livre no terceiro andar, com guarda-sol, espreguiçadeiras e o rio ao lado" data-i18n-alt="f_deck_alt" loading="lazy" decoding="async" width="1200" height="800"></picture>
           </figure>
         </div>
       </li>
@@ -132,7 +137,7 @@
         </div>
         <div class="piso__midia">
           <figure class="foto">
-            <img src="img/camarote-hotel-flutuante-majestade.webp" alt="Camarote com um beliche e duas camas de solteiro arrumadas, e o ar-condicionado na parede" data-i18n-alt="f_cam_alt" loading="lazy" decoding="async" width="1200" height="800">
+            <picture><source type="image/avif" srcset="img/camarote-hotel-flutuante-majestade-800.avif 800w, img/camarote-hotel-flutuante-majestade.avif 1200w" sizes="(max-width: 767px) 90vw, 470px"><img src="img/camarote-hotel-flutuante-majestade.webp" srcset="img/camarote-hotel-flutuante-majestade-800.webp 800w, img/camarote-hotel-flutuante-majestade.webp 1200w" sizes="(max-width: 767px) 90vw, 470px" alt="Camarote com um beliche e duas camas de solteiro arrumadas, e o ar-condicionado na parede" data-i18n-alt="f_cam_alt" loading="lazy" decoding="async" width="1200" height="800"></picture>
           </figure>
         </div>
       </li>
@@ -144,7 +149,7 @@
         </div>
         <div class="piso__midia piso__midia--2">
           <figure class="foto">
-            <img src="img/sala-hotel-flutuante-majestade.webp" alt="Sala do primeiro andar com sofás, mesa de jantar, TV e janelas para a mata" data-i18n-alt="f_sala_alt" loading="lazy" decoding="async" width="1200" height="800">
+            <picture><source type="image/avif" srcset="img/sala-hotel-flutuante-majestade-800.avif 800w, img/sala-hotel-flutuante-majestade.avif 1200w" sizes="(max-width: 420px) 90vw, (max-width: 767px) 45vw, 440px"><img src="img/sala-hotel-flutuante-majestade.webp" srcset="img/sala-hotel-flutuante-majestade-800.webp 800w, img/sala-hotel-flutuante-majestade.webp 1200w" sizes="(max-width: 420px) 90vw, (max-width: 767px) 45vw, 440px" alt="Sala do primeiro andar com sofás, mesa de jantar, TV e janelas para a mata" data-i18n-alt="f_sala_alt" loading="lazy" decoding="async" width="1200" height="800"></picture>
           </figure>
           <div class="foto-pedida"><span class="foto-pedida__n" data-foto="02">Falta a foto 02 de 8</span><span class="foto-pedida__t" data-i18n="fp02_t">A cozinha</span><p class="foto-pedida__c" data-i18n="fp02_c">Limpa e arrumada, <b>deitada</b>.</p></div>
         </div>

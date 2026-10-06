@@ -28,6 +28,8 @@
 <meta property="og:image" content="https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp">
 <meta property="og:image:alt" content="El Majestade Flutuante iluminado de noche, visto desde el río">
 <meta name="twitter:card" content="summary_large_image">
+<!-- a barra do navegador no celular (Android) na cor do fundo do site -->
+<meta name="theme-color" content="#0C1710">
 <!-- favicon: a coroa da "Majestade" (a arte dele tem a coruja coroada) -->
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M9 46 5 17l15 12L32 8l12 21 15-12-4 29z" fill="%23C9A227"/><rect x="9" y="50" width="46" height="6" fill="%23C9A227"/></svg>'>
 <link rel="stylesheet" href="/css/site.css">
@@ -81,7 +83,7 @@
     <!-- 960px e o tamanho da original (o Fabio fotografou em pe).
          De ponta a ponta seria AMPLIAR a foto: memoria [[nunca-ampliar-imagem]]. -->
     <figure class="foto foto--chegada">
-      <img src="/img/hotel-flutuante-majestade-rio-de-dia.webp" alt="El Majestade Flutuante visto desde el río de día, anclado junto a la selva" data-i18n-alt="che_alt" loading="lazy" decoding="async" width="960" height="720">
+      <picture><source type="image/avif" srcset="/img/hotel-flutuante-majestade-rio-de-dia-720.avif 720w, /img/hotel-flutuante-majestade-rio-de-dia.avif 960w" sizes="(max-width: 1080px) 90vw, 960px"><img src="/img/hotel-flutuante-majestade-rio-de-dia.webp" srcset="/img/hotel-flutuante-majestade-rio-de-dia-720.webp 720w, /img/hotel-flutuante-majestade-rio-de-dia.webp 960w" sizes="(max-width: 1080px) 90vw, 960px" alt="El Majestade Flutuante visto desde el río de día, anclado junto a la selva" data-i18n-alt="che_alt" loading="lazy" decoding="async" width="960" height="720"></picture>
     </figure>
 
     <div class="acoes"><a class="bt" data-wa="chegar" href="https://wa.me/556792063535" data-i18n="che_cta">Pedir la ubicación</a></div>
