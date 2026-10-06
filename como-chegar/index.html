@@ -39,21 +39,22 @@
       <a href="../a-bordo/" data-i18n="nav_bordo">A bordo</a>
       <a href="../comer-e-beber/" data-i18n="nav_comer">Comer e beber</a>
       <a href="../como-chegar/" aria-current="page" data-i18n="nav_chegar">Como chegar</a>
+      <!-- no celular e no tablet a troca de lingua mora AQUI, dentro do
+           menu: no topo fica o "Camarotes", que e o que o brasileiro procura -->
+      <div class="idioma idioma--menu" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+        <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+      </div>
     </nav>
-    <!-- troca de lingua: botoes no computador, lista no celular (nao cabem
-         tres botoes de 44px ao lado da marca numa tela de 320px) -->
-    <div class="idioma" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+    <!-- troca de lingua no computador -->
+    <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
       <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
       <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
       <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
     </div>
-    <label class="idioma-sel"><span class="sr" data-i18n="idioma_aria">Idioma</span>
-      <select id="idioma-sel">
-        <option value="pt">PT</option>
-        <option value="en">EN</option>
-        <option value="es">ES</option>
-      </select>
-    </label>
+    <!-- atalho do celular e do tablet: os camarotes a um toque, sem abrir o menu -->
+    <a class="topo__atalho" href="../camarotes/" data-i18n="nav_camarotes">Camarotes</a>
     <button class="abrir" type="button" aria-label="Abrir o menu" data-i18n-aria="menu_abrir" aria-expanded="false" aria-controls="menu"><span></span></button>
     <a class="bt" data-wa="topo" href="https://wa.me/556792063535">
       <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>

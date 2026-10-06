@@ -458,8 +458,6 @@ function aplicarIdioma(lang) {
   document.querySelectorAll("[data-lang]").forEach(function (b) {
     b.setAttribute("aria-pressed", b.getAttribute("data-lang") === LANG ? "true" : "false");
   });
-  var sel = document.getElementById("idioma-sel");
-  if (sel) sel.value = LANG;
 
   /* antes do atualizarZaps: o botao do pernoite precisa do texto da opcao
      marcada ja traduzido (o laco do data-i18n, acima, acabou de fazer) */
@@ -471,10 +469,6 @@ function aplicarIdioma(lang) {
 document.querySelectorAll("[data-lang]").forEach(function (b) {
   b.addEventListener("click", function () { aplicarIdioma(b.getAttribute("data-lang")); });
 });
-(function () {
-  var sel = document.getElementById("idioma-sel");
-  if (sel) sel.addEventListener("change", function () { aplicarIdioma(sel.value); });
-})();
 
 /* ---- menu do celular ----
    Fecha de tres jeitos: tocando o icone de novo, clicando num link, ou

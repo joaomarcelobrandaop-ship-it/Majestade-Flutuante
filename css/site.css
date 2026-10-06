@@ -127,13 +127,17 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
 .idioma button:hover{color:var(--creme)}
 .idioma button[aria-pressed="true"]{color:var(--ouro-claro);text-decoration:underline;text-decoration-color:var(--ouro);text-decoration-thickness:1.5px;text-underline-offset:6px}
 .idioma button:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:-4px}
-.idioma-sel{display:none;align-items:center}
-.idioma-sel select{
-  appearance:none;-webkit-appearance:none;min-height:44px;min-width:58px;padding:0 22px 0 8px;
-  border:0;border-radius:0;color:var(--ouro-claro);font:600 14px var(--sans);letter-spacing:.06em;cursor:pointer;color-scheme:dark;
-  background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C9A227' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 6px center / 10px 7px;
+/* dentro do menu ela so aparece no celular e no tablet (abaixo) */
+.idioma--menu{display:none}
+/* "Camarotes" a vista no topo do celular e do tablet. O Joao, 06/10/2026:
+   no lugar de PT EN ES, "vai ter mais brasileiro acessando e essa
+   informacao tem que ser mais facil". No computador o menu ja mostra. */
+.topo__atalho{
+  display:none;align-items:center;min-height:44px;padding:0 4px;
+  font-size:15px;font-weight:600;color:var(--creme);text-decoration:underline;
+  text-decoration-color:rgba(201,162,39,.7);text-decoration-thickness:1.5px;text-underline-offset:6px;
 }
-.idioma-sel select:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:2px}
+.topo__atalho:hover{color:var(--ouro-claro)}
 
 /* ============================================================
    MENU DO CELULAR
@@ -178,14 +182,21 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
   }
   .menu a{font-family:var(--serif);font-size:28px;font-weight:500;color:var(--creme);min-height:58px}
   .abrir{display:flex}
+  .topo__atalho{display:inline-flex}
+  .idioma--topo{display:none}
+  /* a lingua, no fim do menu, separada por espaco (sem filete) */
+  .idioma--menu{display:flex;gap:6px;margin-top:28px}
+  .idioma--menu button{min-width:52px;height:48px;font-size:15px}
   body.menu-on{overflow:hidden}
 }
 @media(max-width:520px){
   .marca b{font-size:21px} .marca small{font-size:10.5px;letter-spacing:.4em;padding-left:.4em}
-  .idioma{display:none} .idioma-sel{display:flex}
 }
-/* em 320px falta lugar: o WhatsApp de cima sai, o botao verde flutuante fica */
-@media(max-width:360px){ .topo .bt{display:none} }
+/* abaixo de 380px nao cabem marca + Camarotes + menu + WhatsApp: o WhatsApp de
+   cima sai e o botao verde flutuante fica (regra 4). Em 361px o menu chegou a
+   ser espremido para 33px -- por isso ele e o botao nao encolhem mais. */
+.abrir,.topo .bt,.topo__atalho{flex-shrink:0}
+@media(max-width:379px){ .topo .bt{display:none} }
 
 /* ============================================================
    BOTAO E LINK
