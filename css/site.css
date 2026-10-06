@@ -663,5 +663,41 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
 @media(max-width:700px){ .com-aviso-cookies .zap{bottom:calc(var(--aviso-h,0px) + 24px)} }
 @media print{ .aviso-cookies{display:none} }
 
+/* FOTO GRANDE -- toda foto de <figure> vira um botao (teclado e leitor de
+   tela chegam nela) que abre a foto maior por cima da pagina (site.js).
+   O icone no canto avisa no celular, onde nao existe o cursor de lupa.
+   Sem animacao: o site tem um movimento so, o da capa. */
+.ampliar{
+  position:relative;display:block;width:100%;padding:0;border:0;
+  background:none;color:inherit;font:inherit;cursor:zoom-in;
+}
+.ampliar__icone{
+  position:absolute;right:10px;bottom:10px;width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;pointer-events:none;
+  background:rgba(var(--mata-rgb),.62);color:var(--creme);
+}
+.ampliar__icone svg{width:18px;height:18px}
+@media (hover:hover){ .ampliar:hover .ampliar__icone{background:rgba(var(--mata-rgb),.88)} }
+
+/* a foto aberta: o <dialog> ocupa a tela inteira, o escuro em volta fecha */
+.foto-grande{
+  position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;
+  margin:0;padding:0;border:0;overscroll-behavior:contain;cursor:zoom-out;
+  background:rgba(var(--mata-rgb),.97);color:var(--creme);
+}
+.foto-grande[open]{display:flex;align-items:center;justify-content:center}
+.foto-grande::backdrop{background:transparent}
+.foto-grande img{max-width:none;object-fit:contain;border-radius:4px;cursor:default}
+.foto-grande__fechar{
+  position:absolute;top:max(12px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));
+  width:48px;height:48px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--folha);color:var(--creme);
+}
+.foto-grande__fechar svg{width:22px;height:22px}
+@media (hover:hover){ .foto-grande__fechar:hover{background:var(--linha)} }
+/* com a foto aberta, a pagina de tras nao rola (e nao pula de lado no computador) */
+.com-foto-grande{overflow:hidden;scrollbar-gutter:stable}
+
 /* foco visivel em tudo que e alcancavel por teclado */
 a:focus-visible,button:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:3px}

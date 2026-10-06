@@ -54,6 +54,18 @@
 <template id="botao-cookies"><button type="button" class="rod__cookies" data-i18n="ck_botao">Preferencias de cookies</button></template>
 <!--/AVISO-->
 
+<!-- FOTO GRANDE (pedido do Joao, 06/10/2026): tocar numa foto abre ela maior,
+     por cima da pagina. O site.js usa este molde; o gerar-paginas.py traduz e
+     copia para as outras paginas. A capa fica de fora: ela ja e grande. -->
+<!--FOTO-GRANDE-->
+<template id="foto-grande">
+  <dialog class="foto-grande">
+    <button type="button" class="foto-grande__fechar" aria-label="Cerrar" data-i18n-aria="fg_fechar"><svg aria-hidden="true"><use href="#i-fechar"/></svg></button>
+  </dialog>
+  <span data-rotulo data-i18n="fg_ver">Ver foto más grande</span>
+</template>
+<!--/FOTO-GRANDE-->
+
 <header class="topo">
   <div class="wrap">
     <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
@@ -142,7 +154,7 @@
         </div>
         <div class="piso__midia">
           <figure class="foto">
-            <picture><source type="image/avif" srcset="/img/deck-aberto-hotel-flutuante-majestade-800.avif 800w, /img/deck-aberto-hotel-flutuante-majestade.avif 1200w" sizes="(max-width: 767px) 90vw, 470px"><img src="/img/deck-aberto-hotel-flutuante-majestade.webp" srcset="/img/deck-aberto-hotel-flutuante-majestade-800.webp 800w, /img/deck-aberto-hotel-flutuante-majestade.webp 1200w" sizes="(max-width: 767px) 90vw, 470px" alt="Terraza de madera al aire libre en el tercer piso, con sombrilla, reposeras y el río al lado" data-i18n-alt="f_deck_alt" loading="lazy" decoding="async" width="1200" height="800"></picture>
+            <picture><source type="image/avif" srcset="/img/deck-aberto-hotel-flutuante-majestade-800.avif 800w, /img/deck-aberto-hotel-flutuante-majestade-1200.avif 1200w, /img/deck-aberto-hotel-flutuante-majestade.avif 1600w" sizes="(max-width: 767px) 90vw, 470px"><img src="/img/deck-aberto-hotel-flutuante-majestade.webp" srcset="/img/deck-aberto-hotel-flutuante-majestade-800.webp 800w, /img/deck-aberto-hotel-flutuante-majestade-1200.webp 1200w, /img/deck-aberto-hotel-flutuante-majestade.webp 1600w" sizes="(max-width: 767px) 90vw, 470px" alt="Terraza de madera al aire libre en el tercer piso, con sombrilla, reposeras y el río al lado" data-i18n-alt="f_deck_alt" loading="lazy" decoding="async" width="1600" height="1067"></picture>
           </figure>
         </div>
       </li>
@@ -155,7 +167,7 @@
         </div>
         <div class="piso__midia">
           <figure class="foto">
-            <picture><source type="image/avif" srcset="/img/camarote-hotel-flutuante-majestade-800.avif 800w, /img/camarote-hotel-flutuante-majestade.avif 1200w" sizes="(max-width: 767px) 90vw, 470px"><img src="/img/camarote-hotel-flutuante-majestade.webp" srcset="/img/camarote-hotel-flutuante-majestade-800.webp 800w, /img/camarote-hotel-flutuante-majestade.webp 1200w" sizes="(max-width: 767px) 90vw, 470px" alt="Camarote con una litera y dos camas individuales tendidas, y el aire acondicionado en la pared" data-i18n-alt="f_cam_alt" loading="lazy" decoding="async" width="1200" height="800"></picture>
+            <picture><source type="image/avif" srcset="/img/camarote-hotel-flutuante-majestade-800.avif 800w, /img/camarote-hotel-flutuante-majestade-1200.avif 1200w, /img/camarote-hotel-flutuante-majestade.avif 1600w" sizes="(max-width: 767px) 90vw, 470px"><img src="/img/camarote-hotel-flutuante-majestade.webp" srcset="/img/camarote-hotel-flutuante-majestade-800.webp 800w, /img/camarote-hotel-flutuante-majestade-1200.webp 1200w, /img/camarote-hotel-flutuante-majestade.webp 1600w" sizes="(max-width: 767px) 90vw, 470px" alt="Camarote con una litera y dos camas individuales tendidas, y el aire acondicionado en la pared" data-i18n-alt="f_cam_alt" loading="lazy" decoding="async" width="1600" height="1067"></picture>
           </figure>
         </div>
       </li>
@@ -167,7 +179,7 @@
         </div>
         <div class="piso__midia piso__midia--2">
           <figure class="foto">
-            <picture><source type="image/avif" srcset="/img/sala-hotel-flutuante-majestade-800.avif 800w, /img/sala-hotel-flutuante-majestade.avif 1200w" sizes="(max-width: 420px) 90vw, (max-width: 767px) 45vw, 440px"><img src="/img/sala-hotel-flutuante-majestade.webp" srcset="/img/sala-hotel-flutuante-majestade-800.webp 800w, /img/sala-hotel-flutuante-majestade.webp 1200w" sizes="(max-width: 420px) 90vw, (max-width: 767px) 45vw, 440px" alt="Sala del primer piso con sofás, mesa de comedor, TV y ventanas hacia la selva" data-i18n-alt="f_sala_alt" loading="lazy" decoding="async" width="1200" height="800"></picture>
+            <picture><source type="image/avif" srcset="/img/sala-hotel-flutuante-majestade-800.avif 800w, /img/sala-hotel-flutuante-majestade-1200.avif 1200w, /img/sala-hotel-flutuante-majestade.avif 1600w" sizes="(max-width: 420px) 90vw, (max-width: 767px) 45vw, 440px"><img src="/img/sala-hotel-flutuante-majestade.webp" srcset="/img/sala-hotel-flutuante-majestade-800.webp 800w, /img/sala-hotel-flutuante-majestade-1200.webp 1200w, /img/sala-hotel-flutuante-majestade.webp 1600w" sizes="(max-width: 420px) 90vw, (max-width: 767px) 45vw, 440px" alt="Sala del primer piso con sofás, mesa de comedor, TV y ventanas hacia la selva" data-i18n-alt="f_sala_alt" loading="lazy" decoding="async" width="1600" height="1067"></picture>
           </figure>
           <div class="foto-pedida"><span class="foto-pedida__n" data-foto="02">Falta la foto 02 de 8</span><span class="foto-pedida__t" data-i18n="fp02_t">La cocina</span><p class="foto-pedida__c" data-i18n="fp02_c">Limpia y ordenada, <b>horizontal</b>.</p></div>
         </div>
@@ -341,6 +353,8 @@
     <!-- os simbolos usados nas paginas, definidos uma vez so -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
       <symbol id="i-zap" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.3.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+      <symbol id="i-ampliar" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-6.5 6.5M10 20H4v-6M4 20l6.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
       <symbol id="i-pessoa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7.5" r="3.6"/><path d="M5.5 20.5v-1.2a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1.2"/></g></symbol>
     </svg>
     <div class="rod__fim">

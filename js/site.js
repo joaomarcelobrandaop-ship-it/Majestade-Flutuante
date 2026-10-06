@@ -380,6 +380,93 @@ function atualizarZaps() {
   else if (atual.escolha === "aceito") ligarGA();
 })();
 
+/* ---- FOTO GRANDE: tocar numa foto abre ela maior (pedido do Joao, 06/10/2026) ----
+   E o <dialog> do proprio navegador, sem biblioteca (regra 1): ele prende o
+   foco e fecha no Esc. Fecha tambem no X, tocando fora da foto e no "voltar"
+   do celular -- quem aperta voltar espera fechar a foto, nao sair do site.
+   NUNCA AMPLIA a foto alem dos pixels dela (memoria "nunca ampliar imagem"):
+   o maximo na tela e a largura do maior arquivo dividida pela densidade da
+   tela (num Mac, 1600px viram 800 na tela, nitidos). Sem animacao: o site tem
+   um movimento so, o da capa. Sem legenda, como no resto do site.
+   So as fotos dentro de <figure>: a capa fica de fora, ela ja e grande.
+   Os textos (Fechar, Ver foto maior) moram no <template id="foto-grande">,
+   traduzidos pelo gerar-paginas.py. ---- */
+(function () {
+  var molde = document.getElementById("foto-grande");
+  var fotos = document.querySelectorAll("figure picture");
+  if (!molde || !fotos.length || !window.HTMLDialogElement) return;
+  var rotulo = molde.content.querySelector("[data-rotulo]").textContent.trim();
+  var caixa = molde.content.querySelector("dialog").cloneNode(true);
+  var fechar = caixa.querySelector(".foto-grande__fechar");
+  document.body.appendChild(caixa);
+  var aberta = null, quemAbriu = null, comHistorico = false;
+
+  function maiorArquivo(img) {
+    var maior = 0;
+    (img.getAttribute("srcset") || "").split(",").forEach(function (c) {
+      var w = parseInt((c.trim().split(/\s+/)[1] || ""), 10);
+      if (w > maior) maior = w;
+    });
+    return maior || img.naturalWidth || img.width;
+  }
+
+  function abrir(pic, origem) {
+    var img = pic.querySelector("img");
+    /* o width/height do HTML dizem o formato da foto (3:2, 4:5, 4:3) */
+    var proporcao = Number(img.getAttribute("width")) / Number(img.getAttribute("height"));
+    /* ...mas nunca MENOR do que ela ja aparece na pagina (o beliche tem 960px:
+       num iPhone, 960 / 3 daria 320, menos que os 335 da pagina) */
+    var limite = Math.max(maiorArquivo(img) / (window.devicePixelRatio || 1), img.getBoundingClientRect().width);
+    /* no celular, de ponta a ponta; em cima e embaixo fica a faixa do X (72px),
+       para ele nunca cobrir a foto */
+    var lados = window.innerWidth < 600 ? 0 : 48;
+    var w = Math.floor(Math.min(limite, window.innerWidth - lados, (window.innerHeight - 144) * proporcao));
+    var copia = pic.cloneNode(true);
+    copia.querySelectorAll("source, img").forEach(function (el) { el.setAttribute("sizes", w + "px"); });
+    var grande = copia.querySelector("img");
+    grande.removeAttribute("loading");
+    grande.style.width = w + "px";
+    grande.style.height = Math.round(w / proporcao) + "px";
+    /* enquanto a grande chega (4G), a da pagina, que ja esta baixada, segura o lugar */
+    if (img.currentSrc) grande.style.background = 'center / cover no-repeat url("' + img.currentSrc + '")';
+    caixa.insertBefore(copia, fechar);
+    caixa.setAttribute("aria-label", img.alt);
+    aberta = copia;
+    quemAbriu = origem;
+    document.documentElement.classList.add("com-foto-grande");
+    caixa.showModal();
+    fechar.focus();
+    try { history.pushState({ fotoGrande: true }, ""); comHistorico = true; } catch (e) { comHistorico = false; }
+  }
+
+  caixa.addEventListener("close", function () {
+    document.documentElement.classList.remove("com-foto-grande");
+    if (aberta) { aberta.remove(); aberta = null; }
+    if (comHistorico) { comHistorico = false; history.back(); }
+    if (quemAbriu) { quemAbriu.focus(); quemAbriu = null; }
+  });
+  /* o "voltar" do celular fecha a foto */
+  window.addEventListener("popstate", function () {
+    if (caixa.open) { comHistorico = false; caixa.close(); }
+  });
+  fechar.addEventListener("click", function () { caixa.close(); });
+  /* tocar no escuro em volta fecha; tocar na foto nao (da para dar zoom) */
+  caixa.addEventListener("click", function (e) { if (e.target === caixa) caixa.close(); });
+
+  fotos.forEach(function (pic) {
+    var img = pic.querySelector("img");
+    if (!img) return;
+    var bt = document.createElement("button");
+    bt.type = "button";
+    bt.className = "ampliar";
+    bt.setAttribute("aria-label", rotulo + ": " + img.alt);
+    pic.parentNode.insertBefore(bt, pic);
+    bt.appendChild(pic);
+    bt.insertAdjacentHTML("beforeend", '<span class="ampliar__icone" aria-hidden="true"><svg><use href="#i-ampliar"/></svg></span>');
+    bt.addEventListener("click", function () { abrir(pic, bt); });
+  });
+})();
+
 /* ---- as mensagens de WhatsApp na lingua da pagina. Depois do quadro de
    pernoite, que acerta o item e o preco do botao dele. ---- */
 atualizarZaps();
