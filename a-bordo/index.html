@@ -39,23 +39,14 @@
       <a href="../a-bordo/" aria-current="page" data-i18n="nav_bordo">A bordo</a>
       <a href="../comer-e-beber/" data-i18n="nav_comer">Comer e beber</a>
       <a href="../como-chegar/" data-i18n="nav_chegar">Como chegar</a>
-      <!-- no celular e no tablet a troca de lingua mora AQUI, dentro do
-           menu: no topo fica o "Camarotes", que e o que o brasileiro procura -->
-      <div class="idioma idioma--menu" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
-        <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
-        <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
-        <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
-      </div>
     </nav>
-    <!-- troca de lingua no computador -->
+    <!-- troca de lingua no computador; no celular e no tablet ela fica no
+         rodape, e o topo mostra os quatro itens do menu -->
     <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
       <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
       <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
       <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
     </div>
-    <!-- atalho do celular e do tablet: os camarotes a um toque, sem abrir o menu -->
-    <a class="topo__atalho" href="../camarotes/" data-i18n="nav_camarotes">Camarotes</a>
-    <button class="abrir" type="button" aria-label="Abrir o menu" data-i18n-aria="menu_abrir" aria-expanded="false" aria-controls="menu"><span></span></button>
     <a class="bt" data-wa="topo" href="https://wa.me/556792063535">
       <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
       <span data-i18n="nav_reservar">Reservar</span>
@@ -136,6 +127,12 @@
         <h2 data-i18n="rod_falar">Falar com a gente</h2>
         <a data-wa="rodape" href="https://wa.me/556792063535" data-i18n="rod_zap">WhatsApp (67) 9206-3535</a>
         <a href="https://www.instagram.com/flutuantemajestade" target="_blank" rel="noopener noreferrer">Instagram @flutuantemajestade</a>
+        <h2 class="frod__idioma" data-i18n="idioma_aria">Idioma</h2>
+        <div class="idioma idioma--rodape" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+          <button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true">PT</button>
+          <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+        </div>
       </div>
     </div>
     <!-- os simbolos usados nas paginas, definidos uma vez so -->

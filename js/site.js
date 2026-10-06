@@ -119,7 +119,7 @@ const I18N = {
     preco: { pernoite: "Hi! I saw on the website the overnight stay in {item}, {preco} per person with breakfast. Are there dates available? We are [number] people, from [date] to [date]." },
     t: {
       nav_camarotes: "Cabins", nav_bordo: "On board", nav_comer: "Food and drinks", nav_chegar: "Getting here", nav_reservar: "Book",
-      nav_aria: "Main", menu_abrir: "Open menu", idioma_aria: "Language", zap_aria: "Chat on WhatsApp",
+      nav_aria: "Main", idioma_aria: "Language", zap_aria: "Chat on WhatsApp",
       hero_h1: "Floating hotel in the Pantanal, departing from Aquidauana, Brazil",
       hero_grande: "Sleep on the river",
       hero_tag: "<b>Majestade</b> is a three-story floating hotel in the Pantanal, boarding at Pesqueiro Itaju in Aquidauana (Mato Grosso do Sul, Brazil). It has 18 beds in four air-conditioned cabins, and an overnight stay with breakfast starts at R$ 200 per person.",
@@ -258,7 +258,7 @@ const I18N = {
     preco: { pernoite: "¡Hola! Vi en el sitio la estadía en {item}, {preco} por persona con desayuno. ¿Hay fechas disponibles? Somos [nº] personas, del [fecha] al [fecha]." },
     t: {
       nav_camarotes: "Camarotes", nav_bordo: "A bordo", nav_comer: "Comer y beber", nav_chegar: "Cómo llegar", nav_reservar: "Reservar",
-      nav_aria: "Principal", menu_abrir: "Abrir el menú", idioma_aria: "Idioma", zap_aria: "Hablar por WhatsApp",
+      nav_aria: "Principal", idioma_aria: "Idioma", zap_aria: "Hablar por WhatsApp",
       hero_h1: "Hotel flotante en el Pantanal, con salida desde Aquidauana (MS)",
       hero_grande: "Dormir en medio del río",
       hero_tag: "El <b>Majestade</b> es un hotel flotante de tres pisos en el Pantanal, con embarque en el Pesqueiro Itaju, en Aquidauana (Mato Grosso do Sul, Brasil). Son 18 camas en cuatro camarotes con aire acondicionado, y la estadía con desayuno cuesta desde R$ 200 por persona.",
@@ -469,35 +469,6 @@ function aplicarIdioma(lang) {
 document.querySelectorAll("[data-lang]").forEach(function (b) {
   b.addEventListener("click", function () { aplicarIdioma(b.getAttribute("data-lang")); });
 });
-
-/* ---- menu do celular ----
-   Fecha de tres jeitos: tocando o icone de novo, clicando num link, ou
-   com Esc. Um menu que so fecha de um jeito prende quem abriu sem querer. */
-(function () {
-  var bt = document.querySelector(".abrir");
-  var menu = document.querySelector(".menu");
-  if (!bt || !menu) return;
-  function poe(aberto) {
-    document.body.classList.toggle("menu-on", aberto);
-    bt.setAttribute("aria-expanded", aberto ? "true" : "false");
-  }
-  bt.addEventListener("click", function () {
-    poe(!document.body.classList.contains("menu-on"));
-  });
-  menu.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") poe(false);
-  });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && document.body.classList.contains("menu-on")) {
-      poe(false);
-      bt.focus();
-    }
-  });
-  /* se a tela voltar a ser larga com o menu aberto, some com o estado */
-  window.addEventListener("resize", function () {
-    if (window.innerWidth > 980) poe(false);
-  }, { passive: true });
-})();
 
 /* ---- cabecalho ganha fundo ao descolar do topo ---- */
 (function () {
