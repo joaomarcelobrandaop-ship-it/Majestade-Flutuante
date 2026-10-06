@@ -202,7 +202,12 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .bt:hover{background:var(--ouro-claro)}
 .bt svg{width:18px;height:18px;fill:currentColor;flex:none}
 .topo .bt{min-height:44px;padding:10px 20px;font-size:14px}
-@media(max-width:520px){ .topo .bt span{display:none} .topo .bt{padding:10px 13px} }
+/* no celular o texto sai da VISTA, mas fica para o leitor de tela e para os
+   agentes de IA -- com display:none o link ficava sem nome (Lighthouse) */
+@media(max-width:520px){
+  .topo .bt span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .topo .bt{padding:10px 13px}
+}
 
 .link{
   display:inline-flex;align-items:center;min-height:44px;
@@ -582,7 +587,7 @@ body.menu-on .abrir span::after{top:0;transform:rotate(-45deg)}
 .frod{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
 @media(max-width:800px){ .frod{grid-template-columns:1fr 1fr} }
 @media(max-width:520px){ .frod{grid-template-columns:1fr} }
-.frod h4{margin:0 0 8px;font-weight:600;font-size:21px;letter-spacing:.05em;font-variant-caps:all-small-caps;color:var(--ouro)}
+.frod h2{margin:0 0 8px;font-weight:600;font-size:21px;letter-spacing:.05em;font-variant-caps:all-small-caps;color:var(--ouro)}
 .frod p{color:var(--creme-2);font-size:15px}
 /* flex (bloco), nao inline-flex: inline-flex fazia os links correrem lado a
    lado como uma frase -- "Camarotes e valores A bordo Comer e beber" */
