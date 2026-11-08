@@ -22,7 +22,8 @@
    3. TITULO NAO TEM PALAVRA EM ITALICO. A cursiva e a letra da arte dele
       e aparece em DOIS lugares, com frases DELE copiadas da arte: a
       assinatura no rodape e o slogan no fim.
-   4. MOVIMENTO: um so, a entrada da capa.
+   4. MOVIMENTO: so na capa -- a entrada do texto e, desde 08/11/2026, o
+      video mudo do barco (com botao de pausar). Nada se mexe ao rolar.
 
    DE ONDE VEM A PALETA: do cardapio que o Fabio mandou
    (referencias/cardapio-majestade.webp). A paleta estava certa; o que
@@ -246,8 +247,21 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
    Nos dois, o texto fica no escuro liso: o contraste nao depende da foto.
    ============================================================ */
 .hero{position:relative;background:var(--mata);--foto:min(50vw,800px)}
-.hero__bg{position:relative;aspect-ratio:4/3}
+.hero__bg{position:relative;aspect-ratio:16/9}
 .hero__bg img{display:block;width:100%;height:100%;object-fit:cover}
+/* VIDEO DA CAPA (08/11/2026): fica POR CIMA do primeiro quadro, invisivel,
+   e aparece quando comeca a tocar. O primeiro quadro do video e a foto de
+   baixo, entao a troca nao "pula": o esmaecer so esconde o instante do play. */
+.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s var(--ease)}
+.hero__bg.tocando .hero__video{opacity:1}
+.hero__bg::after{z-index:1}
+/* o botao de pausar: a pessoa precisa conseguir parar o que se mexe sozinho
+   por mais de 5 s (WCAG 2.2.2). Circulo sem contorno (regra 1 da folha), 44px. */
+.hero__pausa{position:absolute;z-index:2;right:14px;bottom:14px;width:44px;height:44px;display:grid;place-items:center;
+  border:0;border-radius:50%;background:rgba(var(--mata-rgb),.72);color:var(--creme);cursor:pointer}
+.hero__pausa svg{width:18px;height:18px}
+.hero__pausa:hover{background:rgba(var(--mata-rgb),.9)}
+.hero__pausa:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:3px}
 /* embaixo a foto se dissolve na pagina, sem aresta */
 .hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(var(--mata-rgb),0) 58%, var(--mata) 100%)}
 .hero__in{position:relative;z-index:1;padding-top:18px;padding-bottom:56px}  /* so em cima e embaixo: as laterais vem do .wrap */
@@ -289,6 +303,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
             mask-composite:intersect;
   }
   .hero__bg::after{content:none}
+  .hero__pausa{right:clamp(16px,3vw,40px);bottom:14%}
   /* o texto comeca na mesma linha do letreiro do cabecalho (o .wrap) */
   .hero__in{grid-column:1;grid-row:1;max-width:none;margin:0;padding:0 0 0 max(var(--pad), calc((100cqw - var(--max)) / 2 + var(--pad)))}
   .hero .h1{font-size:clamp(42px,4.5vw,86px)}  /* "MEIO DO RIO" cabe em 2 linhas ao lado da foto, de 900 a 1920px (medido) */
@@ -322,6 +337,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
   background:var(--ouro);transform:rotate(45deg);
 }
 .lista b{color:var(--creme);font-weight:600}
+.oque__visita{margin-top:22px}
 
 /* ============================================================
    OS TRES ANDARES -- a assinatura da pagina.

@@ -486,3 +486,74 @@ atualizarZaps();
   var a = document.getElementById("ano");
   if (a) a.textContent = new Date().getFullYear();
 })();
+
+/* ============================================================
+   VIDEO DA CAPA (08/11/2026). O <video> do index.html vem com
+   preload="none": nada e baixado ate aqui. So liga se:
+   - a pessoa NAO pediu movimento reduzido no celular/computador;
+   - NAO esta em economia de dados nem em internet 2G;
+   - a pagina ja terminou de carregar (o video nao disputa a capa e as
+     fontes na primeira visita em 4G).
+   Fora isso, fica a foto (o primeiro quadro) e pronto.
+   O botao pausa/continua (WCAG 2.2.2) e a escolha vale ate sair da pagina.
+   Fora da tela, o video para sozinho (bateria e dados) e volta ao reaparecer.
+   ============================================================ */
+(function () {
+  var caixa = document.querySelector(".hero__bg");
+  var video = caixa && caixa.querySelector(".hero__video");
+  if (!video || !video.play) return;
+  var rede = navigator.connection || {};
+  if (rede.saveData || /(^|-)2g$/.test(rede.effectiveType || "")) return;
+  var calmo = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (calmo.matches) return;
+
+  var TXT = {
+    pt: { pausar: "Pausar o vídeo", tocar: "Continuar o vídeo" },
+    en: { pausar: "Pause the video", tocar: "Play the video" },
+    es: { pausar: "Pausar el video", tocar: "Reanudar el video" }
+  }[LANG];
+  var ICONE = {
+    pausar: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>',
+    tocar: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg>'
+  };
+  var pausadoPelaPessoa = false, naTela = true, bt = null;
+
+  function desenhar() {
+    var parado = video.paused;
+    bt.innerHTML = parado ? ICONE.tocar : ICONE.pausar;
+    bt.setAttribute("aria-label", parado ? TXT.tocar : TXT.pausar);
+  }
+  function tocar() {
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { /* o navegador recusou o autoplay: fica a foto */ });
+  }
+
+  function ligar() {
+    video.addEventListener("playing", function () { caixa.classList.add("tocando"); desenhar(); });
+    video.addEventListener("pause", desenhar);
+    bt = document.createElement("button");
+    bt.type = "button";
+    bt.className = "hero__pausa";
+    bt.addEventListener("click", function () {
+      if (video.paused) { pausadoPelaPessoa = false; tocar(); }
+      else { pausadoPelaPessoa = true; video.pause(); }
+    });
+    caixa.appendChild(bt);
+    desenhar();
+    tocar();
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (e) {
+        naTela = e[0].isIntersecting;
+        if (!naTela) video.pause();
+        else if (!pausadoPelaPessoa) tocar();
+      }).observe(caixa);
+    }
+    /* se a pessoa ligar o movimento reduzido com a pagina aberta, para tudo */
+    if (calmo.addEventListener) calmo.addEventListener("change", function (m) {
+      if (m.matches) { video.pause(); caixa.classList.remove("tocando"); bt.remove(); }
+    });
+  }
+
+  if (document.readyState === "complete") ligar();
+  else window.addEventListener("load", ligar);
+})();
