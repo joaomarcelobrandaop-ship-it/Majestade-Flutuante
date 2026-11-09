@@ -26,7 +26,8 @@ const CONFIG = {
     chegar:    "Oi! Queria saber como chego até o flutuante e onde deixo o carro.",
     fim:       "Oi! Queria reservar o Majestade. Entrada [data], saída [data], [nº] pessoas.",
     rodape:    "Oi! Queria falar com vocês sobre o flutuante.",
-    dados:     "Oi! Tenho uma pergunta sobre os meus dados no site do Majestade."
+    dados:     "Oi! Tenho uma pergunta sobre os meus dados no site do Majestade.",
+    pacote:    "Oi! Vi no site o pacote fechado de 4 noites com 3 dias de pesca, tudo incluso. Qual o valor? Somos [nº] pessoas, a partir de [data]."
   },
   /* O BOTAO DO QUADRO DE PERNOITE leva a opcao MARCADA para a mensagem.
      {preco} sai do texto da opcao na pagina: mudou o preco no HTML, a
@@ -118,7 +119,8 @@ const I18N = {
       chegar:    "Hi! I'd like to know how to get to the floating hotel and where to leave the car.",
       fim:       "Hi! I'd like to book Majestade. Check-in [date], check-out [date], [number] people.",
       rodape:    "Hi! I'd like to talk to you about the floating hotel.",
-      dados:     "Hi! I have a question about my data on the Majestade website."
+      dados:     "Hi! I have a question about my data on the Majestade website.",
+      pacote:    "Hi! I saw on the website the all-inclusive package: 4 nights with 3 days of fishing. How much is it? We are [number] people, from [date]."
     },
     preco: { pernoite: "Hi! I saw on the website the overnight stay in {item}, {preco} per person with breakfast. Are there dates available? We are [number] people, from [date] to [date]." }
   },
@@ -132,7 +134,8 @@ const I18N = {
       chegar:    "¡Hola! Quería saber cómo llegar al hotel flotante y dónde dejar el auto.",
       fim:       "¡Hola! Quiero reservar el Majestade. Entrada [fecha], salida [fecha], [nº] personas.",
       rodape:    "¡Hola! Quería hablar con ustedes sobre el hotel flotante.",
-      dados:     "¡Hola! Tengo una pregunta sobre mis datos en el sitio del Majestade."
+      dados:     "¡Hola! Tengo una pregunta sobre mis datos en el sitio del Majestade.",
+      pacote:    "¡Hola! Vi en el sitio el paquete cerrado de 4 noches con 3 días de pesca, todo incluido. ¿Cuál es el valor? Somos [nº] personas, a partir del [fecha]."
     },
     preco: { pernoite: "¡Hola! Vi en el sitio la estadía en {item}, {preco} por persona con desayuno. ¿Hay fechas disponibles? Somos [nº] personas, del [fecha] al [fecha]." }
   }
