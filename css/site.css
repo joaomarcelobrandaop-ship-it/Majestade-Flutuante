@@ -101,6 +101,9 @@ a{color:inherit}
 p{margin:0}
 h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;text-wrap:balance}
 ::selection{background:var(--ouro);color:var(--mata)}
+/* as partes do navegador tambem levam a paleta (polish 09/11/2026) */
+html{scrollbar-color:rgba(var(--ouro-rgb),.45) var(--mata)}
+input,select,textarea{caret-color:var(--ouro-claro)}
 /* o que o navegador desenha sozinho (a barra de rolagem do computador)
    tambem fica escuro, e nao cinza-claro no meio do verde */
 :root{color-scheme:dark}
@@ -195,7 +198,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
   .menu a{font-size:14px}
 }
 @media(max-width:520px){
-  .marca b{font-size:21px} .marca small{font-size:10.5px;letter-spacing:.4em;padding-left:.4em}
+  .marca b{font-size:21px} .marca small{font-size:11px;letter-spacing:.38em;padding-left:.38em}  /* 11px = piso de leitura (auditoria 09/11) */
 }
 
 /* ============================================================
