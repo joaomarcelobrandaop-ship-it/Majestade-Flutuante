@@ -231,40 +231,43 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
 .acoes{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;margin-top:32px}
 
 /* ============================================================
-   CAPA
-   A foto e a noturna do proprio flutuante e tem 1600 x 1200: o tamanho
-   em que chegou pelo WhatsApp. Nao existe maior. A capa foi refeita em
-   volta disso em 25/09/2026, depois do Joao: "zoom muito grande, tira
-   qualidade de uma imagem que ja nao tem uma qualidade tao boa".
-   Como FUNDO da tela inteira ela era esticada: um notebook com escala de
-   125-150% ou um Mac pede de 1900 a 2900 pontos para cobrir a tela, e a
-   foto tem 1600 -- ampliava ate 1,8x. Agora ela aparece INTEIRA e nunca
-   maior que o tamanho dela:
-   - celular e tablet (abaixo de 900px): em cima, na largura da tela, e o texto
-     embaixo;
-   - computador (900px ou mais): AO LADO do texto, com no maximo 50% da
-     tela e 800px. Ate numa tela de Mac (2 pontos por pixel) chegam 1600.
-   Nos dois, o texto fica no escuro liso: o contraste nao depende da foto.
+   CAPA -- "E, RESERVA NA CAPA" (escolha do Joao, 08/11/2026, entre 6
+   propostas em specs/capa-propostas/).
+   O video ocupa a primeira tela inteira e a barra de reserva fica NA
+   capa: chegada, noites e pessoas viram a mensagem do WhatsApp. Data
+   escolhida, nao digitada (manual de hospedagem, regra 11).
+   ⚠️ O video tem 1280 de largura (o recorte do filme tem 1680). Em tela
+   cheia, numa tela de computador maior que 1280 ele aparece AMPLIADO e
+   perde um pouco de nitidez. O Joao sabia disso quando escolheu.
+   O escuro por cima do video e o que garante a leitura do texto: sem ele,
+   o creme some no por do sol. Nao clarear sem medir o contraste.
    ============================================================ */
-.hero{position:relative;background:var(--mata);--foto:min(50vw,800px)}
-.hero__bg{position:relative;aspect-ratio:16/9}
+.hero{position:relative;display:flex;align-items:flex-end;min-height:calc(100svh - var(--topo));
+  background:var(--mata);overflow:hidden}
+.hero__bg{position:absolute;inset:0}
 .hero__bg img{display:block;width:100%;height:100%;object-fit:cover}
-/* VIDEO DA CAPA (08/11/2026): fica POR CIMA do primeiro quadro, invisivel,
-   e aparece quando comeca a tocar. O primeiro quadro do video e a foto de
-   baixo, entao a troca nao "pula": o esmaecer so esconde o instante do play. */
+/* VIDEO DA CAPA: fica POR CIMA do primeiro quadro, invisivel, e aparece
+   quando comeca a tocar. O primeiro quadro do video e a foto de baixo,
+   entao a troca nao "pula": o esmaecer so esconde o instante do play. */
 .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s var(--ease)}
 .hero__bg.tocando .hero__video{opacity:1}
-.hero__bg::after{z-index:1}
+/* tres escuros: em cima (para o menu), embaixo (para o texto e a barra)
+   e a esquerda (o texto fica do lado esquerdo) */
+.hero__bg::after{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(180deg,rgba(var(--mata-rgb),.7) 0,rgba(var(--mata-rgb),0) 200px),
+  linear-gradient(0deg,var(--mata) 0,rgba(var(--mata-rgb),.9) 380px,rgba(var(--mata-rgb),.2) 820px),
+  linear-gradient(90deg,rgba(var(--mata-rgb),.85),rgba(var(--mata-rgb),0) 65%)}
 /* o botao de pausar: a pessoa precisa conseguir parar o que se mexe sozinho
-   por mais de 5 s (WCAG 2.2.2). Circulo sem contorno (regra 1 da folha), 44px. */
-.hero__pausa{position:absolute;z-index:2;right:14px;bottom:14px;width:44px;height:44px;display:grid;place-items:center;
+   por mais de 5 s (WCAG 2.2.2). Circulo sem contorno, 44px, no canto de
+   cima: embaixo ele ficaria em cima da barra de reserva. */
+.hero__pausa{position:absolute;z-index:3;right:14px;top:14px;width:44px;height:44px;display:grid;place-items:center;
   border:0;border-radius:50%;background:rgba(var(--mata-rgb),.72);color:var(--creme);cursor:pointer}
 .hero__pausa svg{width:18px;height:18px}
 .hero__pausa:hover{background:rgba(var(--mata-rgb),.9)}
 .hero__pausa:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:3px}
-/* embaixo a foto se dissolve na pagina, sem aresta */
-.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(var(--mata-rgb),0) 58%, var(--mata) 100%)}
-.hero__in{position:relative;z-index:1;padding-top:18px;padding-bottom:56px}  /* so em cima e embaixo: as laterais vem do .wrap */
+/* no celular o texto sobe quase ate o topo: assim o botao "Ver se tem vaga"
+   cabe na primeira tela (medido em 375 x 812) */
+.hero__in{position:relative;z-index:2;width:100%;padding-top:clamp(48px,9vh,96px);padding-bottom:clamp(28px,5vh,72px)}
 .hero__txt{max-width:680px;animation:sobe .9s var(--ease) .12s both}
 /* o <h1> diz o que e + onde, igual ao <title> (apostila de SEO, cap. 14).
    Tamanho de letra e trabalho do CSS: a frase grande embaixo e um <p>. */
@@ -273,40 +276,32 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;line-height:1.08;t
   font-family:var(--serif);color:var(--creme);font-size:clamp(42px,7.2vw,86px);font-weight:600;
   letter-spacing:.01em;line-height:1;text-transform:uppercase;
 }
-.hero__tag{margin-top:24px;max-width:46ch;color:var(--creme-2);font-size:clamp(17px,1.7vw,19px)}
+.hero .h1{max-width:15ch}  /* "DORMIR NO MEIO / DO RIO": duas linhas no computador */
+.hero__tag{margin-top:20px;max-width:46ch;color:var(--creme-2);font-size:clamp(17px,1.7vw,19px)}
 .hero__tag b{color:var(--creme);font-weight:600}
+/* a barra da capa e a mesma do fim da pagina (.pedido), num fundo proprio
+   para nao depender do que o video mostra atras */
+.hero .pedido--capa{margin:28px 0 0;max-width:none;width:fit-content;justify-content:flex-start;
+  background:var(--mata-2);border-radius:14px;padding:14px 22px 16px}  /* sem animacao de entrada: a barra e o que mais importa e aparece sempre */
+.hero__nota{margin-top:12px;max-width:52ch;font-size:15px;color:var(--creme-2)}
 @keyframes sobe{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes surge{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){ .hero__txt{animation:surge .4s ease both} }
-/* cabecalho com fundo proprio abaixo de 900px: ali a foto encosta nele.
+/* cabecalho com fundo proprio abaixo de 900px: ali ele quebra em duas
+   linhas e nao cabe em cima do video.
    "width < 900px", e nao max-width:899px: tela com escala do Windows tem
    largura quebrada (899,5) e caia no vao entre as duas regras. */
 @media (width < 900px){
   .home .topo:not(.preso){background:rgba(var(--mata-rgb),.97)}
 }
-/* COMPUTADOR: texto a esquerda, foto inteira a direita. */
+@media(max-width:560px){
+  .hero .pedido--capa{width:auto;padding:12px 14px 14px}
+}
+/* COMPUTADOR: a capa sobe por baixo do cabecalho transparente */
 @media(min-width:900px){
-  .hero{
-    container-type:inline-size;   /* o 100cqw abaixo = a largura da capa, sem a barra de rolagem */
-    display:grid;grid-template-columns:minmax(0,1fr) var(--foto);column-gap:clamp(28px,3.5vw,56px);align-items:center;
-    min-height:min(94svh,860px);margin-top:calc(var(--topo) * -1);
-    padding:calc(var(--topo) + clamp(28px,4vw,64px)) 0 clamp(40px,5vw,80px);
-    overflow:hidden;
-  }
-  /* a foto encosta na borda direita da tela (como a aerea do "O que e")
-     e se dissolve nas outras tres bordas */
-  .hero__bg{
-    grid-column:2;grid-row:1;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 16%),linear-gradient(180deg,transparent,#000 9%,#000 90%,transparent);
-    -webkit-mask-composite:source-in;
-            mask-image:linear-gradient(90deg,transparent,#000 16%),linear-gradient(180deg,transparent,#000 9%,#000 90%,transparent);
-            mask-composite:intersect;
-  }
-  .hero__bg::after{content:none}
-  .hero__pausa{right:clamp(16px,3vw,40px);bottom:14%}
-  /* o texto comeca na mesma linha do letreiro do cabecalho (o .wrap) */
-  .hero__in{grid-column:1;grid-row:1;max-width:none;margin:0;padding:0 0 0 max(var(--pad), calc((100cqw - var(--max)) / 2 + var(--pad)))}
-  .hero .h1{font-size:clamp(42px,4.5vw,86px)}  /* "MEIO DO RIO" cabe em 2 linhas ao lado da foto, de 900 a 1920px (medido) */
+  .hero{min-height:100svh;margin-top:calc(var(--topo) * -1)}
+  .hero__pausa{top:calc(var(--topo) + 14px);right:clamp(16px,3vw,40px)}
+  .hero__in{padding-top:calc(var(--topo) + clamp(40px,8vh,120px))}
 }
 
 /* ============================================================

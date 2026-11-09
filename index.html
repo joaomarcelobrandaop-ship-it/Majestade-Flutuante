@@ -96,16 +96,14 @@
   <div class="hero__bg">
     <!-- CAPA EM VIDEO (08/11/2026): tres takes do filme do Fabio, MUDOS e sem
          ninguem falando (o filme cita a pescaria e o Corujao; o site e so o
-         hotel). Feito pelo tratar-video.py. 16:9, recortado por cima para a
-         legenda gravada no filme ficar de fora.
+         hotel). Feito pelo tratar-video.py.
          Por baixo fica o PRIMEIRO QUADRO como foto: e ele que aparece primeiro
          (e o LCP), e e so ele para quem pediu movimento reduzido, economia de
          dados ou esta sem JS. O video nao baixa nada (preload="none") ate a
          pagina terminar de carregar; quem liga e o bloco "VIDEO DA CAPA" do
          site.js, que tambem poe o botao de pausar (WCAG 2.2.2).
-         sizes: na largura da tela ate 899px; ao lado do texto com 50% da tela
-         e no maximo 800px no computador. -->
-    <picture><source type="image/avif" srcset="img/capa-video-960.avif 960w, img/capa-video-1280.avif 1280w" sizes="(max-width: 899px) 100vw, (max-width: 1600px) 50vw, 800px"><img src="img/capa-video-1280.webp" srcset="img/capa-video-960.webp 960w, img/capa-video-1280.webp 1280w" sizes="(max-width: 899px) 100vw, (max-width: 1600px) 50vw, 800px" alt="O Majestade Flutuante aceso à noite, ancorado na beira da mata, com as luzes refletindo no rio" data-i18n-alt="hero_alt" fetchpriority="high" width="1280" height="720"></picture>
+         Desde a capa E (08/11/2026) ele cobre a tela inteira: sizes="100vw". -->
+    <picture><source type="image/avif" srcset="img/capa-video-960.avif 960w, img/capa-video-1280.avif 1280w" sizes="100vw"><img src="img/capa-video-1280.webp" srcset="img/capa-video-960.webp 960w, img/capa-video-1280.webp 1280w" sizes="100vw" alt="O Majestade Flutuante aceso à noite, ancorado na beira da mata, com as luzes refletindo no rio" data-i18n-alt="hero_alt" fetchpriority="high" width="1280" height="720"></picture>
     <video class="hero__video" muted playsinline loop preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture>
       <source src="video/capa-960.webm" type='video/webm; codecs="av01.0.04M.08"' media="(max-width: 899px)">
       <source src="video/capa-960.mp4" type="video/mp4" media="(max-width: 899px)">
@@ -121,11 +119,27 @@
       <p class="h1" data-i18n="hero_grande">Dormir no meio do rio</p>
       <!-- as primeiras 100 palavras: o que e + onde + prova + pratica -->
       <p class="hero__tag" data-i18n="hero_tag">O <b>Majestade</b> é um hotel flutuante de três andares no Pantanal, com embarque no Pesqueiro Itaju, em Aquidauana (MS). São 18 camas em quatro camarotes com ar-condicionado, e o pernoite com café da manhã sai a partir de R$ 200 por pessoa.</p>
-      <div class="acoes">
-        <a class="bt" data-wa="hero" href="https://wa.me/556792063535" data-i18n="hero_cta">Ver datas livres</a>
-        <a class="link" href="camarotes/" data-i18n="hero_link">Camarotes e valores</a>
-      </div>
     </div>
+    <!-- BARRA DE RESERVA NA CAPA (capa E, 08/11/2026). A mesma do fim da
+         pagina, com o mesmo codigo no site.js: monta a mensagem e abre o
+         WhatsApp. Nada e guardado nem enviado a lugar nenhum (regra 8). -->
+    <form class="pedido pedido--capa" action="https://wa.me/556792063535" method="get" target="_blank">
+      <div class="campo campo--data" role="group" aria-labelledby="rot-chegada-capa"><span id="rot-chegada-capa" data-i18n="f_chegada">Chegada</span>
+        <div class="campo__par">
+          <select name="dia" aria-label="Dia da chegada" data-i18n-aria="f_dia_aria"><option value="" data-i18n="f_dia">dia</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option></select>
+          <select name="mes" aria-label="Mês da chegada" data-i18n-aria="f_mes_aria"><option value="" data-i18n="f_mes">mês</option><option value="1">janeiro</option><option value="2">fevereiro</option><option value="3">março</option><option value="4">abril</option><option value="5">maio</option><option value="6">junho</option><option value="7">julho</option><option value="8">agosto</option><option value="9">setembro</option><option value="10">outubro</option><option value="11">novembro</option><option value="12">dezembro</option></select>
+        </div>
+      </div>
+      <label class="campo"><span data-i18n="f_noites">Noites</span>
+        <select name="noites"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
+      <label class="campo"><span data-i18n="f_pessoas">Pessoas</span>
+        <select name="pessoas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select></label>
+      <button class="bt" type="submit">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+        <span data-i18n="hero_bt">Ver se tem vaga</span>
+      </button>
+    </form>
+    <p class="hero__nota" data-i18n="hero_nota">Abre o WhatsApp do Fábio com as datas já escritas.</p>
   </div>
 </section>
 

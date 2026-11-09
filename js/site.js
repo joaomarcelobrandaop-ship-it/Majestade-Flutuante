@@ -229,9 +229,9 @@ function atualizarZaps() {
    Windows em ingles aparecia mm/dd/yyyy, e brasileiro le 10/12 como 10 de
    dezembro. Em lista, e sempre "12 de outubro", em qualquer navegador.
    O ano nao se pergunta: se o dia ja passou este ano, e o do ano que vem. */
-(function () {
-  var f = document.getElementById("pedido");
-  if (!f) return;
+/* desde a capa E (08/11/2026) sao DUAS barras na home: a da capa e a do
+   fim. O mesmo codigo serve as duas. */
+document.querySelectorAll("form.pedido").forEach(function (f) {
 
   function anoDe(dia, mes) {
     var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
@@ -276,7 +276,7 @@ function atualizarZaps() {
   });
 
   ajustarDias();
-})();
+});
 
 /* ---- AVISO DE COOKIES (regra 8, LGPD) ----
    So existe com o Google Analytics LIGADO no INTEGRACOES. Desligado, o site
