@@ -71,6 +71,12 @@
     <a class="marca" href="/en/"><b>Majestade</b><small>Flutuante</small></a>
     <nav class="menu" id="menu" aria-label="Main" data-i18n-aria="nav_aria">
       <a href="/en/pesca/" data-i18n="nav_pesca">Fishing</a>
+      <!-- "Eventos" (18/11/2026) e o SEXTO item. Seis nao cabem numa linha do
+           celular com todos a vista (decisao do Joao de 06/10: nenhum item
+           escondido). Por isso ele so aparece onde cabe: a classe m-largo
+           some abaixo da largura medida no site.css. No celular, eventos
+           esta na capa (barra de reserva), na home e no rodape. -->
+      <a class="m-largo" href="/en/eventos/" data-i18n="nav_eventos">Events</a>
       <a href="/en/camarotes/" data-i18n="nav_camarotes">Cabins</a>
       <a href="/en/a-bordo/" data-i18n="nav_bordo">On board</a>
       <a href="/en/comer-e-beber/"><span class="m-longo" data-i18n="nav_comer">Food and drinks</span><span class="m-curto" data-i18n="nav_comer_c">Menu</span></a>
@@ -125,13 +131,17 @@
          pagina, com o mesmo codigo no site.js: monta a mensagem e abre o
          WhatsApp. Nada e guardado nem enviado a lugar nenhum (regra 8). -->
     <form class="pedido pedido--capa" action="https://wa.me/556792063535" method="get" target="_blank">
-      <!-- pesca ou so hospedagem: muda o comeco da mensagem (18/11/2026) -->
+      <!-- pesca, so hospedagem ou evento: muda o comeco da mensagem
+           (18/11/2026). No celular os dois nomes compridos encurtam
+           (p-curto) para as tres opcoes caberem numa linha so. -->
       <fieldset class="pedido__tipo">
         <legend class="sr" data-i18n="f_tipo">What are you looking for?</legend>
         <input class="sr" type="radio" name="tipo" id="tp-pesca-capa" value="pesca" checked>
-        <label for="tp-pesca-capa" data-i18n="f_tipo_pesca">Fishing package</label>
+        <label for="tp-pesca-capa"><span class="p-longo" data-i18n="f_tipo_pesca">Fishing package</span><span class="p-curto" data-i18n="f_tipo_pesca_c">Fishing</span></label>
         <input class="sr" type="radio" name="tipo" id="tp-hosp-capa" value="hospedagem">
-        <label for="tp-hosp-capa" data-i18n="f_tipo_hosp">Accommodation only</label>
+        <label for="tp-hosp-capa"><span class="p-longo" data-i18n="f_tipo_hosp">Accommodation only</span><span class="p-curto" data-i18n="f_tipo_hosp_c">Stay</span></label>
+        <input class="sr" type="radio" name="tipo" id="tp-evento-capa" value="evento">
+        <label for="tp-evento-capa" data-i18n="f_tipo_evento">Event</label>
       </fieldset>
       <div class="campo campo--data" role="group" aria-labelledby="rot-chegada-capa"><span id="rot-chegada-capa" data-i18n="f_chegada">Arrival</span>
         <div class="campo__par">
@@ -194,6 +204,28 @@
       <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-13-600.avif 600w, /img/pescaria-pantanal-majestade-13.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-13.webp" srcset="/img/pescaria-pantanal-majestade-13-600.webp 600w, /img/pescaria-pantanal-majestade-13.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Two anglers giving a thumbs up, each holding a fish, in a boat with seats" data-i18n-alt="f_p13_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
     </div>
     <div class="acoes"><a class="link" href="/en/pesca/" data-i18n="fx_link">See the fishing package and more photos</a></div>
+  </div>
+</section>
+
+<!-- ========================= EVENTOS: A FRASE DELE =========================
+     18/11/2026, pedido do Joao. A frase e do FABIO, de um audio: "a gente nao
+     vende so pesca, a gente vende experiencia". Vai na letra da arte dele,
+     como o slogan do fim (a cursiva so escreve frase dele).
+     As duas fotos sao dele (lote-2026-11-18-eventos). O texto so diz o que as
+     fotos e o pedido confirmam; o resto esta na pagina Eventos, como
+     pergunta. Um botao principal (regra 5); a pesca a noite e link. -->
+<section class="sec sec--seguido exp" id="eventos">
+  <div class="wrap">
+    <h2 class="frase" data-i18n="exp_frase">We don't just sell fishing, we sell an experience</h2>
+    <div class="exp__fotos">
+      <figure class="foto"><picture><source type="image/avif" srcset="/img/evento-grupo-deck-hotel-flutuante-pantanal-800.avif 800w, /img/evento-grupo-deck-hotel-flutuante-pantanal.avif 1280w" sizes="(max-width: 700px) 90vw, 534px"><img src="/img/evento-grupo-deck-hotel-flutuante-pantanal.webp" srcset="/img/evento-grupo-deck-hotel-flutuante-pantanal-800.webp 800w, /img/evento-grupo-deck-hotel-flutuante-pantanal.webp 1280w" sizes="(max-width: 700px) 90vw, 534px" alt="Group of friends smiling on the open deck at night, holding pink cups, with the string lights on and the lit forest behind" data-i18n-alt="f_e01_alt" loading="lazy" decoding="async" width="1280" height="720"></picture></figure>
+      <figure class="foto"><picture><source type="image/avif" srcset="/img/festa-no-deck-hotel-flutuante-majestade-800.avif 800w, /img/festa-no-deck-hotel-flutuante-majestade.avif 1280w" sizes="(max-width: 700px) 90vw, 534px"><img src="/img/festa-no-deck-hotel-flutuante-majestade.webp" srcset="/img/festa-no-deck-hotel-flutuante-majestade-800.webp 800w, /img/festa-no-deck-hotel-flutuante-majestade.webp 1280w" sizes="(max-width: 700px) 90vw, 534px" alt="Group of friends at a party on the covered deck, under colored lights, in front of a 90s and 2000s themed backdrop" data-i18n-alt="f_e03_alt" loading="lazy" decoding="async" width="1280" height="720"></picture></figure>
+    </div>
+    <p class="exp__p" data-i18n="exp_p">Besides the fishing package, Majestade hosts <b>parties and group events</b> on the top-floor deck. And the fishing goes on after dark.</p>
+    <div class="acoes">
+      <a class="bt" href="/en/eventos/" data-i18n="exp_cta">See what events are like</a>
+      <a class="link" href="/en/pesca/#noite" data-i18n="exp_link">See night fishing</a>
+    </div>
   </div>
 </section>
 
@@ -358,13 +390,15 @@
          brigando e a lista do mes larga demais. Agora: rotulo em cima, uma
          fonte so, e campo e botao com a mesma altura. -->
     <form class="pedido" id="pedido" action="https://wa.me/556792063535" method="get" target="_blank">
-      <!-- pesca ou so hospedagem: muda o comeco da mensagem (18/11/2026) -->
+      <!-- pesca, so hospedagem ou evento: muda o comeco da mensagem (18/11/2026) -->
       <fieldset class="pedido__tipo">
         <legend class="sr" data-i18n="f_tipo">What are you looking for?</legend>
         <input class="sr" type="radio" name="tipo" id="tp-pesca-fim" value="pesca" checked>
-        <label for="tp-pesca-fim" data-i18n="f_tipo_pesca">Fishing package</label>
+        <label for="tp-pesca-fim"><span class="p-longo" data-i18n="f_tipo_pesca">Fishing package</span><span class="p-curto" data-i18n="f_tipo_pesca_c">Fishing</span></label>
         <input class="sr" type="radio" name="tipo" id="tp-hosp-fim" value="hospedagem">
-        <label for="tp-hosp-fim" data-i18n="f_tipo_hosp">Accommodation only</label>
+        <label for="tp-hosp-fim"><span class="p-longo" data-i18n="f_tipo_hosp">Accommodation only</span><span class="p-curto" data-i18n="f_tipo_hosp_c">Stay</span></label>
+        <input class="sr" type="radio" name="tipo" id="tp-evento-fim" value="evento">
+        <label for="tp-evento-fim" data-i18n="f_tipo_evento">Event</label>
       </fieldset>
       <label class="campo"><span data-i18n="f_pessoas">People</span>
         <select name="pessoas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select></label>
@@ -430,6 +464,7 @@
       <div>
         <h2 data-i18n="rod_paginas">Pages</h2>
         <a href="/en/pesca/" data-i18n="rod_pesca">Fishing package</a>
+        <a href="/en/eventos/" data-i18n="rod_eventos">Events and parties</a>
         <a href="/en/camarotes/" data-i18n="rod_camarotes">Cabins and rates</a>
         <a href="/en/a-bordo/" data-i18n="nav_bordo">On board</a>
         <a href="/en/comer-e-beber/" data-i18n="nav_comer">Food and drinks</a>

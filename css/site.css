@@ -20,8 +20,9 @@
    2. TRES RAIOS: zero nas fotos, pilula no botao de acao, e 14px nas
       opcoes do quadro de pernoite, que sao botao de escolha. So.
    3. TITULO NAO TEM PALAVRA EM ITALICO. A cursiva e a letra da arte dele
-      e aparece em DOIS lugares, com frases DELE copiadas da arte: a
-      assinatura no rodape e o slogan no fim.
+      e so escreve frase DELE: a assinatura no rodape e o slogan no fim
+      (copiados da arte) e, desde 18/11/2026, a frase do audio ("a gente
+      nao vende so pesca, a gente vende experiencia").
    4. MOVIMENTO: so na capa -- a entrada do texto e, desde 08/11/2026, o
       video mudo do barco (com botao de pausar). Nada se mexe ao rolar.
 
@@ -807,3 +808,72 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ouro-claro);outline
      Paragrafo continua justificado (pedido do Joao, 25/09). */
   .lista li{text-align:left;-webkit-hyphens:manual;hyphens:manual}
 }
+
+/* ============================================================
+   EVENTOS E PESCA A NOITE (18/11/2026)
+   Pedido do Joao, com audio do Fabio: o flutuante tambem recebe evento.
+   Sem caixa e sem borda, como o resto do site.
+   ============================================================ */
+
+/* "Eventos" e o SEXTO item do menu. Seis nao cabem numa linha do celular
+   com todos a vista, e o Joao decidiu em 06/10 que nenhum item fica
+   escondido. Entao ele so aparece onde os seis cabem: MEDIDO em 18/11, os
+   seis so cabem inteiros de 1140 px para cima (portugues e o mais largo;
+   em 1100 o botao Reservar vazava 33 px). No celular e no tablet o menu
+   segue com cinco, e eventos esta na capa, na home e no rodape. Duas
+   linhas de menu no celular e decisao do Joao, nao minha. */
+.menu .m-largo{display:none}
+@media(min-width:1160px){ .menu .m-largo{display:inline-flex} }
+
+/* a barra de reserva tem TRES opcoes (pesca, hospedagem, evento): no
+   celular os dois nomes compridos encurtam para caber numa linha so */
+.p-curto{display:none}
+@media(max-width:500px){
+  .p-longo{display:none} .p-curto{display:inline}
+  .pedido__tipo{gap:6px}
+  /* medido: com 13px de cada lado as tres somam 270 px e cabem numa linha
+     a partir de 360 px de tela (sobram 292) */
+  .pedido__tipo label{padding:0 13px;font-size:14.5px}
+}
+
+/* A FRASE DO FABIO ("a gente nao vende so pesca, a gente vende
+   experiencia"), na letra da arte dele. A cursiva continua escrevendo SO
+   frase dele: o lema do rodape, o slogan do fim e esta. */
+.frase{font-family:var(--cursiva);font-weight:400;font-size:clamp(31px,4.6vw,56px);line-height:1.3;color:var(--ouro-claro)}
+.frase--assina{margin-top:24px;max-width:24ch;font-size:clamp(26px,2.7vw,32px);line-height:1.4;color:var(--ouro)}
+
+/* a faixa da home: a frase, duas fotos e o caminho para a pagina */
+.exp{text-align:center}
+/* 16em: duas linhas, quebrando na virgula; com 22ch dava tres no celular */
+.exp .frase{max-width:16em;margin:0 auto;line-height:1.18}  /* titulo grande de duas linhas: mais junto */
+.exp__fotos{display:grid;gap:clamp(10px,1.4vw,16px);margin-top:clamp(30px,4.5vw,48px)}
+@media(min-width:701px){ .exp__fotos{grid-template-columns:1fr 1fr} }
+.exp__p{margin:clamp(24px,3.4vw,34px) auto 0;max-width:54ch;color:var(--creme-2);font-size:clamp(17px,1.5vw,18.5px)}
+.exp__p b{color:var(--creme);font-weight:600}
+.exp .acoes{justify-content:center;margin-top:24px}
+
+/* fotos do WhatsApp (1280 px de largura): nunca mais largas que 640 px na
+   tela, senao a tela de 2x amplia (memoria "nunca ampliar imagem") */
+.foto--evento{max-width:640px}
+/* no computador a foto vem antes do texto; no celular, o titulo primeiro */
+@media(min-width:900px){ .duplo--foto-antes > .foto{order:-1} }
+/* par com a MESMA ALTURA: cada foto cresce na proporcao do proprio formato
+   (3:4 = 0,75 e 4:3 = 1,333). No celular uma fica embaixo da outra. */
+@media(min-width:701px){
+  .par > .foto.fm-34{flex:.75 1 0}
+  .par > .foto.fm-43{flex:1.333 1 0}
+}
+
+/* A PESCA A NOITE: a foto e estreita (a original tem 612 px) e fica ao lado
+   do texto tambem no celular, como nas duas portas da home */
+.noite{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(16px,3.4vw,44px);align-items:center;max-width:760px}
+.noite .titulo{font-size:clamp(27px,3.4vw,40px)}
+.noite .acoes{margin-top:14px}
+#noite{scroll-margin-top:calc(var(--topo) + 44px)}
+@media(min-width:700px){ .noite{grid-template-columns:280px minmax(0,1fr)} }
+@media(max-width:699px){ .noite .lead{margin-top:10px;font-size:16px;text-align:left;-webkit-hyphens:manual;hyphens:manual} }
+
+/* celular de 320 px, em ingles e espanhol: "Ver el paquete de pesca" numa
+   linha so vazava 4 px da tela. Ali o botao pode quebrar. (achado ao medir
+   a pagina em 18/11; o portugues ja cabia) */
+@media(max-width:340px){ .porta .bt{white-space:normal} }

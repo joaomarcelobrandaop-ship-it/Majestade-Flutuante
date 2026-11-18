@@ -63,6 +63,12 @@
     <a class="marca" href="/en/"><b>Majestade</b><small>Flutuante</small></a>
     <nav class="menu" id="menu" aria-label="Main" data-i18n-aria="nav_aria">
       <a href="/en/pesca/" aria-current="page" data-i18n="nav_pesca">Fishing</a>
+      <!-- "Eventos" (18/11/2026) e o SEXTO item. Seis nao cabem numa linha do
+           celular com todos a vista (decisao do Joao de 06/10: nenhum item
+           escondido). Por isso ele so aparece onde cabe: a classe m-largo
+           some abaixo da largura medida no site.css. No celular, eventos
+           esta na capa (barra de reserva), na home e no rodape. -->
+      <a class="m-largo" href="/en/eventos/" data-i18n="nav_eventos">Events</a>
       <a href="/en/camarotes/" data-i18n="nav_camarotes">Cabins</a>
       <a href="/en/a-bordo/" data-i18n="nav_bordo">On board</a>
       <a href="/en/comer-e-beber/"><span class="m-longo" data-i18n="nav_comer">Food and drinks</span><span class="m-curto" data-i18n="nav_comer_c">Menu</span></a>
@@ -95,7 +101,7 @@
       <p class="nota" data-i18n="pac_cond">Four people per cabin and four per boat. With fewer people, more days or on a weekend, the price is recalculated.</p>
       <div class="acoes"><a class="bt" data-wa="pacote" href="https://wa.me/556792063535" data-i18n="pac_cta">I want the 4-night package</a></div>
     </div>
-    <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pesca-no-pantanal-hotel-flutuante-majestade-600.avif 600w, /img/pesca-no-pantanal-hotel-flutuante-majestade.avif 960w" sizes="(max-width: 899px) 90vw, 420px"><img src="/img/pesca-no-pantanal-hotel-flutuante-majestade.webp" srcset="/img/pesca-no-pantanal-hotel-flutuante-majestade-600.webp 600w, /img/pesca-no-pantanal-hotel-flutuante-majestade.webp 960w" sizes="(max-width: 899px) 90vw, 420px" alt="Angler showing two yellowish fish in the boat, with other anglers behind and the Majestade floating hotel moored in the background" data-i18n-alt="f_p16_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+    <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pesca-no-pantanal-hotel-flutuante-majestade-600.avif 600w, /img/pesca-no-pantanal-hotel-flutuante-majestade.avif 960w" sizes="(max-width: 899px) 90vw, 420px"><img src="/img/pesca-no-pantanal-hotel-flutuante-majestade.webp" srcset="/img/pesca-no-pantanal-hotel-flutuante-majestade-600.webp 600w, /img/pesca-no-pantanal-hotel-flutuante-majestade.webp 960w" sizes="(max-width: 899px) 90vw, 420px" alt="Angler showing two yellowish fish in the boat, with other anglers behind and the Majestade floating hotel moored in the background" data-i18n-alt="f_p16_alt" fetchpriority="high" width="960" height="1280"></picture></figure>
   </div>
 </section>
 
@@ -158,6 +164,25 @@
   </div>
 </section>
 
+<!-- A PESCA A NOITE (18/11/2026). A foto e do Fabio. O que se sabe: os barcos
+     tambem saem a noite (as fotos mostram, e o filme dele fala em "pescarias
+     diurnas e noturnas"). Horario, valor e se entra no pacote: so ele
+     responde, por isso a secao termina em pergunta (comercial/pauta-reuniao.md).
+     O nome "Corujao" NAO aparece: decisao do Joao de 18/11
+     (specs/plano-pesca-tema-principal.md, item 12.2). -->
+<section class="sec sec--seguido" id="noite">
+  <div class="wrap">
+    <article class="noite">
+      <figure class="foto"><picture><source type="image/avif" srcset="/img/pesca-noturna-pantanal-majestade-400.avif 400w, /img/pesca-noturna-pantanal-majestade.avif 612w" sizes="(max-width: 699px) 40vw, 280px"><img src="/img/pesca-noturna-pantanal-majestade.webp" srcset="/img/pesca-noturna-pantanal-majestade-400.webp 400w, /img/pesca-noturna-pantanal-majestade.webp 612w" sizes="(max-width: 699px) 40vw, 280px" alt="Woman in a cap smiling and holding a large spotted catfish at night, standing in the boat" data-i18n-alt="f_n01_alt" loading="lazy" decoding="async" width="612" height="1088"></picture></figure>
+      <div>
+        <h2 class="titulo" data-i18n="noi_t">Night fishing</h2>
+        <p class="lead" data-i18n="noi_p">The fishing goes on after dark: the boats also go out at night. Times and price are arranged on WhatsApp.</p>
+        <div class="acoes"><a class="link" data-wa="noite" href="https://wa.me/556792063535" data-i18n="noi_cta">Ask about night fishing</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section class="sec sec--seguido">
   <div class="wrap duplo">
     <div>
@@ -206,6 +231,7 @@
       <div>
         <h2 data-i18n="rod_paginas">Pages</h2>
         <a href="/en/pesca/" data-i18n="rod_pesca">Fishing package</a>
+        <a href="/en/eventos/" data-i18n="rod_eventos">Events and parties</a>
         <a href="/en/camarotes/" data-i18n="rod_camarotes">Cabins and rates</a>
         <a href="/en/a-bordo/" data-i18n="nav_bordo">On board</a>
         <a href="/en/comer-e-beber/" data-i18n="nav_comer">Food and drinks</a>

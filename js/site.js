@@ -27,7 +27,13 @@ const CONFIG = {
     fim:       "Oi! Queria reservar o Majestade. Entrada [data], saída [data], [nº] pessoas.",
     rodape:    "Oi! Queria falar com vocês sobre o flutuante.",
     dados:     "Oi! Tenho uma pergunta sobre os meus dados no site do Majestade.",
-    pacote:    "Oi! Vi no site o pacote fechado de pesca: 4 noites e 3 dias de pesca, R$ 3.500 por pessoa para grupo de 16. Somos [nº] pessoas e queremos ir a partir de [data]."
+    pacote:    "Oi! Vi no site o pacote fechado de pesca: 4 noites e 3 dias de pesca, R$ 3.500 por pessoa para grupo de 16. Somos [nº] pessoas e queremos ir a partir de [data].",
+    /* 18/11/2026: evento e pesca a noite. O que o site ainda nao sabe
+       responder (tipos de evento, lotacao, valor, decoracao, horario da
+       pesca a noite) vai como pergunta: o Fabio responde. */
+    evento:    "Oi! Vi no site que o Majestade recebe eventos. Queria comemorar [o quê], com [nº] pessoas, em [data]. Como funciona e qual o valor?",
+    decoracao: "Oi! Vi no site as fotos da festa no deck do Majestade. O que entra na decoração de um evento e o que a gente leva?",
+    noite:     "Oi! Vi no site a pesca à noite. Como funciona, em que horário, e ela entra no pacote?"
   },
   /* O BOTAO DO QUADRO DE PERNOITE leva a opcao MARCADA para a mensagem.
      {preco} sai do texto da opcao na pagina: mudou o preco no HTML, a
@@ -91,16 +97,19 @@ const FRASE = {
   pt: { pessoa: ["pessoa","pessoas"], noite: ["noite","noites"],
         abre: "Oi! Queria reservar o Majestade: ", fecha: ". Tem vaga?",
         abrePesca: "Oi! Queria reservar o pacote de pesca do Majestade: ",
+        abreEvento: "Oi! Queria fazer um evento no Majestade: ",
         combinar: "em data a combinar",
         data: function (d, m, a) { return "a partir de " + d + "/" + m + "/" + a; } },
   en: { pessoa: ["person","people"], noite: ["night","nights"],
         abre: "Hi! I'd like to book the Majestade: ", fecha: ". Is there availability?",
         abrePesca: "Hi! I'd like to book the Majestade fishing package: ",
+        abreEvento: "Hi! I'd like to hold an event on the Majestade: ",
         combinar: "dates to be arranged",
         data: function (d, m, a) { return "from " + Number(d) + " " + MESES.en[m - 1] + " " + a; } },
   es: { pessoa: ["persona","personas"], noite: ["noche","noches"],
         abre: "¡Hola! Quiero reservar el Majestade: ", fecha: ". ¿Hay lugar?",
         abrePesca: "¡Hola! Quiero reservar el paquete de pesca del Majestade: ",
+        abreEvento: "¡Hola! Quiero hacer un evento en el Majestade: ",
         combinar: "fecha a coordinar",
         data: function (d, m, a) { return "a partir del " + Number(d) + " de " + MESES.es[m - 1] + " de " + a; } }
 };
@@ -123,7 +132,10 @@ const I18N = {
       fim:       "Hi! I'd like to book Majestade. Check-in [date], check-out [date], [number] people.",
       rodape:    "Hi! I'd like to talk to you about the floating hotel.",
       dados:     "Hi! I have a question about my data on the Majestade website.",
-      pacote:    "Hi! I saw on the website the all-inclusive fishing package: 4 nights and 3 days of fishing, R$ 3,500 per person for a group of 16. We are [number] people and would like to go from [date]."
+      pacote:    "Hi! I saw on the website the all-inclusive fishing package: 4 nights and 3 days of fishing, R$ 3,500 per person for a group of 16. We are [number] people and would like to go from [date].",
+      evento:    "Hi! I saw on the website that Majestade hosts events. I'd like to celebrate [what], with [number] people, on [date]. How does it work and what is the price?",
+      decoracao: "Hi! I saw the party photos on the Majestade website. What is included in the decoration for an event, and what should we bring?",
+      noite:     "Hi! I saw night fishing on the website. How does it work, at what time, and is it part of the package?"
     },
     preco: { pernoite: "Hi! I saw on the website the overnight stay in {item}, {preco} per person with breakfast. Are there dates available? We are [number] people, from [date] to [date]." }
   },
@@ -138,7 +150,10 @@ const I18N = {
       fim:       "¡Hola! Quiero reservar el Majestade. Entrada [fecha], salida [fecha], [nº] personas.",
       rodape:    "¡Hola! Quería hablar con ustedes sobre el hotel flotante.",
       dados:     "¡Hola! Tengo una pregunta sobre mis datos en el sitio del Majestade.",
-      pacote:    "¡Hola! Vi en el sitio el paquete cerrado de pesca: 4 noches y 3 días de pesca, R$ 3.500 por persona para grupo de 16. Somos [nº] personas y queremos ir a partir del [fecha]."
+      pacote:    "¡Hola! Vi en el sitio el paquete cerrado de pesca: 4 noches y 3 días de pesca, R$ 3.500 por persona para grupo de 16. Somos [nº] personas y queremos ir a partir del [fecha].",
+      evento:    "¡Hola! Vi en el sitio que el Majestade recibe eventos. Quiero celebrar [qué], con [nº] personas, el [fecha]. ¿Cómo funciona y cuál es el precio?",
+      decoracao: "¡Hola! Vi en el sitio las fotos de la fiesta en la terraza del Majestade. ¿Qué incluye la decoración de un evento y qué llevamos nosotros?",
+      noite:     "¡Hola! Vi en el sitio la pesca nocturna. ¿Cómo funciona, en qué horario, y entra en el paquete?"
     },
     preco: { pernoite: "¡Hola! Vi en el sitio la estadía en {item}, {preco} por persona con desayuno. ¿Hay fechas disponibles? Somos [nº] personas, del [fecha] al [fecha]." }
   }
@@ -260,14 +275,18 @@ document.querySelectorAll("form.pedido").forEach(function (f) {
     if (diaEscolhido > ultimo) f.dia.value = "";
   }
 
-  /* pesca ou so hospedagem (18/11/2026): muda o comeco da mensagem e o
-     numero de noites que ja vem marcado (4 no pacote, 2 no pernoite) */
+  /* pesca, so hospedagem ou evento (18/11/2026): muda o comeco da mensagem
+     e o numero de noites que ja vem marcado (4 no pacote, 2 no pernoite,
+     1 no evento) */
   function tipoAtual() {
     var m = f.querySelector('input[name="tipo"]:checked');
     return m ? m.value : "hospedagem";
   }
   Array.prototype.forEach.call(f.querySelectorAll('input[name="tipo"]'), function (r) {
-    r.addEventListener("change", function () { f.noites.value = tipoAtual() === "pesca" ? "4" : "2"; });
+    r.addEventListener("change", function () {
+      var t = tipoAtual();
+      f.noites.value = t === "pesca" ? "4" : t === "evento" ? "1" : "2";
+    });
   });
 
   f.addEventListener("change", function (e) { if (e.target === f.mes) ajustarDias(); });
@@ -288,7 +307,9 @@ document.querySelectorAll("form.pedido").forEach(function (f) {
     } else {
       partes.push(F.combinar);
     }
-    window.open(linkZap((tipoAtual() === "pesca" ? F.abrePesca : F.abre) + partes.join(", ") + F.fecha), "_blank", "noopener");
+    var tipo = tipoAtual();
+    var abre = tipo === "pesca" ? F.abrePesca : tipo === "evento" ? F.abreEvento : F.abre;
+    window.open(linkZap(abre + partes.join(", ") + F.fecha), "_blank", "noopener");
   });
 
   ajustarDias();
