@@ -238,13 +238,15 @@
     <ul class="lista">
       <li data-i18n="oque_l1"><b>18 camas</b> en cuatro camarotes: tres de cuatro camas y uno de seis.</li>
       <li data-i18n="oque_l2"><b>Cuatro baños</b>, fuera de las habitaciones.</li>
-      <li data-i18n="oque_l3"><b>Sala con TV, sofás, mesas y heladera de cervezas</b>, donde el grupo se junta cuando cae el sol.</li>
+      <li data-i18n="oque_l3"><b>Sala climatizada, con TV, sofás, mesas y heladera de cervezas</b>, donde el grupo se reúne cuando cae el sol.</li>
       <li data-i18n="oque_l4"><b>Desayuno incluido</b> en la estadía. Almuerzo y cena a coordinar.</li>
       <!-- FATO: o Fabio diz no filme dele (07/11/2026) que o barco e
            "autossuficiente de energia, energia limpa"; as placas solares
            aparecem nas fotos. "Um dos poucos no MS" ficou de fora: comparacao
            que nao da para conferir (regra 2). -->
       <li data-i18n="oque_l5"><b>Energía solar</b>: los paneles del techo hacen que el barco sea autosuficiente en energía.</li>
+      <!-- FATO: o Fabio pediu para dizer (18/11/2026, pelo Joao) -->
+      <li data-i18n="oque_l6"><b>Internet Starlink</b> a bordo.</li>
     </ul>
     <!-- Video de OUTRO canal, que visitou o flutuante. Vai como LINK, nao
          embutido: o player do YouTube manda o IP de quem visita ao Google
@@ -295,7 +297,7 @@
         <p class="piso__n" aria-hidden="true">1<small data-i18n="andar">piso</small></p>
         <div>
           <h3><span class="sr" data-i18n="sr_and1">Primer piso: </span><span data-i18n="and_1_t">Sala, cocina y dos baños</span></h3>
-          <p data-i18n="and_1_p">La sala tiene TV, aire acondicionado, mesas, sofás y <b>heladera con bebidas</b>. La cocina prepara las comidas a bordo.</p>
+          <p data-i18n="and_1_p">La sala es climatizada, con aire acondicionado, y tiene TV, mesas, sofás y <b>heladera con bebidas</b>. La cocina prepara las comidas a bordo.</p>
         </div>
         <div class="piso__midia">
           <figure class="foto">
@@ -436,6 +438,8 @@
         <dd data-i18n="faq2_a">Son 18 camas en cuatro camarotes: tres de cuatro camas y uno de seis, con literas y camas individuales.</dd></div>
       <div><dt data-i18n="faq3_q">¿Los camarotes tienen aire acondicionado y baño?</dt>
         <dd data-i18n="faq3_a">Los cuatro camarotes tienen aire acondicionado. Los baños están fuera de las habitaciones: son cuatro en total, dos en el primer piso y dos en el segundo.</dd></div>
+      <div><dt data-i18n="faq9_q">¿Hay internet en el hotel flotante?</dt>
+        <dd data-i18n="faq9_a">Sí. El barco tiene internet Starlink, y la sala del primer piso es climatizada, con aire acondicionado y TV.</dd></div>
       <div><dt data-i18n="faq4_q">¿Las comidas están incluidas?</dt>
         <dd data-i18n="faq4_a">El desayuno está incluido en la estadía. El almuerzo y la cena cuestan R$ 75 cada uno y se coordinan con anticipación. Bebidas, hielo y porciones se venden a bordo.</dd></div>
       <div><dt data-i18n="faq5_q">¿Cómo se llega al Majestade Flutuante?</dt>
@@ -545,7 +549,12 @@
         },
         {
           "@type": "LocationFeatureSpecification",
-          "name": "Sala con TV y aire acondicionado",
+          "name": "Sala climatizada con TV",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Internet Starlink",
           "value": true
         },
         {

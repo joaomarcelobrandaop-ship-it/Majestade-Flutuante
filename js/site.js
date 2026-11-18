@@ -21,7 +21,7 @@ const CONFIG = {
        Viraram pergunta clicavel: o hospede pergunta, o Fabio responde. As
        respostas estao na pauta (comercial/pauta-reuniao.md). */
     regras:    "Oi! Antes de reservar: qual a diária mínima, como é o pagamento e como funciona o cancelamento?",
-    bordo:     "Oi! Tenho umas dúvidas sobre o flutuante: tem energia a noite toda? Tem sinal de celular ou wi-fi?",
+    bordo:     "Oi! Tenho umas dúvidas sobre o flutuante: tem energia a noite toda? O que é bom levar?",
     comer:     "Oi! Queria saber sobre as refeições a bordo: almoço, jantar e o que dá pra programar.",
     chegar:    "Oi! Queria saber como chego até o flutuante e onde deixo o carro.",
     fim:       "Oi! Queria reservar o Majestade. Entrada [data], saída [data], [nº] pessoas.",
@@ -126,7 +126,7 @@ const I18N = {
       topo:      "Hi! I saw your website and would like to know more about the floating hotel.",
       hero:      "Hi! I'd like to know if Majestade has dates available. We are [number] people, from [date] to [date].",
       regras:    "Hi! Before booking: what is the minimum stay, how does payment work and what is the cancellation policy?",
-      bordo:     "Hi! I have a few questions about the floating hotel: is there power all night? Is there cell signal or Wi-Fi?",
+      bordo:     "Hi! I have a few questions about the floating hotel: is there power all night? What should I bring?",
       comer:     "Hi! I'd like to know about meals on board: lunch, dinner and what can be arranged.",
       chegar:    "Hi! I'd like to know how to get to the floating hotel and where to leave the car.",
       fim:       "Hi! I'd like to book Majestade. Check-in [date], check-out [date], [number] people.",
@@ -144,7 +144,7 @@ const I18N = {
       topo:      "¡Hola! Vi su sitio y quería saber sobre el hotel flotante.",
       hero:      "¡Hola! Quería saber si hay fechas disponibles en el Majestade. Somos [nº] personas, del [fecha] al [fecha].",
       regras:    "¡Hola! Antes de reservar: ¿cuál es la estadía mínima, cómo es el pago y cómo funciona la cancelación?",
-      bordo:     "¡Hola! Tengo algunas dudas sobre el hotel flotante: ¿hay energía toda la noche? ¿Hay señal de celular o wifi?",
+      bordo:     "¡Hola! Tengo algunas dudas sobre el hotel flotante: ¿hay energía toda la noche? ¿Qué conviene llevar?",
       comer:     "¡Hola! Quería saber sobre las comidas a bordo: almuerzo, cena y qué se puede coordinar.",
       chegar:    "¡Hola! Quería saber cómo llegar al hotel flotante y dónde dejar el auto.",
       fim:       "¡Hola! Quiero reservar el Majestade. Entrada [fecha], salida [fecha], [nº] personas.",

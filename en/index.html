@@ -238,13 +238,15 @@
     <ul class="lista">
       <li data-i18n="oque_l1"><b>18 beds</b> in four cabins: three with four beds and one with six.</li>
       <li data-i18n="oque_l2"><b>Four bathrooms</b>, outside the cabins.</li>
-      <li data-i18n="oque_l3"><b>A lounge with TV, sofas, tables and a beer fridge</b>, where everyone gets together after sunset.</li>
+      <li data-i18n="oque_l3"><b>An air-conditioned lounge with TV, sofas, tables and a beer fridge</b>, where everyone gets together after sunset.</li>
       <li data-i18n="oque_l4"><b>Breakfast included</b> with the overnight stay. Lunch and dinner can be arranged.</li>
       <!-- FATO: o Fabio diz no filme dele (07/11/2026) que o barco e
            "autossuficiente de energia, energia limpa"; as placas solares
            aparecem nas fotos. "Um dos poucos no MS" ficou de fora: comparacao
            que nao da para conferir (regra 2). -->
       <li data-i18n="oque_l5"><b>Solar power</b>: the panels on the roof make the boat self-sufficient in energy.</li>
+      <!-- FATO: o Fabio pediu para dizer (18/11/2026, pelo Joao) -->
+      <li data-i18n="oque_l6"><b>Starlink internet</b> on board.</li>
     </ul>
     <!-- Video de OUTRO canal, que visitou o flutuante. Vai como LINK, nao
          embutido: o player do YouTube manda o IP de quem visita ao Google
@@ -295,7 +297,7 @@
         <p class="piso__n" aria-hidden="true">1<small data-i18n="andar">floor</small></p>
         <div>
           <h3><span class="sr" data-i18n="sr_and1">First floor: </span><span data-i18n="and_1_t">Lounge, kitchen and two bathrooms</span></h3>
-          <p data-i18n="and_1_p">The lounge has TV, air conditioning, tables, sofas and a <b>beer fridge stocked with drinks</b>. The kitchen prepares the meals on board.</p>
+          <p data-i18n="and_1_p">The lounge is air-conditioned and has a TV, tables, sofas and a <b>beer fridge stocked with drinks</b>. The kitchen prepares the meals on board.</p>
         </div>
         <div class="piso__midia">
           <figure class="foto">
@@ -436,6 +438,8 @@
         <dd data-i18n="faq2_a">There are 18 beds in four cabins: three with four beds and one with six, with bunk beds and single beds.</dd></div>
       <div><dt data-i18n="faq3_q">Do the cabins have air conditioning and a bathroom?</dt>
         <dd data-i18n="faq3_a">All four cabins have air conditioning. The bathrooms are outside the cabins: there are four in total, two on the first floor and two on the second.</dd></div>
+      <div><dt data-i18n="faq9_q">Is there internet on the floating hotel?</dt>
+        <dd data-i18n="faq9_a">Yes. The boat has Starlink internet, and the first-floor lounge is air-conditioned, with a TV.</dd></div>
       <div><dt data-i18n="faq4_q">Are meals included?</dt>
         <dd data-i18n="faq4_a">Breakfast is included with the overnight stay. Lunch and dinner cost R$ 75 each and are arranged in advance. Drinks, ice and snacks are sold on board.</dd></div>
       <div><dt data-i18n="faq5_q">How do I get to Majestade Flutuante?</dt>
@@ -545,7 +549,12 @@
         },
         {
           "@type": "LocationFeatureSpecification",
-          "name": "Lounge with TV and air conditioning",
+          "name": "Air-conditioned lounge with TV",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Starlink internet",
           "value": true
         },
         {
