@@ -62,13 +62,14 @@
   <div class="wrap">
     <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
     <nav class="menu" id="menu" aria-label="Principal" data-i18n-aria="nav_aria">
+      <a href="/es/pesca/" data-i18n="nav_pesca">Pesca</a>
       <a href="/es/camarotes/" aria-current="page" data-i18n="nav_camarotes">Camarotes</a>
       <a href="/es/a-bordo/" data-i18n="nav_bordo">A bordo</a>
-      <a href="/es/comer-e-beber/" data-i18n="nav_comer">Comer y beber</a>
-      <a href="/es/como-chegar/" data-i18n="nav_chegar">Cómo llegar</a>
+      <a href="/es/comer-e-beber/"><span class="m-longo" data-i18n="nav_comer">Comer y beber</span><span class="m-curto" data-i18n="nav_comer_c">Menú</span></a>
+      <a href="/es/como-chegar/"><span class="m-longo" data-i18n="nav_chegar">Cómo llegar</span><span class="m-curto" data-i18n="nav_chegar_c">Llegar</span></a>
     </nav>
     <!-- troca de lingua no computador; no celular e no tablet ela fica no
-         rodape, e o topo mostra os quatro itens do menu -->
+         rodape, e o topo mostra os cinco itens do menu -->
     <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
       <a href="/camarotes/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
       <a href="/en/camarotes/" data-lang="en" hreflang="en" lang="en">EN</a>
@@ -160,47 +161,12 @@
   </div>
 </section>
 
-<!--PACOTE-->
-<section class="sec pacote" id="pacote">
-  <figure class="pacote__foto">
-    <picture><source type="image/avif" srcset="/img/hotel-flutuante-majestade-noite-800.avif 800w, /img/hotel-flutuante-majestade-noite-1200.avif 1200w, /img/hotel-flutuante-majestade-noite-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 630px"><img src="/img/hotel-flutuante-majestade-noite-1200.webp" srcset="/img/hotel-flutuante-majestade-noite-800.webp 800w, /img/hotel-flutuante-majestade-noite-1200.webp 1200w, /img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 630px" alt="El Majestade Flutuante iluminado de noche, anclado a orillas del monte" data-i18n-alt="pac_alt" loading="lazy" decoding="async" width="1600" height="1200"></picture>
-  </figure>
-  <div class="pacote__txt">
-    <h2 class="titulo" data-i18n="pac_t">Paquete cerrado de pesca, todo incluido</h2>
-    <p class="lead" data-i18n="pac_lead"><b>Cuatro noches</b> a bordo y <b>tres días completos de pesca</b>, de domingo a jueves.</p>
-    <!-- FATO: texto do Fabio no WhatsApp (briefing/pacote-pesca-fabio-2026-11.md).
-         O preco vale PARA GRUPO DE 16; fora disso ele recalcula. -->
-    <p class="pacote__preco"><b>R$ 3.500</b> <span data-i18n="pac_preco_s">por persona, para grupo de 16</span></p>
-    <p class="nota" data-i18n="pac_cond">Son cuatro personas por camarote y cuatro por lancha. Con menos gente, más días o en fin de semana, el valor se recalcula.</p>
-    <div class="acoes"><a class="bt" data-wa="pacote" href="https://wa.me/556792063535"><svg aria-hidden="true"><use href="#i-zap"/></svg><span data-i18n="pac_cta">Quiero el paquete de 4 noches</span></a></div>
-  </div>
-  <div class="pacote__mais">
-    <div>
-      <h3 class="rotulo" data-i18n="pac_dias_t">Cómo son los días</h3>
-      <ul class="lista">
-        <li data-i18n="pac_d1"><b>Domingo</b>: embarque al final de la tarde y 45 minutos río abajo hasta el hotel flotante.</li>
-        <li data-i18n="pac_d2"><b>Lunes, martes y miércoles</b>: tres días completos de pesca.</li>
-        <li data-i18n="pac_d3"><b>Jueves</b>: salida después del desayuno, con embarque entre las 7:00 y las 7:30.</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="rotulo" data-i18n="pac_inc_t">Qué está incluido</h3>
-      <ul class="lista">
-        <li data-i18n="pac_l1"><b>Lancha, motor y piloto</b>: lanchas de 7 m, más anchas, con motor de 40 hp y una butaca giratoria para cada pescador. Cuatro pescadores por lancha.</li>
-        <li data-i18n="pac_l2"><b>Combustible y carnada viva</b>.</li>
-        <li data-i18n="pac_l3"><b>Comida</b>: desayuno, almuerzo, merienda y cena, más las porciones.</li>
-        <li data-i18n="pac_l4"><b>Bebida</b>: cerveza, cachaça, gaseosa, agua y agua con gas.</li>
-        <li data-i18n="pac_l5"><b>Hielo y conservadora</b>.</li>
-        <li data-i18n="pac_l6"><b>Alojamiento</b> las cuatro noches, en camarote con aire acondicionado.</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="rotulo" data-i18n="pac_pag_t">Reserva y pago</h3>
-      <p class="pacote__pag" data-i18n="pac_pag">Una seña de R$ 500 confirma la reserva. El resto se puede dividir por Pix y debe quedar pago hasta un día antes del embarque.</p>
-    </div>
+<section class="sec sec--seguido">
+  <div class="wrap">
+    <p class="nota" data-i18n="cam_pesca">En el <b>paquete de pesca</b> son cuatro personas por camarote: cuatro noches y tres días de pesca, con todo incluido, por R$ 3.500 por persona en grupo de 16.</p>
+    <div class="acoes"><a class="link" href="/es/pesca/" data-i18n="pt1_cta">Ver el paquete de pesca</a></div>
   </div>
 </section>
-<!--/PACOTE-->
 </main>
 
 <footer class="rod">
@@ -213,6 +179,7 @@
       </div>
       <div>
         <h2 data-i18n="rod_paginas">Páginas</h2>
+        <a href="/es/pesca/" data-i18n="rod_pesca">Paquete de pesca</a>
         <a href="/es/camarotes/" data-i18n="rod_camarotes">Camarotes y precios</a>
         <a href="/es/a-bordo/" data-i18n="nav_bordo">A bordo</a>
         <a href="/es/comer-e-beber/" data-i18n="nav_comer">Comer y beber</a>

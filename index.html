@@ -10,8 +10,8 @@
 <meta name="robots" content="noindex, nofollow">
 <!-- 59 caracteres, com hifen e com a cidade (apostila cap. 14). O h1 diz
      a mesma coisa: quando title e h1 combinam, o Google quase nao reescreve. -->
-<title>Hotel Flutuante Majestade no Pantanal - Saída de Aquidauana</title>
-<meta name="description" content="Hotel flutuante no Pantanal com 4 camarotes com ar e café da manhã. Pernoite de R$ 200 a R$ 500 por pessoa. Reserve pelo WhatsApp.">
+<title>Hotel Flutuante e Pesca no Pantanal - Majestade, Aquidauana</title>
+<meta name="description" content="Hotel flutuante no Pantanal (Aquidauana, MS). Pacote de pesca de 4 noites, tudo incluso, por R$ 3.500 por pessoa em grupo de 16. Pernoite a partir de R$ 200.">
 <link rel="canonical" href="https://majestade-flutuante.vercel.app/">
 <!-- as tres versoes da mesma pagina (Google e IAs mandam cada um para a
      sua lingua). O gerar-paginas.py acerta os enderecos em cada pagina. -->
@@ -23,8 +23,8 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Majestade Flutuante">
 <meta property="og:url" content="https://majestade-flutuante.vercel.app/">
-<meta property="og:title" content="Hotel Flutuante Majestade no Pantanal - Saída de Aquidauana">
-<meta property="og:description" content="Quatro camarotes com ar-condicionado e deck aberto no meio do rio. Pernoite com café da manhã a partir de R$ 200 por pessoa.">
+<meta property="og:title" content="Hotel Flutuante e Pesca no Pantanal - Majestade, Aquidauana">
+<meta property="og:description" content="Pacote de pesca de quatro noites com tudo incluso, ou só o pernoite com café da manhã, num hotel flutuante no meio do rio.">
 <meta property="og:image" content="https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp">
 <meta property="og:image:alt" content="O Majestade Flutuante iluminado à noite, visto do rio">
 <meta name="twitter:card" content="summary_large_image">
@@ -70,13 +70,14 @@
   <div class="wrap">
     <a class="marca" href="./"><b>Majestade</b><small>Flutuante</small></a>
     <nav class="menu" id="menu" aria-label="Principal" data-i18n-aria="nav_aria">
+      <a href="pesca/" data-i18n="nav_pesca">Pesca</a>
       <a href="camarotes/" data-i18n="nav_camarotes">Camarotes</a>
       <a href="a-bordo/" data-i18n="nav_bordo">A bordo</a>
-      <a href="comer-e-beber/" data-i18n="nav_comer">Comer e beber</a>
-      <a href="como-chegar/" data-i18n="nav_chegar">Como chegar</a>
+      <a href="comer-e-beber/"><span class="m-longo" data-i18n="nav_comer">Comer e beber</span><span class="m-curto" data-i18n="nav_comer_c">Cardápio</span></a>
+      <a href="como-chegar/"><span class="m-longo" data-i18n="nav_chegar">Como chegar</span><span class="m-curto" data-i18n="nav_chegar_c">Chegar</span></a>
     </nav>
     <!-- troca de lingua no computador; no celular e no tablet ela fica no
-         rodape, e o topo mostra os quatro itens do menu -->
+         rodape, e o topo mostra os cinco itens do menu -->
     <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
       <a href="/" data-lang="pt" hreflang="pt-BR" lang="pt-BR" aria-current="true">PT</a>
       <a href="/en/" data-lang="en" hreflang="en" lang="en">EN</a>
@@ -115,15 +116,23 @@
     <div class="hero__txt">
       <!-- o h1 diz O QUE E + ONDE, igual ao title. A frase grande embaixo
            e o gancho; ela e um paragrafo porque tamanho de letra e trabalho do CSS. -->
-      <h1 class="hero__h1" data-i18n="hero_h1">Hotel flutuante no Pantanal, com saída de Aquidauana (MS)</h1>
-      <p class="h1" data-i18n="hero_grande">Dormir no meio do rio</p>
+      <h1 class="hero__h1" data-i18n="hero_h1">Hotel flutuante e pacote de pesca no Pantanal, com saída de Aquidauana (MS)</h1>
+      <p class="h1" data-i18n="hero_grande">Pescar e dormir no meio do rio</p>
       <!-- as primeiras 100 palavras: o que e + onde + prova + pratica -->
-      <p class="hero__tag" data-i18n="hero_tag">O <b>Majestade</b> é um hotel flutuante de três andares no Pantanal, com embarque no Pesqueiro Itaju, em Aquidauana (MS). São 18 camas em quatro camarotes com ar-condicionado, e o pernoite com café da manhã sai a partir de R$ 200 por pessoa.</p>
+      <p class="hero__tag" data-i18n="hero_tag">O <b>Majestade</b> é um hotel flutuante de três andares no Pantanal, com embarque no Pesqueiro Itaju, em Aquidauana (MS). O <b>pacote de pesca</b> de quatro noites, com tudo incluso, sai por R$ 3.500 por pessoa em grupo de 16. Só o pernoite, com café da manhã, custa a partir de R$ 200 por pessoa.</p>
     </div>
     <!-- BARRA DE RESERVA NA CAPA (capa E, 08/11/2026). A mesma do fim da
          pagina, com o mesmo codigo no site.js: monta a mensagem e abre o
          WhatsApp. Nada e guardado nem enviado a lugar nenhum (regra 8). -->
     <form class="pedido pedido--capa" action="https://wa.me/556792063535" method="get" target="_blank">
+      <!-- pesca ou so hospedagem: muda o comeco da mensagem (18/11/2026) -->
+      <fieldset class="pedido__tipo">
+        <legend class="sr" data-i18n="f_tipo">O que você procura?</legend>
+        <input class="sr" type="radio" name="tipo" id="tp-pesca-capa" value="pesca" checked>
+        <label for="tp-pesca-capa" data-i18n="f_tipo_pesca">Pacote de pesca</label>
+        <input class="sr" type="radio" name="tipo" id="tp-hosp-capa" value="hospedagem">
+        <label for="tp-hosp-capa" data-i18n="f_tipo_hosp">Só hospedagem</label>
+      </fieldset>
       <div class="campo campo--data" role="group" aria-labelledby="rot-chegada-capa"><span id="rot-chegada-capa" data-i18n="f_chegada">Chegada</span>
         <div class="campo__par">
           <select name="dia" aria-label="Dia da chegada" data-i18n-aria="f_dia_aria"><option value="" data-i18n="f_dia">dia</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option></select>
@@ -131,7 +140,7 @@
         </div>
       </div>
       <label class="campo"><span data-i18n="f_noites">Noites</span>
-        <select name="noites"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
+        <select name="noites"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
       <label class="campo"><span data-i18n="f_pessoas">Pessoas</span>
         <select name="pessoas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select></label>
       <button class="bt" type="submit">
@@ -140,6 +149,51 @@
       </button>
     </form>
     <p class="hero__nota" data-i18n="hero_nota">Abre o WhatsApp do Fábio com as datas já escritas.</p>
+  </div>
+</section>
+
+<!-- ========================= AS DUAS PORTAS =========================
+     18/11/2026: a pesca vira tema principal (pedido do Fabio em 14/11, plano
+     em specs/plano-pesca-tema-principal.md). O site vende DUAS coisas e
+     pergunta logo qual delas a pessoa quer: o pacote de pesca ou so a
+     hospedagem. Cada porta leva para a pagina que conta o resto.
+     Um botao principal (o pacote); a outra porta e link (regra 5). -->
+<section class="sec portas" id="portas">
+  <div class="wrap portas__in">
+    <article class="porta">
+      <figure class="foto"><picture><source type="image/avif" srcset="img/pacote-de-pesca-pantanal-majestade-600.avif 600w, img/pacote-de-pesca-pantanal-majestade.avif 960w" sizes="(max-width: 899px) 36vw, 200px"><img src="img/pacote-de-pesca-pantanal-majestade.webp" srcset="img/pacote-de-pesca-pantanal-majestade-600.webp 600w, img/pacote-de-pesca-pantanal-majestade.webp 960w" sizes="(max-width: 899px) 36vw, 200px" alt="Pescador sorrindo segura um peixe grande de couro pintado, em pé no barco, com o rio e a mata ao fundo" data-i18n-alt="f_porta_alt" loading="lazy" decoding="async" width="960" height="1200"></picture></figure>
+      <div>
+        <h2 data-i18n="pt1_t">Pacote de pesca, com tudo incluso</h2>
+        <p data-i18n="pt1_p">Quatro noites a bordo e três dias inteiros de pesca, com barco, piloteiro, combustível, iscas vivas, comida e bebida.</p>
+        <p class="porta__preco"><b>R$ 3.500</b> <span data-i18n="pac_preco_s">por pessoa, para grupo de 16</span></p>
+        <a class="bt" href="pesca/" data-i18n="pt1_cta">Ver o pacote de pesca</a>
+      </div>
+    </article>
+    <article class="porta">
+      <figure class="foto"><picture><source type="image/avif" srcset="img/chuveirao-deck-hotel-flutuante-600.avif 600w, img/chuveirao-deck-hotel-flutuante-800.avif 800w, img/chuveirao-deck-hotel-flutuante.avif 1200w" sizes="(max-width: 899px) 36vw, 200px"><img src="img/chuveirao-deck-hotel-flutuante.webp" srcset="img/chuveirao-deck-hotel-flutuante-600.webp 600w, img/chuveirao-deck-hotel-flutuante-800.webp 800w, img/chuveirao-deck-hotel-flutuante.webp 1200w" sizes="(max-width: 899px) 36vw, 200px" alt="Chuveirão de madeira ligado no deck aberto, ao lado do guarda-sol e das espreguiçadeiras, com o rio ao fundo" data-i18n-alt="f_chu_alt" loading="lazy" decoding="async" width="1200" height="1500"></picture></figure>
+      <div>
+        <h2 data-i18n="pt2_t">Só a hospedagem</h2>
+        <p data-i18n="pt2_p">Pernoite em camarote com ar-condicionado, com café da manhã incluso. Dá para chegar com o seu próprio barco.</p>
+        <p class="porta__preco"><span data-i18n="pt2_de">a partir de</span> <b>R$ 200</b> <span data-i18n="pt2_preco_s">por pessoa, por noite</span></p>
+        <a class="link" href="camarotes/" data-i18n="pt2_cta">Ver camarotes e valores</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========================= A PESCA EM FOTOS =========================
+     Fotos do Fabio (lote de 18/11/2026), inteiras: foto em pe nao leva
+     corte automatico. Sem legenda embaixo. -->
+<section class="sec sec--seguido faixa" id="pescaria">
+  <div class="wrap">
+    <h2 class="titulo" data-i18n="fx_t">Pescaria de dia e de noite</h2>
+    <div class="galeria">
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="img/pescaria-pantanal-majestade-12-600.avif 600w, img/pescaria-pantanal-majestade-12.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="img/pescaria-pantanal-majestade-12.webp" srcset="img/pescaria-pantanal-majestade-12-600.webp 600w, img/pescaria-pantanal-majestade-12.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Três mulheres sorrindo no barco mostram um peixe grande de escamas douradas" data-i18n-alt="f_p12_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="img/pescaria-pantanal-majestade-08-600.avif 600w, img/pescaria-pantanal-majestade-08.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="img/pescaria-pantanal-majestade-08.webp" srcset="img/pescaria-pantanal-majestade-08-600.webp 600w, img/pescaria-pantanal-majestade-08.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescadora de óculos escuros levanta dois peixes redondos e amarelados, um em cada mão, sob o céu azul" data-i18n-alt="f_p08_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="img/pescaria-pantanal-majestade-04-600.avif 600w, img/pescaria-pantanal-majestade-04.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="img/pescaria-pantanal-majestade-04.webp" srcset="img/pescaria-pantanal-majestade-04-600.webp 600w, img/pescaria-pantanal-majestade-04.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescadora em pé na proa do barco segura um peixe grande de couro pintado, à noite" data-i18n-alt="f_p04_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="img/pescaria-pantanal-majestade-13-600.avif 600w, img/pescaria-pantanal-majestade-13.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="img/pescaria-pantanal-majestade-13.webp" srcset="img/pescaria-pantanal-majestade-13-600.webp 600w, img/pescaria-pantanal-majestade-13.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Dois pescadores fazem sinal de positivo, cada um segurando um peixe, no barco com poltronas" data-i18n-alt="f_p13_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+    </div>
+    <div class="acoes"><a class="link" href="pesca/" data-i18n="fx_link">Ver o pacote de pesca e mais fotos</a></div>
   </div>
 </section>
 
@@ -293,56 +347,6 @@
   </div>
 </section>
 
-<!-- ========================= PACOTE FECHADO =========================
-     Pedido do Fabio (audio de 09/11/2026), aprovado pelo Joao no mesmo dia
-     como "pacote do hotel": e a UNICA mencao de pesca no site. Nada de
-     pagina de pescaria (decisao de 24/09 continua valendo para o resto).
-     Itens e preco = o que ele disse no audio de 09/11 e escreveu depois
-     (briefing/pacote-pesca-fabio-2026-11.md). Nada estimado (regra 2).
-     O bloco entre PACOTE e /PACOTE e copiado pelo gerar-paginas.py para a
-     pagina de camarotes: mudou AQUI, muda la. -->
-<!--PACOTE-->
-<section class="sec pacote" id="pacote">
-  <figure class="pacote__foto">
-    <picture><source type="image/avif" srcset="img/hotel-flutuante-majestade-noite-800.avif 800w, img/hotel-flutuante-majestade-noite-1200.avif 1200w, img/hotel-flutuante-majestade-noite-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 630px"><img src="img/hotel-flutuante-majestade-noite-1200.webp" srcset="img/hotel-flutuante-majestade-noite-800.webp 800w, img/hotel-flutuante-majestade-noite-1200.webp 1200w, img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 630px" alt="O Majestade Flutuante aceso à noite, ancorado na beira da mata" data-i18n-alt="pac_alt" loading="lazy" decoding="async" width="1600" height="1200"></picture>
-  </figure>
-  <div class="pacote__txt">
-    <h2 class="titulo" data-i18n="pac_t">Pacote fechado de pesca, com tudo incluso</h2>
-    <p class="lead" data-i18n="pac_lead"><b>Quatro noites</b> a bordo e <b>três dias inteiros de pesca</b>, de domingo a quinta.</p>
-    <!-- FATO: texto do Fabio no WhatsApp (briefing/pacote-pesca-fabio-2026-11.md).
-         O preco vale PARA GRUPO DE 16; fora disso ele recalcula. -->
-    <p class="pacote__preco"><b>R$ 3.500</b> <span data-i18n="pac_preco_s">por pessoa, para grupo de 16</span></p>
-    <p class="nota" data-i18n="pac_cond">São quatro pessoas por camarote e quatro por barco. Com menos gente, mais dias ou em fim de semana, o valor é recalculado.</p>
-    <div class="acoes"><a class="bt" data-wa="pacote" href="https://wa.me/556792063535"><svg aria-hidden="true"><use href="#i-zap"/></svg><span data-i18n="pac_cta">Quero o pacote de 4 noites</span></a></div>
-  </div>
-  <div class="pacote__mais">
-    <div>
-      <h3 class="rotulo" data-i18n="pac_dias_t">Como são os dias</h3>
-      <ul class="lista">
-        <li data-i18n="pac_d1"><b>Domingo</b>: embarque no fim da tarde e 45 minutos de descida de rio até o flutuante.</li>
-        <li data-i18n="pac_d2"><b>Segunda, terça e quarta</b>: três dias inteiros de pesca.</li>
-        <li data-i18n="pac_d3"><b>Quinta</b>: saída depois do café da manhã, com embarque entre 7h e 7h30.</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="rotulo" data-i18n="pac_inc_t">O que está incluso</h3>
-      <ul class="lista">
-        <li data-i18n="pac_l1"><b>Barco, motor e piloteiro</b>: barcos de 7 m, mais largos, com motor de 40 hp e uma poltrona giratória para cada pescador. São quatro pescadores por barco.</li>
-        <li data-i18n="pac_l2"><b>Combustível e iscas vivas</b>.</li>
-        <li data-i18n="pac_l3"><b>Comida</b>: café da manhã, almoço, café da tarde e jantar, mais as porções.</li>
-        <li data-i18n="pac_l4"><b>Bebida</b>: cerveja, cachaça, refrigerante, água e água com gás.</li>
-        <li data-i18n="pac_l5"><b>Gelo e caixa térmica</b>.</li>
-        <li data-i18n="pac_l6"><b>Hospedagem</b> nas quatro noites, em camarote com ar-condicionado.</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="rotulo" data-i18n="pac_pag_t">Reserva e pagamento</h3>
-      <p class="pacote__pag" data-i18n="pac_pag">Sinal de R$ 500 na reserva. O restante pode ser dividido no Pix e fica quitado até um dia antes do embarque.</p>
-    </div>
-  </div>
-</section>
-<!--/PACOTE-->
-
 <!-- ========================= RESERVA =========================
      O slogan e DELE, copiado da arte. A frase monta a mensagem do
      WhatsApp; nada e guardado nem enviado para lugar nenhum (regra 8). -->
@@ -354,10 +358,18 @@
          brigando e a lista do mes larga demais. Agora: rotulo em cima, uma
          fonte so, e campo e botao com a mesma altura. -->
     <form class="pedido" id="pedido" action="https://wa.me/556792063535" method="get" target="_blank">
+      <!-- pesca ou so hospedagem: muda o comeco da mensagem (18/11/2026) -->
+      <fieldset class="pedido__tipo">
+        <legend class="sr" data-i18n="f_tipo">O que você procura?</legend>
+        <input class="sr" type="radio" name="tipo" id="tp-pesca-fim" value="pesca" checked>
+        <label for="tp-pesca-fim" data-i18n="f_tipo_pesca">Pacote de pesca</label>
+        <input class="sr" type="radio" name="tipo" id="tp-hosp-fim" value="hospedagem">
+        <label for="tp-hosp-fim" data-i18n="f_tipo_hosp">Só hospedagem</label>
+      </fieldset>
       <label class="campo"><span data-i18n="f_pessoas">Pessoas</span>
         <select name="pessoas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select></label>
       <label class="campo"><span data-i18n="f_noites">Noites</span>
-        <select name="noites"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
+        <select name="noites"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
       <div class="campo campo--data" role="group" aria-labelledby="rot-chegada"><span id="rot-chegada" data-i18n="f_chegada">Chegada</span>
         <div class="campo__par">
           <select name="dia" aria-label="Dia da chegada" data-i18n-aria="f_dia_aria"><option value="" data-i18n="f_dia">dia</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option></select>
@@ -381,10 +393,10 @@
   <div class="wrap">
     <h2 class="titulo" data-i18n="faq_t">Perguntas frequentes</h2>
     <dl class="faq">
-      <div><dt data-i18n="faq1_q">Quanto custa dormir no Majestade?</dt>
-        <dd data-i18n="faq1_a">O pernoite custa de R$ 200 a R$ 500 por pessoa, por noite, com café da manhã incluso. O valor depende de quantas pessoas dividem o camarote: R$ 200 com 4 a 6 pessoas, R$ 250 com 3, R$ 300 com 2 e R$ 500 para uma pessoa só.</dd></div>
       <div><dt data-i18n="faq8_q">Quanto custa o pacote de pesca?</dt>
         <dd data-i18n="faq8_a">O pacote fechado custa R$ 3.500 por pessoa para um grupo de 16 pessoas, de domingo a quinta: quatro noites e três dias inteiros de pesca, com barco, piloteiro, combustível, iscas vivas, comida, bebida, gelo e hospedagem. Com menos pessoas, mais dias ou em fim de semana, o valor é recalculado.</dd></div>
+      <div><dt data-i18n="faq1_q">Quanto custa dormir no Majestade?</dt>
+        <dd data-i18n="faq1_a">O pernoite custa de R$ 200 a R$ 500 por pessoa, por noite, com café da manhã incluso. O valor depende de quantas pessoas dividem o camarote: R$ 200 com 4 a 6 pessoas, R$ 250 com 3, R$ 300 com 2 e R$ 500 para uma pessoa só.</dd></div>
       <div><dt data-i18n="faq2_q">Quantos camarotes e camas o Majestade tem?</dt>
         <dd data-i18n="faq2_a">São 18 camas em quatro camarotes: três de quatro camas e um de seis, com beliches e camas de solteiro.</dd></div>
       <div><dt data-i18n="faq3_q">Os camarotes têm ar-condicionado e banheiro?</dt>
@@ -417,6 +429,7 @@
       </div>
       <div>
         <h2 data-i18n="rod_paginas">Páginas</h2>
+        <a href="pesca/" data-i18n="rod_pesca">Pacote de pesca</a>
         <a href="camarotes/" data-i18n="rod_camarotes">Camarotes e valores</a>
         <a href="a-bordo/" data-i18n="nav_bordo">A bordo</a>
         <a href="comer-e-beber/" data-i18n="nav_comer">Comer e beber</a>
@@ -466,7 +479,7 @@
       "@type": "Hotel",
       "@id": "https://majestade-flutuante.vercel.app/#hotel",
       "name": "Majestade Flutuante",
-      "description": "Hotel flutuante de três andares no Pantanal, com embarque no Pesqueiro Itaju, em Aquidauana (MS). Quatro camarotes com ar-condicionado e 18 camas; pernoite com café da manhã de R$ 200 a R$ 500 por pessoa.",
+      "description": "Hotel flutuante de três andares no Pantanal, com embarque no Pesqueiro Itaju, em Aquidauana (MS). Quatro camarotes com ar-condicionado e 18 camas; pernoite com café da manhã de R$ 200 a R$ 500 por pessoa. Pacote de pesca de quatro noites, com tudo incluso, por R$ 3.500 por pessoa em grupo de 16.",
       "url": "https://majestade-flutuante.vercel.app/",
       "telephone": "+556792063535",
       "priceRange": "R$ 200 a R$ 500 por pessoa",

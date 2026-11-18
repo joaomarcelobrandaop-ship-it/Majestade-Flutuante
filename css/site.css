@@ -717,28 +717,93 @@ input,select,textarea{caret-color:var(--ouro-claro)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:3px}
 
 /* ============================================================
-   PACOTE FECHADO (09/11/2026) -- o espelho do "O que e": foto na
-   esquerda, texto na direita. Sem caixa, sem borda.
+   A PESCA COMO TEMA PRINCIPAL (18/11/2026)
+   Plano: specs/plano-pesca-tema-principal.md. Sem caixa e sem borda,
+   como o resto do site.
    ============================================================ */
-.pacote{
-  display:grid;align-items:center;row-gap:36px;
-  grid-template-columns:minmax(var(--pad),1fr) minmax(0,630px) clamp(40px,6vw,88px) minmax(0,430px) minmax(var(--pad),1fr);
+
+/* o menu tem cinco itens: no celular, dois nomes ficam curtos para caber
+   numa linha so ("Cardapio" e "Chegar") */
+.m-curto{display:none}
+@media(max-width:699px){ .m-longo{display:none} .m-curto{display:inline} .menu a{min-width:44px} }
+
+/* a frase da capa ficou mais longa: duas linhas no computador */
+.hero__txt{max-width:800px}
+.hero .h1{max-width:none;font-size:clamp(40px,6.2vw,78px);text-wrap:balance}
+/* a barra da capa ganhou uma linha (pesca ou hospedagem): largura propria,
+   senao a linha nova estica a barra ate a borda */
+.hero .pedido--capa{width:auto;max-width:760px}
+
+/* a barra de reserva pergunta primeiro: pesca ou so hospedagem */
+.pedido__tipo{flex:0 0 100%;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 2px;padding:0;border:0;min-width:0}
+.pedido__tipo label{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;cursor:pointer;
+  background:var(--folha);color:var(--creme);font-size:15px;font-weight:600;
+  transition:background-color .15s ease,color .15s ease;
 }
-.pacote__foto{grid-column:1 / 3;grid-row:1;margin:0;justify-self:end;width:100%;max-width:1200px}
-.pacote__foto img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.pacote__txt{grid-column:4;grid-row:1}
+.pedido__tipo input:checked + label{background:var(--ouro);color:var(--mata)}
+.pedido__tipo input:focus-visible + label{outline:2px solid var(--ouro-claro);outline-offset:3px}
+.fim .pedido__tipo{justify-content:center}
+@media(max-width:560px){ .pedido__tipo{grid-column:1 / -1} }
+
+/* AS DUAS PORTAS: pacote de pesca | so hospedagem */
+.portas{padding-top:clamp(56px,7vw,100px);padding-bottom:clamp(36px,5vw,64px)}
+.portas__in{display:grid;gap:clamp(40px,6vw,56px)}
+@media(min-width:900px){ .portas__in{grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px)} }
+.porta{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(18px,2.6vw,34px);align-items:center}
+.porta h2{font-size:clamp(26px,2.8vw,34px);line-height:1.1;color:var(--creme)}
+.porta p{margin-top:10px;color:var(--creme-2);font-size:16.5px;line-height:1.55}
+.porta .porta__preco{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin-top:14px;color:var(--creme);font-size:16px}
+.porta__preco b{font-family:var(--serif);font-weight:600;font-size:clamp(34px,3.6vw,44px);line-height:1;color:var(--ouro-claro);font-variant-numeric:lining-nums;white-space:nowrap}
+.porta .bt,.porta .link{margin-top:18px}
+/* no celular a foto cede espaco, para o botao caber numa linha so */
+@media(max-width:560px){
+  .porta{grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr);gap:16px}
+  .porta .bt{padding-inline:18px;white-space:nowrap;font-size:15px}
+}
+
+/* fotos de pescaria: os arquivos ja sao 3:4, a caixa so reserva o lugar */
+.foto--pesca img{aspect-ratio:3/4;object-fit:cover}
+.galeria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.4vw,16px);margin-top:clamp(28px,4vw,44px)}
+@media(min-width:760px){ .galeria{grid-template-columns:repeat(4,minmax(0,1fr))} }
+
 /* o preco do pacote, do tamanho que o preco merece; a condicao vai colada nele */
 .pacote__preco{margin-top:26px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;color:var(--creme)}
 .pacote__preco b{font-family:var(--serif);font-weight:600;font-size:clamp(46px,5.4vw,66px);line-height:1;color:var(--ouro-claro);font-variant-numeric:lining-nums;white-space:nowrap}
 .pacote__preco span{font-size:17px}
-.pacote__txt .nota{margin-top:14px}
-/* embaixo da foto e do preco: os dias, o que entra e o pagamento */
-.pacote__mais{grid-column:2 / 5;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,.85fr);gap:clamp(28px,4vw,64px);margin-top:clamp(12px,2vw,28px)}
+.pesca__topo .nota{margin-top:14px}
+/* os dias, o que entra e o pagamento */
+.pacote__mais{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,.85fr);gap:clamp(28px,4vw,64px)}
 .pacote__mais .lista{margin-top:12px}
 .pacote__pag{margin-top:12px;color:var(--creme-2);font-size:16px;line-height:1.55}
-@media(max-width:900px){
-  .pacote{grid-template-columns:var(--pad) minmax(0,1fr) var(--pad)}
-  .pacote__foto{grid-column:1 / -1}
-  .pacote__txt{grid-column:2;grid-row:2}
-  .pacote__mais{grid-column:2;grid-row:3;grid-template-columns:1fr;gap:34px}
+@media(max-width:900px){ .pacote__mais{grid-template-columns:1fr;gap:34px} }
+
+/* PAGINA DE PESCA */
+.pesca__topo{display:grid;gap:34px}
+.pesca__topo .foto{max-width:420px}
+.duplo{display:grid;gap:32px}
+@media(min-width:900px){
+  .pesca__topo{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(40px,6vw,96px);align-items:center}
+  .duplo{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,90px);align-items:center}
+}
+/* duas fotos em pe, lado a lado tambem no celular */
+.par.par--iguais{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,16px);margin-top:0;max-width:none}
+
+/* ============================================================
+   CONSERTOS DA AUDITORIA (18/11/2026)
+   ============================================================ */
+/* P1: o botao verde sai de cena enquanto a barra de reserva da capa esta
+   na tela (no celular ele cobria o campo "Pessoas"). Volta ao rolar. */
+.zap{transition:opacity .2s ease,transform .2s cubic-bezier(.23,1,.32,1)}
+.zap.zap--longe{opacity:0;transform:translateY(12px) scale(.96);pointer-events:none;visibility:hidden}
+@media (prefers-reduced-motion:reduce){ .zap{transition:none} }
+
+/* P2: no celular o titulo da capa fica em cima do cordao de luzes do
+   video; um veu a mais atras do texto (medido: 1% dos pontos abaixo de 3:1) */
+@media(max-width:699px){
+  .hero__bg::before{content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(var(--mata-rgb),.35) 0,rgba(var(--mata-rgb),.55) 40%,rgba(var(--mata-rgb),.2) 75%,rgba(var(--mata-rgb),0) 100%)}
+  /* lista curta justificada abre buraco no celular: alinhada a esquerda.
+     Paragrafo continua justificado (pedido do Joao, 25/09). */
+  .lista li{text-align:left;-webkit-hyphens:manual;hyphens:manual}
 }

@@ -90,14 +90,17 @@ const MESES = {
 const FRASE = {
   pt: { pessoa: ["pessoa","pessoas"], noite: ["noite","noites"],
         abre: "Oi! Queria reservar o Majestade: ", fecha: ". Tem vaga?",
+        abrePesca: "Oi! Queria reservar o pacote de pesca do Majestade: ",
         combinar: "em data a combinar",
         data: function (d, m, a) { return "a partir de " + d + "/" + m + "/" + a; } },
   en: { pessoa: ["person","people"], noite: ["night","nights"],
         abre: "Hi! I'd like to book the Majestade: ", fecha: ". Is there availability?",
+        abrePesca: "Hi! I'd like to book the Majestade fishing package: ",
         combinar: "dates to be arranged",
         data: function (d, m, a) { return "from " + Number(d) + " " + MESES.en[m - 1] + " " + a; } },
   es: { pessoa: ["persona","personas"], noite: ["noche","noches"],
         abre: "¡Hola! Quiero reservar el Majestade: ", fecha: ". ¿Hay lugar?",
+        abrePesca: "¡Hola! Quiero reservar el paquete de pesca del Majestade: ",
         combinar: "fecha a coordinar",
         data: function (d, m, a) { return "a partir del " + Number(d) + " de " + MESES.es[m - 1] + " de " + a; } }
 };
@@ -257,6 +260,16 @@ document.querySelectorAll("form.pedido").forEach(function (f) {
     if (diaEscolhido > ultimo) f.dia.value = "";
   }
 
+  /* pesca ou so hospedagem (18/11/2026): muda o comeco da mensagem e o
+     numero de noites que ja vem marcado (4 no pacote, 2 no pernoite) */
+  function tipoAtual() {
+    var m = f.querySelector('input[name="tipo"]:checked');
+    return m ? m.value : "hospedagem";
+  }
+  Array.prototype.forEach.call(f.querySelectorAll('input[name="tipo"]'), function (r) {
+    r.addEventListener("change", function () { f.noites.value = tipoAtual() === "pesca" ? "4" : "2"; });
+  });
+
   f.addEventListener("change", function (e) { if (e.target === f.mes) ajustarDias(); });
 
   f.addEventListener("submit", function (e) {
@@ -275,7 +288,7 @@ document.querySelectorAll("form.pedido").forEach(function (f) {
     } else {
       partes.push(F.combinar);
     }
-    window.open(linkZap(F.abre + partes.join(", ") + F.fecha), "_blank", "noopener");
+    window.open(linkZap((tipoAtual() === "pesca" ? F.abrePesca : F.abre) + partes.join(", ") + F.fecha), "_blank", "noopener");
   });
 
   ajustarDias();
@@ -559,4 +572,15 @@ atualizarZaps();
 
   if (document.readyState === "complete") ligar();
   else window.addEventListener("load", ligar);
+})();
+
+/* ---- o botao verde do WhatsApp some enquanto a barra de reserva da capa
+   esta na tela (auditoria 18/11/2026: no celular ele cobria "Pessoas") ---- */
+(function () {
+  var zap = document.querySelector(".zap");
+  var barra = document.querySelector(".pedido--capa");
+  if (!zap || !barra || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function (e) {
+    zap.classList.toggle("zap--longe", e[0].isIntersecting);
+  }).observe(barra);
 })();

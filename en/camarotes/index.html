@@ -62,13 +62,14 @@
   <div class="wrap">
     <a class="marca" href="/en/"><b>Majestade</b><small>Flutuante</small></a>
     <nav class="menu" id="menu" aria-label="Main" data-i18n-aria="nav_aria">
+      <a href="/en/pesca/" data-i18n="nav_pesca">Fishing</a>
       <a href="/en/camarotes/" aria-current="page" data-i18n="nav_camarotes">Cabins</a>
       <a href="/en/a-bordo/" data-i18n="nav_bordo">On board</a>
-      <a href="/en/comer-e-beber/" data-i18n="nav_comer">Food and drinks</a>
-      <a href="/en/como-chegar/" data-i18n="nav_chegar">Getting here</a>
+      <a href="/en/comer-e-beber/"><span class="m-longo" data-i18n="nav_comer">Food and drinks</span><span class="m-curto" data-i18n="nav_comer_c">Menu</span></a>
+      <a href="/en/como-chegar/"><span class="m-longo" data-i18n="nav_chegar">Getting here</span><span class="m-curto" data-i18n="nav_chegar_c">Access</span></a>
     </nav>
     <!-- troca de lingua no computador; no celular e no tablet ela fica no
-         rodape, e o topo mostra os quatro itens do menu -->
+         rodape, e o topo mostra os cinco itens do menu -->
     <div class="idioma idioma--topo" role="group" aria-label="Language" data-i18n-aria="idioma_aria">
       <a href="/camarotes/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
       <a href="/en/camarotes/" data-lang="en" hreflang="en" lang="en" aria-current="true">EN</a>
@@ -160,47 +161,12 @@
   </div>
 </section>
 
-<!--PACOTE-->
-<section class="sec pacote" id="pacote">
-  <figure class="pacote__foto">
-    <picture><source type="image/avif" srcset="/img/hotel-flutuante-majestade-noite-800.avif 800w, /img/hotel-flutuante-majestade-noite-1200.avif 1200w, /img/hotel-flutuante-majestade-noite-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 630px"><img src="/img/hotel-flutuante-majestade-noite-1200.webp" srcset="/img/hotel-flutuante-majestade-noite-800.webp 800w, /img/hotel-flutuante-majestade-noite-1200.webp 1200w, /img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 630px" alt="Majestade Flutuante lit up at night, moored at the edge of the forest" data-i18n-alt="pac_alt" loading="lazy" decoding="async" width="1600" height="1200"></picture>
-  </figure>
-  <div class="pacote__txt">
-    <h2 class="titulo" data-i18n="pac_t">All-inclusive fishing package</h2>
-    <p class="lead" data-i18n="pac_lead"><b>Four nights</b> on board and <b>three full days of fishing</b>, Sunday to Thursday.</p>
-    <!-- FATO: texto do Fabio no WhatsApp (briefing/pacote-pesca-fabio-2026-11.md).
-         O preco vale PARA GRUPO DE 16; fora disso ele recalcula. -->
-    <p class="pacote__preco"><b>R$ 3.500</b> <span data-i18n="pac_preco_s">per person, for a group of 16</span></p>
-    <p class="nota" data-i18n="pac_cond">Four people per cabin and four per boat. With fewer people, more days or on a weekend, the price is recalculated.</p>
-    <div class="acoes"><a class="bt" data-wa="pacote" href="https://wa.me/556792063535"><svg aria-hidden="true"><use href="#i-zap"/></svg><span data-i18n="pac_cta">I want the 4-night package</span></a></div>
-  </div>
-  <div class="pacote__mais">
-    <div>
-      <h3 class="rotulo" data-i18n="pac_dias_t">How the days go</h3>
-      <ul class="lista">
-        <li data-i18n="pac_d1"><b>Sunday</b>: boarding in the late afternoon and a 45-minute ride down the river to the floating hotel.</li>
-        <li data-i18n="pac_d2"><b>Monday, Tuesday and Wednesday</b>: three full days of fishing.</li>
-        <li data-i18n="pac_d3"><b>Thursday</b>: departure after breakfast, boarding between 7:00 and 7:30 am.</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="rotulo" data-i18n="pac_inc_t">What is included</h3>
-      <ul class="lista">
-        <li data-i18n="pac_l1"><b>Boat, motor and boat pilot</b>: wider 7 m boats with a 40 hp motor and a swivel seat for each angler. Four anglers per boat.</li>
-        <li data-i18n="pac_l2"><b>Fuel and live bait</b>.</li>
-        <li data-i18n="pac_l3"><b>Food</b>: breakfast, lunch, afternoon snack and dinner, plus shared platters.</li>
-        <li data-i18n="pac_l4"><b>Drinks</b>: beer, cachaça, soft drinks, still and sparkling water.</li>
-        <li data-i18n="pac_l5"><b>Ice and cooler box</b>.</li>
-        <li data-i18n="pac_l6"><b>Accommodation</b> for the four nights, in an air-conditioned cabin.</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="rotulo" data-i18n="pac_pag_t">Booking and payment</h3>
-      <p class="pacote__pag" data-i18n="pac_pag">A R$ 500 deposit confirms the booking. The balance can be split by Pix and must be paid in full one day before boarding.</p>
-    </div>
+<section class="sec sec--seguido">
+  <div class="wrap">
+    <p class="nota" data-i18n="cam_pesca">On the <b>fishing package</b> there are four people per cabin: four nights and three days of fishing, all inclusive, at R$ 3,500 per person for a group of 16.</p>
+    <div class="acoes"><a class="link" href="/en/pesca/" data-i18n="pt1_cta">See the fishing package</a></div>
   </div>
 </section>
-<!--/PACOTE-->
 </main>
 
 <footer class="rod">
@@ -213,6 +179,7 @@
       </div>
       <div>
         <h2 data-i18n="rod_paginas">Pages</h2>
+        <a href="/en/pesca/" data-i18n="rod_pesca">Fishing package</a>
         <a href="/en/camarotes/" data-i18n="rod_camarotes">Cabins and rates</a>
         <a href="/en/a-bordo/" data-i18n="nav_bordo">On board</a>
         <a href="/en/comer-e-beber/" data-i18n="nav_comer">Food and drinks</a>

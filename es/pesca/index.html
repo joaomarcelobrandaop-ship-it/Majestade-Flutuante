@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es" data-pagina="pesca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Regra 3: previa de prospeccao NAO e indexada. O robots.txt fica LIBERADO
+     de proposito: o Google precisa entrar para LER este noindex (apostila de
+     SEO, cap. 8 -- "a pegadinha mais cara"). No dia da virada, apagar esta
+     linha e seguir o checklist A.1 (comercial/seo-virada.md). -->
+<meta name="robots" content="noindex, nofollow">
+<!-- 59 caracteres, com hifen e com a cidade (apostila cap. 14). O h1 diz
+     a mesma coisa: quando title e h1 combinam, o Google quase nao reescreve. -->
+<title>Paquete de Pesca en el Pantanal con Hotel Flotante - Majestade</title>
+<meta name="description" content="Paquete de pesca en el Pantanal, Brasil: 4 noches en hotel flotante y 3 días de pesca con todo incluido, por R$ 3.500 por persona (grupo de 16).">
+<link rel="canonical" href="https://majestade-flutuante.vercel.app/es/pesca/">
+<!-- as tres versoes da mesma pagina (Google e IAs mandam cada um para a
+     sua lingua). O gerar-paginas.py acerta os enderecos em cada pagina. -->
+<link rel="alternate" hreflang="pt-BR" href="https://majestade-flutuante.vercel.app/pesca/">
+<link rel="alternate" hreflang="en" href="https://majestade-flutuante.vercel.app/en/pesca/">
+<link rel="alternate" hreflang="es" href="https://majestade-flutuante.vercel.app/es/pesca/">
+<link rel="alternate" hreflang="x-default" href="https://majestade-flutuante.vercel.app/pesca/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_LA">
+<meta property="og:site_name" content="Majestade Flutuante">
+<meta property="og:url" content="https://majestade-flutuante.vercel.app/es/pesca/">
+<meta property="og:title" content="Paquete de Pesca en el Pantanal con Hotel Flotante - Majestade">
+<meta property="og:description" content="Paquete de pesca en el Pantanal, Brasil: 4 noches en hotel flotante y 3 días de pesca con todo incluido, por R$ 3.500 por persona (grupo de 16).">
+<meta property="og:image" content="https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp">
+<meta property="og:image:alt" content="El Majestade Flutuante iluminado de noche, visto desde el río">
+<meta name="twitter:card" content="summary_large_image">
+<!-- a barra do navegador no celular (Android) na cor do fundo do site -->
+<meta name="theme-color" content="#0C1710">
+<!-- favicon: a coroa da "Majestade" (a arte dele tem a coruja coroada) -->
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M9 46 5 17l15 12L32 8l12 21 15-12-4 29z" fill="%23C9A227"/><rect x="9" y="50" width="46" height="6" fill="%23C9A227"/></svg>'>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+<!--AVISO-->
+<template id="aviso-cookies">
+  <section class="aviso-cookies" aria-label="Cookies" data-i18n-aria="ck_aria">
+    <p class="aviso-cookies__txt" data-i18n="ck_txt">Usamos <b>Google Analytics</b> para contar visitas y ver qué páginas ayudan a quien busca el hotel. Solo funciona si aceptas. <a href="/es/privacidade/">Política de privacidad</a></p>
+    <div class="aviso-cookies__bts">
+      <button type="button" class="aviso-cookies__bt" data-escolha="recusado" data-i18n="ck_recusar">Rechazar</button>
+      <button type="button" class="aviso-cookies__bt" data-escolha="aceito" data-i18n="ck_aceitar">Aceptar</button>
+    </div>
+  </section>
+</template>
+<template id="botao-cookies"><button type="button" class="rod__cookies" data-i18n="ck_botao">Preferencias de cookies</button></template>
+<!--/AVISO-->
+
+<!--FOTO-GRANDE-->
+<template id="foto-grande">
+  <dialog class="foto-grande">
+    <button type="button" class="foto-grande__fechar" aria-label="Cerrar" data-i18n-aria="fg_fechar"><svg aria-hidden="true"><use href="#i-fechar"/></svg></button>
+  </dialog>
+  <span data-rotulo data-i18n="fg_ver">Ver foto más grande</span>
+</template>
+<!--/FOTO-GRANDE-->
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
+    <nav class="menu" id="menu" aria-label="Principal" data-i18n-aria="nav_aria">
+      <a href="/es/pesca/" aria-current="page" data-i18n="nav_pesca">Pesca</a>
+      <a href="/es/camarotes/" data-i18n="nav_camarotes">Camarotes</a>
+      <a href="/es/a-bordo/" data-i18n="nav_bordo">A bordo</a>
+      <a href="/es/comer-e-beber/"><span class="m-longo" data-i18n="nav_comer">Comer y beber</span><span class="m-curto" data-i18n="nav_comer_c">Menú</span></a>
+      <a href="/es/como-chegar/"><span class="m-longo" data-i18n="nav_chegar">Cómo llegar</span><span class="m-curto" data-i18n="nav_chegar_c">Llegar</span></a>
+    </nav>
+    <!-- troca de lingua no computador; no celular e no tablet ela fica no
+         rodape, e o topo mostra os cinco itens do menu -->
+    <div class="idioma idioma--topo" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+      <a href="/pesca/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
+      <a href="/en/pesca/" data-lang="en" hreflang="en" lang="en">EN</a>
+      <a href="/es/pesca/" data-lang="es" hreflang="es" lang="es" aria-current="true">ES</a>
+    </div>
+    <a class="bt" data-wa="topo" href="https://wa.me/556792063535">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+      <span data-i18n="nav_reservar">Reservar</span>
+    </a>
+  </div>
+</header>
+<main id="conteudo">
+<!-- PAGINA DE PESCA (18/11/2026). O Fabio, em 14/11: "a pesca que me rende
+     dinheiro, tenho que focar no pacote completo, pesca e pouso". Tudo aqui e
+     FATO do texto e do audio dele (briefing/pacote-pesca-fabio-2026-11.md).
+     O preco vale PARA GRUPO DE 16: a condicao fica colada no numero. -->
+<section class="sec pagina pesca">
+  <div class="wrap pesca__topo">
+    <div>
+      <h1 class="titulo" data-i18n="pes_h1">Paquete de pesca en el Pantanal, con alojamiento en el hotel flotante</h1>
+      <p class="lead" data-i18n="pes_lead"><b>Cuatro noches</b> a bordo y <b>tres días completos de pesca</b>, de domingo a jueves, con salida desde el Pesqueiro Itaju, en Aquidauana (Mato Grosso do Sul, Brasil).</p>
+      <p class="pacote__preco"><b>R$ 3.500</b> <span data-i18n="pac_preco_s">por persona, para grupo de 16</span></p>
+      <p class="nota" data-i18n="pac_cond">Son cuatro personas por camarote y cuatro por lancha. Con menos gente, más días o en fin de semana, el valor se recalcula.</p>
+      <div class="acoes"><a class="bt" data-wa="pacote" href="https://wa.me/556792063535" data-i18n="pac_cta">Quiero el paquete de 4 noches</a></div>
+    </div>
+    <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pesca-no-pantanal-hotel-flutuante-majestade-600.avif 600w, /img/pesca-no-pantanal-hotel-flutuante-majestade.avif 960w" sizes="(max-width: 899px) 90vw, 420px"><img src="/img/pesca-no-pantanal-hotel-flutuante-majestade.webp" srcset="/img/pesca-no-pantanal-hotel-flutuante-majestade-600.webp 600w, /img/pesca-no-pantanal-hotel-flutuante-majestade.webp 960w" sizes="(max-width: 899px) 90vw, 420px" alt="Pescador muestra dos peces amarillentos en la lancha, con otros pescadores detrás y el Majestade Flutuante anclado al fondo" data-i18n-alt="f_p16_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+  </div>
+</section>
+
+<section class="sec sec--seguido">
+  <div class="wrap">
+    <div class="pacote__mais">
+      <div>
+        <h2 class="rotulo" data-i18n="pac_dias_t">Cómo son los días</h2>
+        <ul class="lista">
+          <li data-i18n="pac_d1"><b>Domingo</b>: embarque al final de la tarde y 45 minutos río abajo hasta el hotel flotante.</li>
+          <li data-i18n="pac_d2"><b>Lunes, martes y miércoles</b>: tres días completos de pesca.</li>
+          <li data-i18n="pac_d3"><b>Jueves</b>: salida después del desayuno, con embarque entre las 7:00 y las 7:30.</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="rotulo" data-i18n="pac_inc_t">Qué está incluido</h2>
+        <ul class="lista">
+          <li data-i18n="pac_l1"><b>Lancha, motor y piloto</b>: lanchas de 7 m, más anchas, con motor de 40 hp y una butaca giratoria para cada pescador. Cuatro pescadores por lancha.</li>
+          <li data-i18n="pac_l2"><b>Combustible y carnada viva</b>.</li>
+          <li data-i18n="pac_l3"><b>Comida</b>: desayuno, almuerzo, merienda y cena, más las porciones.</li>
+          <li data-i18n="pac_l4"><b>Bebida</b>: cerveza, cachaça, gaseosa, agua y agua con gas.</li>
+          <li data-i18n="pac_l5"><b>Hielo y conservadora</b>.</li>
+          <li data-i18n="pac_l6"><b>Alojamiento</b> las cuatro noches, en camarote con aire acondicionado.</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="rotulo" data-i18n="pac_pag_t">Reserva y pago</h2>
+        <p class="pacote__pag" data-i18n="pac_pag">Una seña de R$ 500 confirma la reserva. El resto se puede dividir por Pix y debe quedar pago hasta un día antes del embarque.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--seguido">
+  <div class="wrap duplo">
+    <div>
+      <h2 class="titulo" data-i18n="pes_b_t">Cuatro pescadores por lancha</h2>
+      <p class="lead" data-i18n="pes_b_p">Las lanchas miden 7 metros, son más anchas y llevan motor de 40 hp. Cada pescador va en una butaca giratoria, y el piloto, el combustible y la carnada viva ya están en el paquete.</p>
+    </div>
+    <div class="par par--iguais">
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-13-600.avif 600w, /img/pescaria-pantanal-majestade-13.avif 960w" sizes="(max-width: 899px) 44vw, 255px"><img src="/img/pescaria-pantanal-majestade-13.webp" srcset="/img/pescaria-pantanal-majestade-13-600.webp 600w, /img/pescaria-pantanal-majestade-13.webp 960w" sizes="(max-width: 899px) 44vw, 255px" alt="Dos pescadores levantan el pulgar, cada uno con un pez, en una lancha con butacas" data-i18n-alt="f_p13_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-07-600.avif 600w, /img/pescaria-pantanal-majestade-07.avif 960w" sizes="(max-width: 899px) 44vw, 255px"><img src="/img/pescaria-pantanal-majestade-07.webp" srcset="/img/pescaria-pantanal-majestade-07-600.webp 600w, /img/pescaria-pantanal-majestade-07.webp 960w" sizes="(max-width: 899px) 44vw, 255px" alt="Pescador con gafas de sol sostiene un pez en la lancha, con las butacas atrás y el monte dorado por el sol" data-i18n-alt="f_p07_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--seguido">
+  <div class="wrap">
+    <h2 class="titulo" data-i18n="fx_t">Pesca de día y de noche</h2>
+    <div class="galeria">
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-05-600.avif 600w, /img/pescaria-pantanal-majestade-05.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-05.webp" srcset="/img/pescaria-pantanal-majestade-05-600.webp 600w, /img/pescaria-pantanal-majestade-05.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescador sonriente sostiene un pez grande de piel moteada, de pie en la lancha, con el río y el monte al fondo" data-i18n-alt="f_p05_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-12-600.avif 600w, /img/pescaria-pantanal-majestade-12.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-12.webp" srcset="/img/pescaria-pantanal-majestade-12-600.webp 600w, /img/pescaria-pantanal-majestade-12.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Tres mujeres sonrientes en la lancha muestran un pez grande de escamas doradas" data-i18n-alt="f_p12_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-04-600.avif 600w, /img/pescaria-pantanal-majestade-04.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-04.webp" srcset="/img/pescaria-pantanal-majestade-04-600.webp 600w, /img/pescaria-pantanal-majestade-04.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescadora de pie en la proa de la lancha sostiene un pez grande de piel moteada, de noche" data-i18n-alt="f_p04_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-08-600.avif 600w, /img/pescaria-pantanal-majestade-08.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-08.webp" srcset="/img/pescaria-pantanal-majestade-08-600.webp 600w, /img/pescaria-pantanal-majestade-08.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescadora con gafas de sol levanta dos peces redondos y amarillentos, uno en cada mano, bajo el cielo azul" data-i18n-alt="f_p08_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-10-600.avif 600w, /img/pescaria-pantanal-majestade-10.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-10.webp" srcset="/img/pescaria-pantanal-majestade-10-600.webp 600w, /img/pescaria-pantanal-majestade-10.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescador con gafas de sol sostiene un pez grande de escamas doradas, con el río al fondo" data-i18n-alt="f_p10_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-03-600.avif 600w, /img/pescaria-pantanal-majestade-03.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-03.webp" srcset="/img/pescaria-pantanal-majestade-03-600.webp 600w, /img/pescaria-pantanal-majestade-03.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescadora sonriente sostiene un pez grande de piel moteada, de noche, en una lancha con butacas rosadas" data-i18n-alt="f_p03_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-14-600.avif 600w, /img/pescaria-pantanal-majestade-14.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-14.webp" srcset="/img/pescaria-pantanal-majestade-14-600.webp 600w, /img/pescaria-pantanal-majestade-14.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescadora de sombrero claro sostiene un pez de escamas grandes, sentada en la lancha, con un hombre sonriente detrás" data-i18n-alt="f_p14_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-09-600.avif 600w, /img/pescaria-pantanal-majestade-09.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-09.webp" srcset="/img/pescaria-pantanal-majestade-09-600.webp 600w, /img/pescaria-pantanal-majestade-09.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Pescador sonriente abraza un pez grande de piel moteada, de noche, de pie en la lancha" data-i18n-alt="f_p09_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--seguido">
+  <div class="wrap duplo">
+    <div>
+      <h2 class="titulo" data-i18n="pes_d_t">Dónde duermes</h2>
+      <p class="lead" data-i18n="pes_d_p">En el paquete son cuatro personas por camarote, todos con aire acondicionado. El hotel flotante tiene sala con TV, cocina y una terraza abierta en el último piso.</p>
+      <div class="acoes">
+        <a class="link" href="/es/camarotes/" data-i18n="pes_d_l1">Ver los camarotes</a>
+        <a class="link" href="/es/a-bordo/" data-i18n="pes_d_l2">Ver el hotel por dentro</a>
+      </div>
+    </div>
+    <figure class="foto"><picture><source type="image/avif" srcset="/img/camarote-hotel-flutuante-majestade-800.avif 800w, /img/camarote-hotel-flutuante-majestade-1200.avif 1200w, /img/camarote-hotel-flutuante-majestade.avif 1600w" sizes="(max-width: 899px) 90vw, 520px"><img src="/img/camarote-hotel-flutuante-majestade.webp" srcset="/img/camarote-hotel-flutuante-majestade-800.webp 800w, /img/camarote-hotel-flutuante-majestade-1200.webp 1200w, /img/camarote-hotel-flutuante-majestade.webp 1600w" sizes="(max-width: 899px) 90vw, 520px" alt="Camarote con una litera y dos camas individuales tendidas, y el aire acondicionado en la pared" data-i18n-alt="f_cam_alt" loading="lazy" decoding="async" width="1600" height="1067"></picture></figure>
+  </div>
+</section>
+
+<!-- pergunta e resposta direta, com numero: o trecho que a IA recorta -->
+<section class="sec perguntas">
+  <div class="wrap">
+    <h2 class="titulo" data-i18n="pes_faq_t">Preguntas sobre el paquete de pesca</h2>
+    <dl class="faq">
+      <div><dt data-i18n="faq8_q">¿Cuánto cuesta el paquete de pesca?</dt>
+        <dd data-i18n="faq8_a">El paquete cerrado cuesta R$ 3.500 por persona para un grupo de 16, de domingo a jueves: cuatro noches y tres días completos de pesca, con lancha, piloto, combustible, carnada viva, comida, bebida, hielo y alojamiento. Con menos personas, más días o en fin de semana, el valor se recalcula.</dd></div>
+      <div><dt data-i18n="pf2_q">¿Qué incluye el paquete?</dt>
+        <dd data-i18n="pf2_a">Lancha con motor y piloto, combustible, carnada viva, desayuno, almuerzo, merienda, cena y porciones, bebidas (cerveza, cachaça, gaseosa, agua y agua con gas), hielo, conservadora y alojamiento las cuatro noches.</dd></div>
+      <div><dt data-i18n="pf3_q">¿Cuántas personas van en cada lancha y en cada camarote?</dt>
+        <dd data-i18n="pf3_a">Cuatro pescadores por lancha y cuatro personas por camarote. Las lanchas miden 7 metros, con motor de 40 hp y una butaca giratoria para cada pescador.</dd></div>
+      <div><dt data-i18n="pf4_q">¿Se puede ir con menos de 16 personas o quedarse más días?</dt>
+        <dd data-i18n="pf4_a">Sí. El precio de R$ 3.500 por persona vale para un grupo de 16, de domingo a jueves. Con menos personas, más días o en fin de semana, el valor se recalcula.</dd></div>
+      <div><dt data-i18n="pf5_q">¿Cómo son la reserva y el pago?</dt>
+        <dd data-i18n="pf5_a">La reserva se hace con una seña de R$ 500. El resto se puede dividir por Pix y debe quedar pago hasta un día antes del embarque.</dd></div>
+      <div><dt data-i18n="pf6_q">¿De dónde sale la lancha y cuánto tarda?</dt>
+        <dd data-i18n="pf6_a">El embarque es en el Pesqueiro Itaju, en Aquidauana (Mato Grosso do Sul), a unos 140 km de Campo Grande. En el paquete, la salida es el domingo al final de la tarde, y el viaje río abajo hasta el hotel flotante tarda unos 45 minutos.</dd></div>
+    </dl>
+    <div class="acoes"><a class="bt" data-wa="pacote" href="https://wa.me/556792063535" data-i18n="pac_cta">Quiero el paquete de 4 noches</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="rod">
+  <div class="wrap">
+    <div class="frod">
+      <div>
+        <a class="marca" href="/es/"><b>Majestade</b><small>Flutuante</small></a>
+        <p data-i18n="rod_p">Hotel flotante en el Pantanal<br>Embarque en el Pesqueiro Itaju<br>Aquidauana, Mato Grosso do Sul, Brasil</p>
+        <p class="rod__lema" data-i18n="rod_lema">El Pantanal en su mejor experiencia</p>
+      </div>
+      <div>
+        <h2 data-i18n="rod_paginas">Páginas</h2>
+        <a href="/es/pesca/" data-i18n="rod_pesca">Paquete de pesca</a>
+        <a href="/es/camarotes/" data-i18n="rod_camarotes">Camarotes y precios</a>
+        <a href="/es/a-bordo/" data-i18n="nav_bordo">A bordo</a>
+        <a href="/es/comer-e-beber/" data-i18n="nav_comer">Comer y beber</a>
+        <a href="/es/como-chegar/" data-i18n="nav_chegar">Cómo llegar</a>
+      </div>
+      <div>
+        <h2 data-i18n="rod_falar">Hablar con nosotros</h2>
+        <a data-wa="rodape" href="https://wa.me/556792063535" data-i18n="rod_zap">WhatsApp +55 67 9206-3535</a>
+        <a href="https://www.instagram.com/flutuantemajestade" target="_blank" rel="noopener noreferrer">Instagram @flutuantemajestade</a>
+        <h2 class="frod__idioma" data-i18n="idioma_aria">Idioma</h2>
+        <div class="idioma idioma--rodape" role="group" aria-label="Idioma" data-i18n-aria="idioma_aria">
+          <a href="/pesca/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
+          <a href="/en/pesca/" data-lang="en" hreflang="en" lang="en">EN</a>
+          <a href="/es/pesca/" data-lang="es" hreflang="es" lang="es" aria-current="true">ES</a>
+        </div>
+      </div>
+    </div>
+    <!-- os simbolos usados nas paginas, definidos uma vez so -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.3 5.3 0 0 0 3.3.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+      <symbol id="i-ampliar" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-6.5 6.5M10 20H4v-6M4 20l6.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-pessoa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7.5" r="3.6"/><path d="M5.5 20.5v-1.2a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1.2"/></g></symbol>
+    </svg>
+    <div class="rod__fim">
+      <span>© <span id="ano">2026</span> Majestade Flutuante, Aquidauana (MS)</span>
+      <a href="/es/privacidade/" data-i18n="rod_privacidade">Privacidad y cookies</a>
+      <span class="rod__autor" data-i18n="rod_autor">Sitio hecho por <a href="https://sitesjm.vercel.app/en/index.html">João Marcelo</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="zap" data-wa="rodape" href="https://wa.me/556792063535" aria-label="Hablar por WhatsApp" data-i18n-aria="zap_aria">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://majestade-flutuante.vercel.app/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Paquete de pesca",
+      "item": "https://majestade-flutuante.vercel.app/es/pesca/"
+    }
+  ]
+}
+</script>
+<script src="/js/site.js"></script>
+</body>
+</html>

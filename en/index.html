@@ -10,8 +10,8 @@
 <meta name="robots" content="noindex, nofollow">
 <!-- 59 caracteres, com hifen e com a cidade (apostila cap. 14). O h1 diz
      a mesma coisa: quando title e h1 combinam, o Google quase nao reescreve. -->
-<title>Majestade Floating Hotel in the Pantanal - Aquidauana, Brazil</title>
-<meta name="description" content="Floating hotel in the Pantanal, Brazil, with 4 air-conditioned cabins and breakfast. From R$ 200 to R$ 500 per person a night. Book on WhatsApp.">
+<title>Pantanal Floating Hotel and Fishing - Majestade, Brazil</title>
+<meta name="description" content="Floating hotel in the Pantanal, Brazil. All-inclusive 4-night fishing package at R$ 3,500 per person (group of 16). Overnight stays from R$ 200.">
 <link rel="canonical" href="https://majestade-flutuante.vercel.app/en/">
 <!-- as tres versoes da mesma pagina (Google e IAs mandam cada um para a
      sua lingua). O gerar-paginas.py acerta os enderecos em cada pagina. -->
@@ -23,8 +23,8 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Majestade Flutuante">
 <meta property="og:url" content="https://majestade-flutuante.vercel.app/en/">
-<meta property="og:title" content="Majestade Floating Hotel in the Pantanal - Aquidauana, Brazil">
-<meta property="og:description" content="Four air-conditioned cabins and an open deck in the middle of the river. Overnight stay with breakfast from R$ 200 per person.">
+<meta property="og:title" content="Pantanal Floating Hotel and Fishing - Majestade, Brazil">
+<meta property="og:description" content="All-inclusive four-night fishing package, or just an overnight stay with breakfast, on a floating hotel in the middle of the river.">
 <meta property="og:image" content="https://majestade-flutuante.vercel.app/img/hotel-flutuante-majestade-noite.webp">
 <meta property="og:image:alt" content="Majestade Flutuante lit up at night, seen from the river">
 <meta name="twitter:card" content="summary_large_image">
@@ -70,13 +70,14 @@
   <div class="wrap">
     <a class="marca" href="/en/"><b>Majestade</b><small>Flutuante</small></a>
     <nav class="menu" id="menu" aria-label="Main" data-i18n-aria="nav_aria">
+      <a href="/en/pesca/" data-i18n="nav_pesca">Fishing</a>
       <a href="/en/camarotes/" data-i18n="nav_camarotes">Cabins</a>
       <a href="/en/a-bordo/" data-i18n="nav_bordo">On board</a>
-      <a href="/en/comer-e-beber/" data-i18n="nav_comer">Food and drinks</a>
-      <a href="/en/como-chegar/" data-i18n="nav_chegar">Getting here</a>
+      <a href="/en/comer-e-beber/"><span class="m-longo" data-i18n="nav_comer">Food and drinks</span><span class="m-curto" data-i18n="nav_comer_c">Menu</span></a>
+      <a href="/en/como-chegar/"><span class="m-longo" data-i18n="nav_chegar">Getting here</span><span class="m-curto" data-i18n="nav_chegar_c">Access</span></a>
     </nav>
     <!-- troca de lingua no computador; no celular e no tablet ela fica no
-         rodape, e o topo mostra os quatro itens do menu -->
+         rodape, e o topo mostra os cinco itens do menu -->
     <div class="idioma idioma--topo" role="group" aria-label="Language" data-i18n-aria="idioma_aria">
       <a href="/" data-lang="pt" hreflang="pt-BR" lang="pt-BR">PT</a>
       <a href="/en/" data-lang="en" hreflang="en" lang="en" aria-current="true">EN</a>
@@ -115,15 +116,23 @@
     <div class="hero__txt">
       <!-- o h1 diz O QUE E + ONDE, igual ao title. A frase grande embaixo
            e o gancho; ela e um paragrafo porque tamanho de letra e trabalho do CSS. -->
-      <h1 class="hero__h1" data-i18n="hero_h1">Floating hotel in the Pantanal, departing from Aquidauana, Brazil</h1>
-      <p class="h1" data-i18n="hero_grande">Sleep on the river</p>
+      <h1 class="hero__h1" data-i18n="hero_h1">Floating hotel and fishing package in the Pantanal, departing from Aquidauana, Brazil</h1>
+      <p class="h1" data-i18n="hero_grande">Fish and sleep on the river</p>
       <!-- as primeiras 100 palavras: o que e + onde + prova + pratica -->
-      <p class="hero__tag" data-i18n="hero_tag"><b>Majestade</b> is a three-story floating hotel in the Pantanal, boarding at Pesqueiro Itaju in Aquidauana (Mato Grosso do Sul, Brazil). It has 18 beds in four air-conditioned cabins, and an overnight stay with breakfast starts at R$ 200 per person.</p>
+      <p class="hero__tag" data-i18n="hero_tag"><b>Majestade</b> is a three-story floating hotel in the Pantanal, boarding at Pesqueiro Itaju in Aquidauana (Mato Grosso do Sul, Brazil). The four-night, all-inclusive <b>fishing package</b> costs R$ 3,500 per person for a group of 16. An overnight stay alone, with breakfast, starts at R$ 200 per person.</p>
     </div>
     <!-- BARRA DE RESERVA NA CAPA (capa E, 08/11/2026). A mesma do fim da
          pagina, com o mesmo codigo no site.js: monta a mensagem e abre o
          WhatsApp. Nada e guardado nem enviado a lugar nenhum (regra 8). -->
     <form class="pedido pedido--capa" action="https://wa.me/556792063535" method="get" target="_blank">
+      <!-- pesca ou so hospedagem: muda o comeco da mensagem (18/11/2026) -->
+      <fieldset class="pedido__tipo">
+        <legend class="sr" data-i18n="f_tipo">What are you looking for?</legend>
+        <input class="sr" type="radio" name="tipo" id="tp-pesca-capa" value="pesca" checked>
+        <label for="tp-pesca-capa" data-i18n="f_tipo_pesca">Fishing package</label>
+        <input class="sr" type="radio" name="tipo" id="tp-hosp-capa" value="hospedagem">
+        <label for="tp-hosp-capa" data-i18n="f_tipo_hosp">Accommodation only</label>
+      </fieldset>
       <div class="campo campo--data" role="group" aria-labelledby="rot-chegada-capa"><span id="rot-chegada-capa" data-i18n="f_chegada">Arrival</span>
         <div class="campo__par">
           <select name="dia" aria-label="Arrival day" data-i18n-aria="f_dia_aria"><option value="" data-i18n="f_dia">day</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option></select>
@@ -131,7 +140,7 @@
         </div>
       </div>
       <label class="campo"><span data-i18n="f_noites">Nights</span>
-        <select name="noites"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
+        <select name="noites"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
       <label class="campo"><span data-i18n="f_pessoas">People</span>
         <select name="pessoas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select></label>
       <button class="bt" type="submit">
@@ -140,6 +149,51 @@
       </button>
     </form>
     <p class="hero__nota" data-i18n="hero_nota">Opens Fábio's WhatsApp with your dates already written.</p>
+  </div>
+</section>
+
+<!-- ========================= AS DUAS PORTAS =========================
+     18/11/2026: a pesca vira tema principal (pedido do Fabio em 14/11, plano
+     em specs/plano-pesca-tema-principal.md). O site vende DUAS coisas e
+     pergunta logo qual delas a pessoa quer: o pacote de pesca ou so a
+     hospedagem. Cada porta leva para a pagina que conta o resto.
+     Um botao principal (o pacote); a outra porta e link (regra 5). -->
+<section class="sec portas" id="portas">
+  <div class="wrap portas__in">
+    <article class="porta">
+      <figure class="foto"><picture><source type="image/avif" srcset="/img/pacote-de-pesca-pantanal-majestade-600.avif 600w, /img/pacote-de-pesca-pantanal-majestade.avif 960w" sizes="(max-width: 899px) 36vw, 200px"><img src="/img/pacote-de-pesca-pantanal-majestade.webp" srcset="/img/pacote-de-pesca-pantanal-majestade-600.webp 600w, /img/pacote-de-pesca-pantanal-majestade.webp 960w" sizes="(max-width: 899px) 36vw, 200px" alt="Smiling angler holding a large spotted catfish, standing in the boat, with the river and the forest behind" data-i18n-alt="f_porta_alt" loading="lazy" decoding="async" width="960" height="1200"></picture></figure>
+      <div>
+        <h2 data-i18n="pt1_t">All-inclusive fishing package</h2>
+        <p data-i18n="pt1_p">Four nights on board and three full days of fishing, with boat, boat pilot, fuel, live bait, food and drinks.</p>
+        <p class="porta__preco"><b>R$ 3.500</b> <span data-i18n="pac_preco_s">per person, for a group of 16</span></p>
+        <a class="bt" href="/en/pesca/" data-i18n="pt1_cta">See the fishing package</a>
+      </div>
+    </article>
+    <article class="porta">
+      <figure class="foto"><picture><source type="image/avif" srcset="/img/chuveirao-deck-hotel-flutuante-600.avif 600w, /img/chuveirao-deck-hotel-flutuante-800.avif 800w, /img/chuveirao-deck-hotel-flutuante.avif 1200w" sizes="(max-width: 899px) 36vw, 200px"><img src="/img/chuveirao-deck-hotel-flutuante.webp" srcset="/img/chuveirao-deck-hotel-flutuante-600.webp 600w, /img/chuveirao-deck-hotel-flutuante-800.webp 800w, /img/chuveirao-deck-hotel-flutuante.webp 1200w" sizes="(max-width: 899px) 36vw, 200px" alt="Wooden outdoor shower running on the open deck, next to the parasol and the sun loungers, with the river behind" data-i18n-alt="f_chu_alt" loading="lazy" decoding="async" width="1200" height="1500"></picture></figure>
+      <div>
+        <h2 data-i18n="pt2_t">Accommodation only</h2>
+        <p data-i18n="pt2_p">Overnight stay in an air-conditioned cabin, breakfast included. You can also arrive in your own boat.</p>
+        <p class="porta__preco"><span data-i18n="pt2_de">from</span> <b>R$ 200</b> <span data-i18n="pt2_preco_s">per person, per night</span></p>
+        <a class="link" href="/en/camarotes/" data-i18n="pt2_cta">See cabins and rates</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========================= A PESCA EM FOTOS =========================
+     Fotos do Fabio (lote de 18/11/2026), inteiras: foto em pe nao leva
+     corte automatico. Sem legenda embaixo. -->
+<section class="sec sec--seguido faixa" id="pescaria">
+  <div class="wrap">
+    <h2 class="titulo" data-i18n="fx_t">Fishing by day and by night</h2>
+    <div class="galeria">
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-12-600.avif 600w, /img/pescaria-pantanal-majestade-12.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-12.webp" srcset="/img/pescaria-pantanal-majestade-12-600.webp 600w, /img/pescaria-pantanal-majestade-12.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Three smiling women in the boat showing a large fish with golden scales" data-i18n-alt="f_p12_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-08-600.avif 600w, /img/pescaria-pantanal-majestade-08.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-08.webp" srcset="/img/pescaria-pantanal-majestade-08-600.webp 600w, /img/pescaria-pantanal-majestade-08.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Woman in sunglasses lifting two round, yellowish fish, one in each hand, under a blue sky" data-i18n-alt="f_p08_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-04-600.avif 600w, /img/pescaria-pantanal-majestade-04.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-04.webp" srcset="/img/pescaria-pantanal-majestade-04-600.webp 600w, /img/pescaria-pantanal-majestade-04.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Woman standing at the bow of the boat holding a large spotted catfish at night" data-i18n-alt="f_p04_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+      <figure class="foto foto--pesca"><picture><source type="image/avif" srcset="/img/pescaria-pantanal-majestade-13-600.avif 600w, /img/pescaria-pantanal-majestade-13.avif 960w" sizes="(max-width: 759px) 45vw, 265px"><img src="/img/pescaria-pantanal-majestade-13.webp" srcset="/img/pescaria-pantanal-majestade-13-600.webp 600w, /img/pescaria-pantanal-majestade-13.webp 960w" sizes="(max-width: 759px) 45vw, 265px" alt="Two anglers giving a thumbs up, each holding a fish, in a boat with seats" data-i18n-alt="f_p13_alt" loading="lazy" decoding="async" width="960" height="1280"></picture></figure>
+    </div>
+    <div class="acoes"><a class="link" href="/en/pesca/" data-i18n="fx_link">See the fishing package and more photos</a></div>
   </div>
 </section>
 
@@ -293,56 +347,6 @@
   </div>
 </section>
 
-<!-- ========================= PACOTE FECHADO =========================
-     Pedido do Fabio (audio de 09/11/2026), aprovado pelo Joao no mesmo dia
-     como "pacote do hotel": e a UNICA mencao de pesca no site. Nada de
-     pagina de pescaria (decisao de 24/09 continua valendo para o resto).
-     Itens e preco = o que ele disse no audio de 09/11 e escreveu depois
-     (briefing/pacote-pesca-fabio-2026-11.md). Nada estimado (regra 2).
-     O bloco entre PACOTE e /PACOTE e copiado pelo gerar-paginas.py para a
-     pagina de camarotes: mudou AQUI, muda la. -->
-<!--PACOTE-->
-<section class="sec pacote" id="pacote">
-  <figure class="pacote__foto">
-    <picture><source type="image/avif" srcset="/img/hotel-flutuante-majestade-noite-800.avif 800w, /img/hotel-flutuante-majestade-noite-1200.avif 1200w, /img/hotel-flutuante-majestade-noite-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 630px"><img src="/img/hotel-flutuante-majestade-noite-1200.webp" srcset="/img/hotel-flutuante-majestade-noite-800.webp 800w, /img/hotel-flutuante-majestade-noite-1200.webp 1200w, /img/hotel-flutuante-majestade-noite-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 630px" alt="Majestade Flutuante lit up at night, moored at the edge of the forest" data-i18n-alt="pac_alt" loading="lazy" decoding="async" width="1600" height="1200"></picture>
-  </figure>
-  <div class="pacote__txt">
-    <h2 class="titulo" data-i18n="pac_t">All-inclusive fishing package</h2>
-    <p class="lead" data-i18n="pac_lead"><b>Four nights</b> on board and <b>three full days of fishing</b>, Sunday to Thursday.</p>
-    <!-- FATO: texto do Fabio no WhatsApp (briefing/pacote-pesca-fabio-2026-11.md).
-         O preco vale PARA GRUPO DE 16; fora disso ele recalcula. -->
-    <p class="pacote__preco"><b>R$ 3.500</b> <span data-i18n="pac_preco_s">per person, for a group of 16</span></p>
-    <p class="nota" data-i18n="pac_cond">Four people per cabin and four per boat. With fewer people, more days or on a weekend, the price is recalculated.</p>
-    <div class="acoes"><a class="bt" data-wa="pacote" href="https://wa.me/556792063535"><svg aria-hidden="true"><use href="#i-zap"/></svg><span data-i18n="pac_cta">I want the 4-night package</span></a></div>
-  </div>
-  <div class="pacote__mais">
-    <div>
-      <h3 class="rotulo" data-i18n="pac_dias_t">How the days go</h3>
-      <ul class="lista">
-        <li data-i18n="pac_d1"><b>Sunday</b>: boarding in the late afternoon and a 45-minute ride down the river to the floating hotel.</li>
-        <li data-i18n="pac_d2"><b>Monday, Tuesday and Wednesday</b>: three full days of fishing.</li>
-        <li data-i18n="pac_d3"><b>Thursday</b>: departure after breakfast, boarding between 7:00 and 7:30 am.</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="rotulo" data-i18n="pac_inc_t">What is included</h3>
-      <ul class="lista">
-        <li data-i18n="pac_l1"><b>Boat, motor and boat pilot</b>: wider 7 m boats with a 40 hp motor and a swivel seat for each angler. Four anglers per boat.</li>
-        <li data-i18n="pac_l2"><b>Fuel and live bait</b>.</li>
-        <li data-i18n="pac_l3"><b>Food</b>: breakfast, lunch, afternoon snack and dinner, plus shared platters.</li>
-        <li data-i18n="pac_l4"><b>Drinks</b>: beer, cachaça, soft drinks, still and sparkling water.</li>
-        <li data-i18n="pac_l5"><b>Ice and cooler box</b>.</li>
-        <li data-i18n="pac_l6"><b>Accommodation</b> for the four nights, in an air-conditioned cabin.</li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="rotulo" data-i18n="pac_pag_t">Booking and payment</h3>
-      <p class="pacote__pag" data-i18n="pac_pag">A R$ 500 deposit confirms the booking. The balance can be split by Pix and must be paid in full one day before boarding.</p>
-    </div>
-  </div>
-</section>
-<!--/PACOTE-->
-
 <!-- ========================= RESERVA =========================
      O slogan e DELE, copiado da arte. A frase monta a mensagem do
      WhatsApp; nada e guardado nem enviado para lugar nenhum (regra 8). -->
@@ -354,10 +358,18 @@
          brigando e a lista do mes larga demais. Agora: rotulo em cima, uma
          fonte so, e campo e botao com a mesma altura. -->
     <form class="pedido" id="pedido" action="https://wa.me/556792063535" method="get" target="_blank">
+      <!-- pesca ou so hospedagem: muda o comeco da mensagem (18/11/2026) -->
+      <fieldset class="pedido__tipo">
+        <legend class="sr" data-i18n="f_tipo">What are you looking for?</legend>
+        <input class="sr" type="radio" name="tipo" id="tp-pesca-fim" value="pesca" checked>
+        <label for="tp-pesca-fim" data-i18n="f_tipo_pesca">Fishing package</label>
+        <input class="sr" type="radio" name="tipo" id="tp-hosp-fim" value="hospedagem">
+        <label for="tp-hosp-fim" data-i18n="f_tipo_hosp">Accommodation only</label>
+      </fieldset>
       <label class="campo"><span data-i18n="f_pessoas">People</span>
         <select name="pessoas"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select></label>
       <label class="campo"><span data-i18n="f_noites">Nights</span>
-        <select name="noites"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
+        <select name="noites"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option></select></label>
       <div class="campo campo--data" role="group" aria-labelledby="rot-chegada"><span id="rot-chegada" data-i18n="f_chegada">Arrival</span>
         <div class="campo__par">
           <select name="dia" aria-label="Arrival day" data-i18n-aria="f_dia_aria"><option value="" data-i18n="f_dia">day</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option></select>
@@ -381,10 +393,10 @@
   <div class="wrap">
     <h2 class="titulo" data-i18n="faq_t">Frequently asked questions</h2>
     <dl class="faq">
-      <div><dt data-i18n="faq1_q">How much does a night at Majestade cost?</dt>
-        <dd data-i18n="faq1_a">An overnight stay costs R$ 200 to R$ 500 per person, per night, with breakfast included. The price depends on how many people share the cabin: R$ 200 with 4 to 6 people, R$ 250 with 3, R$ 300 with 2 and R$ 500 for one person.</dd></div>
       <div><dt data-i18n="faq8_q">How much is the fishing package?</dt>
         <dd data-i18n="faq8_a">The all-inclusive package costs R$ 3,500 per person for a group of 16, Sunday to Thursday: four nights and three full days of fishing, with boat, boat pilot, fuel, live bait, food, drinks, ice and accommodation. With fewer people, more days or on a weekend, the price is recalculated.</dd></div>
+      <div><dt data-i18n="faq1_q">How much does a night at Majestade cost?</dt>
+        <dd data-i18n="faq1_a">An overnight stay costs R$ 200 to R$ 500 per person, per night, with breakfast included. The price depends on how many people share the cabin: R$ 200 with 4 to 6 people, R$ 250 with 3, R$ 300 with 2 and R$ 500 for one person.</dd></div>
       <div><dt data-i18n="faq2_q">How many cabins and beds does Majestade have?</dt>
         <dd data-i18n="faq2_a">There are 18 beds in four cabins: three with four beds and one with six, with bunk beds and single beds.</dd></div>
       <div><dt data-i18n="faq3_q">Do the cabins have air conditioning and a bathroom?</dt>
@@ -417,6 +429,7 @@
       </div>
       <div>
         <h2 data-i18n="rod_paginas">Pages</h2>
+        <a href="/en/pesca/" data-i18n="rod_pesca">Fishing package</a>
         <a href="/en/camarotes/" data-i18n="rod_camarotes">Cabins and rates</a>
         <a href="/en/a-bordo/" data-i18n="nav_bordo">On board</a>
         <a href="/en/comer-e-beber/" data-i18n="nav_comer">Food and drinks</a>
@@ -466,7 +479,7 @@
       "@type": "Hotel",
       "@id": "https://majestade-flutuante.vercel.app/en/#hotel",
       "name": "Majestade Flutuante",
-      "description": "Three-story floating hotel in the Pantanal, boarding at Pesqueiro Itaju in Aquidauana (Mato Grosso do Sul, Brazil). Four air-conditioned cabins and 18 beds; overnight stay with breakfast from R$ 200 to R$ 500 per person.",
+      "description": "Three-story floating hotel in the Pantanal, boarding at Pesqueiro Itaju in Aquidauana (Mato Grosso do Sul, Brazil). Four air-conditioned cabins and 18 beds; overnight stay with breakfast from R$ 200 to R$ 500 per person. Four-night all-inclusive fishing package at R$ 3,500 per person for a group of 16.",
       "url": "https://majestade-flutuante.vercel.app/en/",
       "telephone": "+556792063535",
       "priceRange": "R$ 200 to R$ 500 per person",
