@@ -225,13 +225,15 @@ input,select,textarea{caret-color:var(--ouro-claro)}
 }
 
 .link{
-  display:inline-flex;align-items:center;min-height:44px;
-  color:var(--creme);font-weight:600;font-size:15.5px;
-  text-decoration:underline;text-decoration-color:rgba(var(--ouro-rgb),.7);
-  text-decoration-thickness:1px;text-underline-offset:7px;
-  transition:color .15s,text-decoration-color .15s;
+  /* 18/11/2026: o sublinhado "parecia Word" (o Joao). Entre 5 opcoes ele
+     escolheu a 3: pilula com contorno dourado e fundo vazio. E o botao
+     secundario; o principal continua o dourado cheio (.bt). */
+  display:inline-flex;align-items:center;min-height:44px;padding:8px 20px;
+  border:1.5px solid var(--ouro);border-radius:24px;  /* 24 e nao 999: quando o texto quebra em duas linhas, nao vira capsula */
+  color:var(--creme);font-weight:600;font-size:15.5px;line-height:1.3;text-decoration:none;
+  transition:color .15s,background-color .15s,border-color .15s;
 }
-.link:hover{color:var(--ouro-claro);text-decoration-color:var(--ouro-claro)}
+.link:hover{color:var(--ouro-claro);border-color:var(--ouro-claro);background-color:rgba(var(--ouro-rgb),.12)}
 .acoes{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;margin-top:32px}
 
 /* ============================================================
@@ -877,3 +879,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ouro-claro);outline
    linha so vazava 4 px da tela. Ali o botao pode quebrar. (achado ao medir
    a pagina em 18/11; o portugues ja cabia) */
 @media(max-width:340px){ .porta .bt{white-space:normal} }
+
+/* links com contorno no celular: menos folga dos lados, para caber numa linha
+   (medido em 320 e 390 px, 18/11/2026) */
+@media(max-width:560px){ .link{padding:8px 15px;font-size:15px} }
+/* pesca a noite no celular: a coluna do texto e estreita; o botao desce para
+   a largura toda, embaixo da foto e do texto */
+@media(max-width:699px){ .noite{align-items:end;row-gap:14px} .noite > div{display:contents} .noite > .foto{grid-column:1;grid-row:1 / 3} .noite .titulo{grid-column:2;grid-row:1;align-self:end} .noite .lead{grid-column:2;grid-row:2;align-self:start} .noite .acoes{grid-column:1 / -1;grid-row:3;margin-top:0} }
