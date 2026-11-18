@@ -297,7 +297,8 @@
      Pedido do Fabio (audio de 09/11/2026), aprovado pelo Joao no mesmo dia
      como "pacote do hotel": e a UNICA mencao de pesca no site. Nada de
      pagina de pescaria (decisao de 24/09 continua valendo para o resto).
-     Itens = so o que ele disse no audio. SEM PRECO: ele nao informou (regra 2).
+     Itens e preco = o que ele disse no audio de 09/11 e escreveu depois
+     (briefing/pacote-pesca-fabio-2026-11.md). Nada estimado (regra 2).
      O bloco entre PACOTE e /PACOTE e copiado pelo gerar-paginas.py para a
      pagina de camarotes: mudou AQUI, muda la. -->
 <!--PACOTE-->
@@ -307,16 +308,37 @@
   </figure>
   <div class="pacote__txt">
     <h2 class="titulo" data-i18n="pac_t">Paquete cerrado de pesca, todo incluido</h2>
-    <p class="lead" data-i18n="pac_lead"><b>Cuatro noches</b> a bordo y <b>tres días de pesca</b>, en un solo paquete.</p>
-    <ul class="lista">
-      <li data-i18n="pac_l1"><b>Lancha con motor y piloto</b> en los días de pesca</li>
-      <li data-i18n="pac_l2"><b>Carnada</b></li>
-      <li data-i18n="pac_l3"><b>Comida y bebida</b></li>
-      <li data-i18n="pac_l4"><b>Hielo y conservadora</b></li>
-      <li data-i18n="pac_l5"><b>Alojamiento</b> las cuatro noches, en el camarote</li>
-    </ul>
-    <p class="nota" data-i18n="pac_nota">El valor del paquete se informa por WhatsApp.</p>
+    <p class="lead" data-i18n="pac_lead"><b>Cuatro noches</b> a bordo y <b>tres días completos de pesca</b>, de domingo a jueves.</p>
+    <!-- FATO: texto do Fabio no WhatsApp (briefing/pacote-pesca-fabio-2026-11.md).
+         O preco vale PARA GRUPO DE 16; fora disso ele recalcula. -->
+    <p class="pacote__preco"><b>R$ 3.500</b> <span data-i18n="pac_preco_s">por persona, para grupo de 16</span></p>
+    <p class="nota" data-i18n="pac_cond">Son cuatro personas por camarote y cuatro por lancha. Con menos gente, más días o en fin de semana, el valor se recalcula.</p>
     <div class="acoes"><a class="bt" data-wa="pacote" href="https://wa.me/556792063535"><svg aria-hidden="true"><use href="#i-zap"/></svg><span data-i18n="pac_cta">Quiero el paquete de 4 noches</span></a></div>
+  </div>
+  <div class="pacote__mais">
+    <div>
+      <h3 class="rotulo" data-i18n="pac_dias_t">Cómo son los días</h3>
+      <ul class="lista">
+        <li data-i18n="pac_d1"><b>Domingo</b>: embarque al final de la tarde y 45 minutos río abajo hasta el hotel flotante.</li>
+        <li data-i18n="pac_d2"><b>Lunes, martes y miércoles</b>: tres días completos de pesca.</li>
+        <li data-i18n="pac_d3"><b>Jueves</b>: salida después del desayuno, con embarque entre las 7:00 y las 7:30.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="rotulo" data-i18n="pac_inc_t">Qué está incluido</h3>
+      <ul class="lista">
+        <li data-i18n="pac_l1"><b>Lancha, motor y piloto</b>: lanchas de 7 m, más anchas, con motor de 40 hp y una butaca giratoria para cada pescador. Cuatro pescadores por lancha.</li>
+        <li data-i18n="pac_l2"><b>Combustible y carnada viva</b>.</li>
+        <li data-i18n="pac_l3"><b>Comida</b>: desayuno, almuerzo, merienda y cena, más las porciones.</li>
+        <li data-i18n="pac_l4"><b>Bebida</b>: cerveza, cachaça, gaseosa, agua y agua con gas.</li>
+        <li data-i18n="pac_l5"><b>Hielo y conservadora</b>.</li>
+        <li data-i18n="pac_l6"><b>Alojamiento</b> las cuatro noches, en camarote con aire acondicionado.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="rotulo" data-i18n="pac_pag_t">Reserva y pago</h3>
+      <p class="pacote__pag" data-i18n="pac_pag">Una seña de R$ 500 confirma la reserva. El resto se puede dividir por Pix y debe quedar pago hasta un día antes del embarque.</p>
+    </div>
   </div>
 </section>
 <!--/PACOTE-->
@@ -361,6 +383,8 @@
     <dl class="faq">
       <div><dt data-i18n="faq1_q">¿Cuánto cuesta dormir en el Majestade?</dt>
         <dd data-i18n="faq1_a">La estadía cuesta de R$ 200 a R$ 500 por persona, por noche, con desayuno incluido. El precio depende de cuántas personas comparten el camarote: R$ 200 con 4 a 6 personas, R$ 250 con 3, R$ 300 con 2 y R$ 500 para una sola persona.</dd></div>
+      <div><dt data-i18n="faq8_q">¿Cuánto cuesta el paquete de pesca?</dt>
+        <dd data-i18n="faq8_a">El paquete cerrado cuesta R$ 3.500 por persona para un grupo de 16, de domingo a jueves: cuatro noches y tres días completos de pesca, con lancha, piloto, combustible, carnada viva, comida, bebida, hielo y alojamiento. Con menos personas, más días o en fin de semana, el valor se recalcula.</dd></div>
       <div><dt data-i18n="faq2_q">¿Cuántos camarotes y camas tiene el Majestade?</dt>
         <dd data-i18n="faq2_a">Son 18 camas en cuatro camarotes: tres de cuatro camas y uno de seis, con literas y camas individuales.</dd></div>
       <div><dt data-i18n="faq3_q">¿Los camarotes tienen aire acondicionado y baño?</dt>
