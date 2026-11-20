@@ -131,7 +131,7 @@ input,select,textarea{caret-color:var(--ouro-claro)}
 .home .topo:not(.preso){background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 .topo .wrap{display:flex;align-items:center;gap:clamp(8px,1.6vw,20px);min-height:var(--topo)}
 
-/* a marca imita o letreiro da arte: MAJESTADE grande, FLUTUANTE espacado */
+/* a marca: FLUTUANTE espacado em cima, MAJESTADE grande embaixo (nome do site desde 20/11/2026) */
 .marca{
   display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:44px;text-decoration:none;line-height:1;color:var(--ouro-claro);text-transform:uppercase;
@@ -139,7 +139,7 @@ input,select,textarea{caret-color:var(--ouro-claro)}
 }
 .marca b{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:.08em}
 .marca small{
-  margin-top:4px;padding-left:.46em;font-family:var(--serif);font-weight:600;
+  margin-bottom:4px;padding-left:.46em;font-family:var(--serif);font-weight:600;
   font-size:11px;letter-spacing:.46em;color:var(--ouro);
 }
 .menu{display:flex;gap:clamp(18px,2.2vw,30px)}
